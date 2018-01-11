@@ -1,4 +1,4 @@
-# ⚛️ Atomic Playgrounds
+# 🚀 Atomic Playgrounds
 
 A front-end prototype for Atomic Playgrounds indoor playground manufacturers, built using:
 - Gulp
