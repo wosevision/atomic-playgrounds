@@ -1,0 +1,76 @@
+{
+  "name": "flufstatic",
+  "title": "FLUF🌩STATIC",
+  "contributors": [
+    {
+      "name": "Tiffany Choong",
+      "email": "tiff.a.choong@gmail.com"
+    },
+    {
+      "name": "Jackson Teather",
+      "email": "jacksonteather@hotmail.com"
+    }
+  ],
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wosevision/fluffstatic.git"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "browser-sync": "^2.23.3",
+    "browserify": "^15.0.0",
+    "del": "^3.0.0",
+    "front-matter": "^2.3.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-changed": "^3.2.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-data": "^1.3.1",
+    "gulp-favicons": "^2.2.7",
+    "gulp-header": "^1.8.9",
+    "gulp-inject": "^4.3.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-notify": "^3.1.0",
+    "gulp-nunjucks-render": "^2.2.2",
+    "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.3",
+    "gulp-uglify": "^3.0.0",
+    "jshint": "^2.9.5",
+    "sass-module-importer": "^1.4.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "watchify": "^3.9.0"
+  },
+  "optionalDependencies": {
+    "documentjs": "^0.5.1"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "bootstrap": "4.0.0-beta.3",
+    "jquery": "^3.2.1",
+    "popper.js": "^1.12.9"
+  },
+  "description": "An opinionated static front-end prototype stack built on Gulp using Sass and Babel",
+  "bugs": {
+    "url": "https://github.com/wosevision/gbphb/issues"
+  },
+  "homepage": "https://github.com/wosevision/gbphb",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build",
+    "docs": "npm install documentjs && ./node_modules/.bin/documentjs -w & python -m SimpleHTTPServer 4200 & open http://localhost:4200/styleguide",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp",
+    "sass",
+    "bootstrap"
+  ]
+}

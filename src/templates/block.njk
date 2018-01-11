@@ -1,0 +1,12 @@
+{% macro renderContentBlock(block) %}
+<section class="content-block">
+	<div class="container">
+		<a class="anchor" id="{{ block.title|slug }}"></a>
+		{% if block.modules %}
+			{% for module in block.modules %}
+				{% include "modules/" + module.type + ".njk" %}
+			{% endfor %}
+		{% endif %}
+	</div>
+</section>
+{% endmacro %}

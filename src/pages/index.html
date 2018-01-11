@@ -1,0 +1,24 @@
+---
+contentBlocks:
+  - title: Lorem title
+    modules:
+      - type: article
+        title: Article 1
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
+      - type: article
+        title: Article 2
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
+        blockquoteText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
+---
+
+
+{%- extends "layout.njk" %}
+
+{%- block content %}
+
+{%- from "block.njk" import renderContentBlock %}
+{%- for block in contentBlocks %}
+{{ renderContentBlock(block) }}
+{%- endfor %}
+
+{%- endblock %}
