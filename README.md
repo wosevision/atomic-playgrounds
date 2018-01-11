@@ -1,6 +1,6 @@
-# FLUF🌩STATIC
+# ⚛️ Atomic Playgrounds
 
-An opinionated static front-end prototype stack built using:
+A front-end prototype for Atomic Playgrounds indoor playground manufacturers, built using:
 - Gulp
 - Sass
 - Babel
