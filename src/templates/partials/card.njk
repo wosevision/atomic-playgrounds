@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-img-top">
+    <img src="{{ card.image }}" alt="Image" class="card-img"/>
+  </div>
+  <div class="card-body">
+    {% if card.category %}
+    <span class="card-category">
+      {{ card.category }}
+    </span>
+    {% endif %}
+    <h4 class="card-title">
+      {{ card.title }}
+    </h4>
+    <p>
+      {{ card.text }}
+    </p>
+    <a href="{{ card.link }}" class="card-button"></a>
+  </div>
+</div>
