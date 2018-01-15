@@ -3,17 +3,19 @@
     <img src="{{ card.image }}" alt="Image" class="card-img"/>
   </div>
   <div class="card-body">
-    {% if card.category %}
-    <span class="card-category">
-      {{ card.category }}
-    </span>
-    {% endif %}
-    <h4 class="card-title">
-      {{ card.title }}
-    </h4>
-    <p>
-      {{ card.text }}
-    </p>
+    <div class="card-content">
+      {% if card.category %}
+      <span class="card-category">
+        {{ card.category }}
+      </span>
+      {% endif %}
+      <h4 class="card-title">
+        {{ card.title }}
+      </h4>
+      <p class="card-text">
+        {{ card.text }}
+      </p>
+    </div>
     <a href="{{ card.link }}" class="card-button"></a>
   </div>
 </div>
