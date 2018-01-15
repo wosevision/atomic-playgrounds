@@ -3,16 +3,32 @@ $md: 768px;
 $lg: 992px;
 $xl: 1200px;
 
-$sunglow: #fad030;
-$sunglow-dark-1: darken($sunglow, 15%);
-$sunglow-tint-1: lighten($sunglow, 15%);
+$daisy-bush: #60388b;
+$daisy-bush-dark-1: darken($daisy-bush, 15%);
+$daisy-bush-tint-1: lighten($daisy-bush, 15%);
 
-$grey-dark-2: #39393a;
-$grey-dark-1: #4a4a4a;
-$grey: #979797;
-$grey-tint-1: #cacaca;
+$cool-blue: #0696fb;
+$cool-blue-dark-1: #057dd0;
+$cool-blue-tint-1: lighten($cool-blue, 15%);
+
+$apple: #5e9a3f;
+$apple-dark-1: #629e23;
+$apple-tint-1: #78bf2c;
+
+$mikado-yellow: #f5c909;
+$mikado-yellow-dark-1: darken($mikado-yellow, 15%);
+$mikado-yellow-tint-1: lighten($mikado-yellow, 15%);
+
+$orange: #ff8200;
+$orange-dark-1: darken($orange, 15%);
+$orange-tint-1: lighten($orange, 15%);
+
+$grey-dark-2: #262626;
+$grey-dark-1: #4d4d4d;
+$grey: #808080;
+$grey-tint-1: #d8d8d8;
 $grey-tint-2: #eaeaea;
-$grey-tint-3: #f6f6f6;
+$grey-tint-3: #f5f5f5;
 $white: #fff;
 
 $roboto: "Roboto", Arial, sans-serif;
@@ -27,9 +43,9 @@ $primary-color-tint-1: $grey;
 $primary-color-tint-2: $grey-tint-2;
 $primary-color-tint-3: $grey-tint-3;
 
-$secondary-color: $sunglow;
-$secondary-color-dark-1: $sunglow-dark-1;
-$secondary-color-tint-1: $sunglow-tint-1;
+$secondary-color: $orange;
+$secondary-color-dark-1: $orange-dark-1;
+$secondary-color-tint-1: $orange-tint-1;
 
 $font-family-sans-serif: $roboto;
 $font-family-serif: $georgia;
