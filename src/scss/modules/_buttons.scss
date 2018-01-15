@@ -1,0 +1,26 @@
+@function button-box-shadow($color-name: "light", $level: 0) {
+  @return 0 0.125rem 0 0 theme-color-level($color-name, $level);
+}
+
+.btn {
+  transition:
+    color .15s ease-in-out,
+    background-color .15s ease-in-out,
+    border-color .15s ease-in-out,
+    box-shadow .15s ease-in-out,
+    transform .15s ease-in-out;
+  box-shadow: button-box-shadow();
+  &-primary, &-outline-primary { box-shadow: button-box-shadow("primary", 4) }
+  &-secondary, &-outline-secondary { box-shadow: button-box-shadow("secondary", 4) }
+  &-success, &-outline-success { box-shadow: button-box-shadow("success", 4) }
+  &-danger, &-outline-danger { box-shadow: button-box-shadow("danger", 4) }
+  &-warning, &-outline-warning { box-shadow: button-box-shadow("warning", 4) }
+  &-info, &-outline-info { box-shadow: button-box-shadow("info", 4) }
+  &-light, &-outline-light { box-shadow: button-box-shadow("light", 4) }
+  &-dark, &-outline-dark { box-shadow: button-box-shadow("dark", 4) }
+  &-link, &-outline-link { box-shadow: none }
+  &:hover {
+    box-shadow: none !important;
+    transform: translateY(0.125rem);
+  }
+}
