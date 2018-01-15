@@ -5,11 +5,11 @@
   @include z-depth-transition();
 
   &:hover {
-    @include z-depth(9);
+    @include z-depth(16);
 
     .card {
       &-body {
-        background-color: $primary-color;
+        background-color: theme-color("primary");
         color: $white;
       }
     }
