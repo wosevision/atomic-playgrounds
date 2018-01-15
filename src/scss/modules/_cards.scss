@@ -1,0 +1,54 @@
+.card {
+  flex-grow: 1;
+  border: none;
+  @include z-depth(6);
+  @include z-depth-transition();
+
+  &:hover {
+    @include z-depth(9);
+
+    .card {
+      &-body {
+        background-color: $primary-color;
+        color: $white;
+      }
+    }
+  }
+
+  &-img {
+    &-top {
+      overflow: hidden;
+    }
+
+    &-top & {
+      border-radius: 0;
+    }
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: grey(600);
+    transition: 0.3s;
+  }
+
+  &-title {
+    font-size: 1.125rem;
+  }
+
+  &-text {
+    font-size: 0.875rem;
+  }
+
+  &-button {
+    align-self: flex-end;
+    margin-top: 0.5rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border: solid 2px $white;
+    border-radius: 50%;
+    @include z-depth(4);
+    background-color: $mikado-yellow;
+  }
+}
