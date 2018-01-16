@@ -1,0 +1,82 @@
+.footer {
+  padding: 1.25rem 0 3.125rem;
+  background-color: $apple;
+  color: $white;
+  font-size: 0.875rem;
+
+  a {
+    color: $white;
+    text-decoration: none;
+    
+    &:hover {
+      color: $apple-tint-1;
+      text-decoration: none;
+    }
+  }
+
+  hr {
+    margin: 1.875rem 0 2.5rem;
+    border-top: dashed 1px $white;
+  }
+
+  &-col {
+    margin-bottom: 1.875rem;
+  }
+
+  &-links-main {
+    color: $mikado-yellow;
+
+    a {
+      color: $mikado-yellow;
+
+      &:hover {
+        color: $mikado-yellow-tint-1;
+      }
+    }
+  }
+
+  &-link-cta {
+    border-bottom: solid 1px;
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+}
+
+.icons-social {
+  display: inline-block;
+  margin-bottom: 0;
+
+  .icon-item {
+    &:not(:last-child) {
+      margin-right: 0.75rem;
+    }
+  }
+  
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.875rem;
+    width: 2.875rem;
+    border-radius: 50%;
+    background-color: $mikado-yellow;
+    color: $white;
+    line-height: 1;
+  }
+}
+
+.list-seperator {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  > li {
+    display: inline-block;
+
+    &:not(:last-child) {
+      &::after {
+        content: ' | ';
+      }
+    }
+  }
+}
