@@ -36,9 +36,13 @@
   }
 
   &-link-cta {
-    border-bottom: solid 1px;
+    border-bottom: dashed 1px;
     font-size: 1.125rem;
     font-weight: 700;
+  }
+
+  .list-seperator {
+    font-size: 1rem;
   }
 }
 
