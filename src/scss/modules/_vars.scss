@@ -21,7 +21,7 @@ $mikado-yellow-tint-1: lighten($mikado-yellow, 15%);
 
 $orange: #ff8200;
 $orange-dark-1: darken($orange, 15%);
-$orange-tint-1: lighten($orange, 15%);
+$orange-tint-1: #fff6df;
 
 $black: #000000;
 $grey-dark-3: #262626;
@@ -50,3 +50,7 @@ $secondary-color-tint-1: $orange-tint-1;
 $font-family-sans-serif: $roboto;
 $font-family-serif: $georgia;
 
+
+// CARDS
+$card-circle-height: 135px;
+$card-circle-offset: 90px;

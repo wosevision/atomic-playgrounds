@@ -51,4 +51,32 @@
     @include z-depth(4);
     background-color: $mikado-yellow;
   }
+
+  // CIRCLE CARDS
+  &-container-circle {
+    .card {
+      position: relative;
+      margin-top: $card-circle-offset;
+      
+      &-img {
+        height: $card-circle-height;
+        width: $card-circle-height;
+        border-radius: 50%;
+        border: solid 4px $white;
+        @include z-depth(3);
+
+        &-top {
+          display: flex;
+          justify-content: center;
+          position: absolute;
+          top: -$card-circle-offset;
+        }
+      }
+
+      &-body {
+        padding-top: $card-circle-height - $card-circle-offset + 10;
+      }
+    }
+
+  }
 }

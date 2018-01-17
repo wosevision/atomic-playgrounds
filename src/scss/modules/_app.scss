@@ -6,19 +6,34 @@
     margin-bottom: 4rem;
   }
 
-  &.gradient-purple {
-    background-image: linear-gradient(260deg, #afe8fe, #bf8cfb);
+  &.blue,
+  &.gradient-blue  {
+    .content-block-title {
+      color: $cool-blue;
+    }
+  }
+
+  &.blue {
+    background-color: $primary-color-tint-1;
+  }
+
+  &.orange  {
+    background-color: $orange-tint-1;
 
     .content-block-title {
-      color: $white;
+      color: $orange;
     }
   }
 
   &.gradient-blue {
     background-image: linear-gradient(260deg, #ebecd1, #caf4fc);
+  }
+
+  &.gradient-purple {
+    background-image: linear-gradient(260deg, #afe8fe, #bf8cfb);
 
     .content-block-title {
-      color: $cool-blue;
+      color: $white;
     }
   }
 }
