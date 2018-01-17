@@ -1,42 +1,21 @@
-<header id="header" class="header" role="banner">
-  <h1>
-    Atomic Playgrounds
-    <br/>
-    <small>Making fun funner!</small>
-  </h1>
-  <!-- <nav class="nav" role="navigation">
-    <ul>
-      <li>What we do</li>
-      <li>How we help</li>
-      <li>Inspiration</li>
-      <li>
-        About us
-        <ul>
-          <li>Our story</li>
-          <li>Our team</li>
-          <li>In the community</li>
-        </ul>
-      </li>
-    </ul>
-    <ul>
-      <li>Search</li>
-      <li>Contact us</li>
-      <li>Login</li>
-    </ul>
-    <button>
-      Get started now
-    </button>
-  </nav> -->
-
-  <nav class="nav">
-    <a class="nav-item nav-link active" href="#">What we do</a>
-    <a class="nav-item nav-link" href="#">How we help</a>
-    <a class="nav-item nav-link" href="#">Inspiration</a>
-    <a class="nav-item nav-link disabled" href="#">About us</a>
-  </nav>
-  <nav class="nav justify-content-end">
-    <a href="#" class="nav-item nav-link">Search</a>
-    <a href="#" class="nav-item nav-link">Contact us</a>
-    <a href="#" class="nav-item nav-link">Login</a>
-  </nav>
+<header id="header" class="header row align-items-center" role="banner">
+  <div class="col-md-4">
+{% include "partials/logo.njk" %}
+  </div>
+  <div class="col-md-8">
+    <div class="row">
+      <nav class="nav justify-content-end align-items-center col-md-8">
+        <a class="nav-item nav-link active" href="#">What we do</a>
+        <a class="nav-item nav-link" href="#">How we help</a>
+        <a class="nav-item nav-link" href="#">Inspiration</a>
+        <a class="nav-item nav-link disabled" href="#">About us</a>
+      </nav>
+      <nav class="nav justify-content-center align-items-center col-md-4">
+        <a href="#" class="nav-item nav-link"><small>Search</small></a>
+        <a href="#" class="nav-item nav-link"><small>Contact us</small></a>
+        <a href="#" class="nav-item nav-link"><small>Login</small></a>
+        <a href="#" class="btn btn-primary btn-block">Get started now</a>
+      </nav>
+    </div>
+  </div>
 </header>
