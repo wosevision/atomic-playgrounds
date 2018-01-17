@@ -16,9 +16,9 @@
   }
 
   &-img {
-    &-top {
-      overflow: hidden;
-    }
+    height: 180px;
+    background-size: cover;
+    background-position: center;
 
     &-top & {
       border-radius: 0;
