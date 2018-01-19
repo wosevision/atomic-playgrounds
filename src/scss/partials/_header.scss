@@ -1,0 +1,22 @@
+$logo-border-radius: (
+  inner: $spacer / 4,
+  outer: $spacer / 2
+);
+
+.nav-logo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  bottom: -$spacer;
+  padding: $spacer / 2;
+  margin-top: -$spacer * 2;
+  border-radius: map-get($logo-border-radius, outer);
+  background: $white;
+  @include z-depth(8);
+  svg {
+    flex: 1 1 100%;
+    padding: map-get($logo-border-radius, outer) + map-get($logo-border-radius, inner);
+    border: dashed 1px gray('300');
+    border-radius: map-get($logo-border-radius, inner);
+  }
+}
