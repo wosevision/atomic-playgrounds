@@ -224,15 +224,15 @@ $theme-colors: map-merge((
 // $font-family-base:            $font-family-sans-serif !default;
 // stylelint-enable value-keyword-case
 
-$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+$font-size-base:              1rem; // Assumes the browser default, typically `16px`
 // $font-size-lg:                ($font-size-base * 1.25) !default;
 // $font-size-sm:                ($font-size-base * .875) !default;
 
-// $font-weight-light:           300 !default;
-// $font-weight-normal:          400 !default;
-// $font-weight-bold:            700 !default;
+$font-weight-light:           400;
+$font-weight-normal:          500;
+$font-weight-bold:            700;
 
-// $font-weight-base:            $font-weight-normal !default;
+$font-weight-base:            $font-weight-light;
 // $line-height-base:            1.5 !default;
 
 $h1-font-size:                $font-size-base * 3;
@@ -244,7 +244,7 @@ $h5-font-size:                $font-size-base * 1.125;
 
 // $headings-margin-bottom:      ($spacer / 2) !default;
 // $headings-font-family:        inherit !default;
-// $headings-font-weight:        500 !default;
+$headings-font-weight:        $font-weight-bold;
 // $headings-line-height:        1.2 !default;
 // $headings-color:              inherit !default;
 
@@ -260,7 +260,7 @@ $h5-font-size:                $font-size-base * 1.125;
 // $display-line-height:         $headings-line-height !default;
 
 $lead-font-size:              ($font-size-base * 1.125);
-// $lead-font-weight:            300 !default;
+$lead-font-weight:            $font-weight-light;
 
 // $small-font-size:             80% !default;
 
@@ -352,7 +352,7 @@ $input-btn-border-width:      0;
 
 // $btn-border-width:            $input-btn-border-width !default;
 
-// $btn-font-weight:             $font-weight-normal !default;
+$btn-font-weight:             $font-weight-normal;
 $btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
 // $btn-focus-width:             $input-btn-focus-width !default;
 // $btn-focus-box-shadow:        $input-btn-focus-box-shadow !default;
