@@ -60,10 +60,12 @@ $grays: map-merge((
 
 $primary : $cool-blue;
 $secondary : $orange;
-$success : $apple;
+$tertiary : $apple;
+$accent : $mikado-yellow;
+$success : $apple-tint-1;
 $info: $cool-blue-tint-1;
-$warning : $mikado-yellow;
-$danger: $orange-dark-1;
+$warning : $mikado-yellow-tint-1;
+$danger: $orange-tint-1;
 $light : $gray-400;
 $dark : $gray-700;
 
@@ -72,6 +74,8 @@ $theme-colors: ();
 $theme-colors: map-merge((
   "primary":    $primary,
   "secondary":  $secondary,
+  "accent":     $accent,
+  "tertiary":   $tertiary,
   "success":    $success,
   "info":       $info,
   "warning":    $warning,
