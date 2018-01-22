@@ -1,0 +1,7 @@
+.hero {
+  .jumbotron {
+    text-align: center;
+    border-radius: 2000px;
+    @include z-depth(8);
+  }
+}

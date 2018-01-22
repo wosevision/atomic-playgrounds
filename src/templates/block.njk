@@ -1,6 +1,6 @@
 {% macro renderContentBlock(block) %}
-<section class="content-block {{ block.theme }}">
-  <div class="container">
+<section class="content-block {{ block.theme }}"{% if block.bg %} style="background-image: url({{ block.bg }});"{% endif %}>
+  <div class="container{{ "-fluid" if block.fluid }}">
     <a class="anchor" id="{{ block.title|slug }}"></a>
     {% if block.modules %}
       {% for module in block.modules %}

@@ -1,6 +1,8 @@
 .content-block {
   padding: 50px 0;
   background-color: $white;
+  background-size: cover;
+  background-position: 50%;
 
   &-title {
     color: $cool-blue;
