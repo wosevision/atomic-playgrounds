@@ -1,0 +1,14 @@
+<div class="row icon-group">
+  {% for icon in module.icons %}
+  <div class="col-md-4 text-center">
+    {{ icon.id }}
+    <h3>
+      {{ icon.title }}
+    </h3>
+    <p>{{ icon.text }}</p>
+    <a href="icon.link" class="btn btn-primary">
+      {{ icon.linkText }}
+    </a>
+  </div>
+  {% endfor %}
+</div>
