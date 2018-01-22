@@ -16,6 +16,10 @@
         {{ card.text }}
       </p>
     </div>
+    {% if card.linkText %}
+    <a href="{{ card.link }}" class="btn-primary">{{ card.linkText }}</a>
+    {% else %}
     <a href="{{ card.link }}" class="card-button"></a>
+    {% endif %}
   </div>
 </div>
