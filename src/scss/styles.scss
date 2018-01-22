@@ -40,14 +40,14 @@
 // OBJECTS & MODULES
 //----------------------------------*/
 
+@import 'modules/app';
 @import 'modules/buttons';
+@import 'modules/cards';
 @import 'modules/hero';
 @import 'modules/inputs';
 @import 'modules/lists';
-@import 'modules/typography';
-@import 'modules/cards';
 @import 'modules/misc';
-@import 'modules/app';
+@import 'modules/typography';
 
 // Enhancement modules
 @import 'modules/breakpoints';
