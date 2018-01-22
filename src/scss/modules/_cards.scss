@@ -6,13 +6,6 @@
 
   &:hover {
     @include z-depth(16);
-
-    .card {
-      &-body {
-        background-color: theme-color("primary");
-        color: $white;
-      }
-    }
   }
 
   &-img {
@@ -52,6 +45,10 @@
     background-color: $mikado-yellow;
   }
 
+  &-form {
+    margin-bottom: 2rem;
+  }
+
   // CIRCLE CARDS
   &-container-circle {
     .card {
@@ -77,6 +74,65 @@
         padding-top: $card-circle-height - $card-circle-offset + 10;
       }
     }
+  }
 
+  &-container,
+  &-container-circle {
+    .card {
+      &:hover {
+        .card {
+          &-body {
+            background-color: theme-color("primary");
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  // ICON CARDS
+  &-container-icon {
+    .card {
+      margin-top: $card-icon-offset;
+      padding-top: 1rem;
+
+      &-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 50%;
+        top: -$card-icon-offset;
+        transform: translateX(-50%);
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        background-color: $white;
+        color: theme-color("primary");
+      }
+   
+      &-icon-title {
+        margin-top: 1rem;
+        margin-bottom: 2.5rem;
+        color: $white;
+        text-align: center;
+      }
+    }
+  }
+
+  
+  // OPTIONS
+
+  &.border-dashed {
+    padding: 0.75rem;
+
+    .card-body {
+      border-radius: 6px;
+      border: 1px dashed currentColor;
+    }
+  }
+
+  &.bg-primary {
+    color: $white;
   }
 }
