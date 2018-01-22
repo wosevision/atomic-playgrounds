@@ -4,13 +4,6 @@
     <a class="anchor" id="{{ block.title|slug }}"></a>
     {% if block.modules %}
       {% for module in block.modules %}
-				{% if module.title %}
-          <div class="row">
-            <div class="col-lg-10 offset-lg-1 offset-md-0">
-              <h2 class="text-center content-block-title">{{ module.title }}</h2>
-            </div>
-          </div>
-        {% endif %}
         {% include "modules/" + module.type + ".njk" %}
       {% endfor %}
     {% endif %}
