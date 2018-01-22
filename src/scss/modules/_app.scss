@@ -1,8 +1,9 @@
 .content-block {
   padding: 50px 0;
-  background-color: $primary-color-tint-1;
+  background-color: $white;
 
   &-title {
+    color: $cool-blue;
     margin-bottom: 4rem;
   }
 
