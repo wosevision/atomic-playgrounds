@@ -22,8 +22,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-start;
     color: grey(600);
     transition: 0.3s;
+  }
+
+  &-content {
+    padding-bottom: 1rem;
   }
 
   &-title {
@@ -47,6 +52,7 @@
 
   &-form {
     margin-bottom: 2rem;
+    width: 100%;
   }
 
   // CIRCLE CARDS
@@ -72,6 +78,27 @@
 
       &-body {
         padding-top: $card-circle-height - $card-circle-offset + 10;
+      }
+    }
+
+    &.card-large {
+      .card {
+        margin-top: $card-circle-offset-large;
+
+        &-img {
+          height: $card-circle-height-large;
+          width: $card-circle-height-large;
+
+          &-top {
+            top: -$card-circle-offset-large;
+          }
+        }
+
+        &-body {
+          padding-top: $card-circle-height-large - $card-circle-offset-large + 20;
+          align-items: center;
+          text-align: center;
+        }
       }
     }
   }
