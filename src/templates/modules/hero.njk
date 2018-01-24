@@ -1,9 +1,9 @@
-<div class="hero">
+<div class="hero{{ " " + module.class if module.class }}">
   <div class="container">
     <div class="row justify-content-end">
-      <div class="col-md-8 col-lg-6">
+      <div class="col-sm-12 col-md-8 col-lg-7">
         <div class="jumbotron">
-          <h1 class="display-4">{{ module.title }}</h1>
+          <h1>{{ module.title }}</h1>
           <p class="lead">{{ module.subtitle }}</p>
           <p><a class="btn btn-primary btn-lg" href="#" role="button">{{ module.button }}</a></p>
         </div>
