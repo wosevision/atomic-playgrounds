@@ -2,15 +2,16 @@
 	<div class="col-12">
     <div class="card bg-primary border-dashed">
       <span class="card-icon fa fa-{{ module.icon }}">?</span>
-      <div class="card-body">
+      <div class="card-body align-items-center">
         <h3 class="card-icon-title">
           {{ module.title }}
         </h3>
-        <form class="card-form">
-          <div class="d-flex">
-            <input type="text" class="form-control" placeholder="{{ module.placeholder }}"/>
-            <button class="btn btn-white">{{ module.buttonText }}</button>
+        <form class="card-form form-inline">
+          <div class="form-container-underline">
+            <input type="text" class="form-control form-control-underline" placeholder="{{ module.placeholder }}"/>
+            <div class="form-control-decor"></div>
           </div>
+          <button class="btn btn-white">{{ module.buttonText }}</button>
         </form>
       </div>
     </div>
