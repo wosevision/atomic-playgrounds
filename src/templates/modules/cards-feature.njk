@@ -1,14 +1,14 @@
 <div class="row card-container">
   <div class="col-lg-6 d-flex">
     {% for card in module.cardsFeature %}
-      {% include "partials/card.njk" %}
+      {% include "modules/card.njk" %}
     {% endfor %}
   </div>
   <div class="col-lg-6">
     <div class="row">
       {% for card in module.cards %}
         <div class="col-sm-6 d-flex">
-          {% include "partials/card.njk" %}
+          {% include "modules/card.njk" %}
         </div>
       {% endfor %}
     </div>
