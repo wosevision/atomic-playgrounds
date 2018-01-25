@@ -9,14 +9,15 @@ import $ from 'jquery';
 
 window.jQuery = window.jQuery || $;
 
-const HERO_MOON = document.querySelector('.hero-moon');
+class Animator {
+  constructor(el) { this.el = el; }
+  run(dur, opts) { TweenMax.from(this.el, dur, opts); return this; }
+}
 
-const moonFall = TweenMax.from(HERO_MOON, 2, { ease: Bounce.easeOut, y: '-100%' }); //Elastic.easeOut.config(1.5, 1)
-const moonSway = TweenMax.from(HERO_MOON, 6, {
-  ease: Elastic.easeOut.config(3, 0.4), x: 75, transformOrigin: '0 -200%'
-});
-// const moonSway = TweenMax.fromTo(HERO_MOON, 6, {
-//   ease: Elastic.easeIn.config(6), x: 100, transformOrigin: '0 -200%'
-// }, {
-//   ease: Elastic.easeOut.config(6), x: -50, transformOrigin: '0 -200%'
-// });
+const HERO_MOON = document.querySelector('.hero-moon .jumbotron');
+const moonAnimator = new Animator(HERO_MOON);
+const moonSwayEase = Elastic.easeOut.config(3, 0.4);
+moonAnimator
+  .run(2, { ease: Bounce.easeOut, y: '-100%' })
+  .run(6, { ease: moonSwayEase, transformOrigin: '0 -200%', x: 75 })
+  .run(6, { ease: moonSwayEase, transformOrigin: '50% 0', rotationX: 15, });

@@ -3,6 +3,13 @@ $logo-border-radius: (
   outer: $spacer / 2
 );
 
+header {
+  position: relative;
+  background: $white;
+  z-index: 10;
+  // @include z-depth(8);
+}
+
 .nav-logo {
   position: relative;
   display: flex;

@@ -1,4 +1,8 @@
 .hero {
+  perspective: 900;
+  perspective-origin: 55% 40%;
+  position: relative;
+  z-index: 0;
   &-moon {
     .jumbotron {
       background-color: transparent;
