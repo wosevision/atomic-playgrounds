@@ -18,13 +18,6 @@
     background-size: cover;
     background-position: center;
 
-    &-top {
-      + .card-body {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-      }
-    }
-
     &-top & {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
@@ -39,6 +32,7 @@
     color: grey(600);
     border-radius: $card-border-radius;
     transition: 0.3s;
+    overflow: hidden;
   }
 
   &-content {
@@ -80,11 +74,33 @@
     }
   }
 
+  &-hover {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &-box {
+      fill: $white;
+      transition: 0.3s;
+    }
+  }
+
   // CIRCLE CARDS
   &-container-circle {
     .card {
       position: relative;
       margin-top: $card-circle-offset;
+
+      &:hover {
+        .card {
+          &-body {
+            background-color: theme-color("primary");
+          }
+        }
+      }
       
       &-img {
         height: $card-circle-height;
@@ -103,6 +119,7 @@
 
       &-body {
         padding-top: $card-circle-height - $card-circle-offset + 10;
+        background-color: $white;
       }
     }
 
@@ -128,13 +145,11 @@
     }
   }
 
-  &-container,
-  &-container-circle {
+  &-container {
     .card {
       &:hover {
         .card {
           &-body {
-            background-color: theme-color("primary");
             color: $white;
           }
         }
@@ -142,15 +157,28 @@
     }
   }
 
-  &-container {
-    &:not(.card-container-circle) {
-      .card {
-        &-body {
-          position: relative;
-          z-index: 2;
-          margin-top: -20px;
-          background-color: $white;
+  &-container-stacked {
+    .card {
+      &:hover {
+        .card-hover-box {
+          d: path('M400,25.27c0,0-57.72-15.27-200-15.27S0,25.27,0,25.27V400h400V25.27z');
+          fill: theme-color("primary");
         }
+      }
+
+      &-img-top {
+        + .card-body {
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+
+      &-body {
+        position: relative;
+        z-index: 2;
+        margin-top: -#{$card-hover-offset-spacer};
+        padding-top: $card-hover-offset-spacer;
+        background-color: transparent;
       }
     }
   }
