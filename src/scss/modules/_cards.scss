@@ -1,20 +1,33 @@
 .card {
   flex-grow: 1;
+  margin-bottom: 30px;
   border: none;
   @include z-depth(6);
   @include z-depth-transition();
 
   &:hover {
     @include z-depth(16);
+
+    .card-category {
+      color: $white;
+    }
   }
 
   &-img {
-    height: 180px;
+    height: 200px;
     background-size: cover;
     background-position: center;
 
+    &-top {
+      + .card-body {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
     &-top & {
-      border-radius: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
     }
   }
 
@@ -24,6 +37,7 @@
     justify-content: space-between;
     align-items: flex-start;
     color: grey(600);
+    border-radius: $card-border-radius;
     transition: 0.3s;
   }
 
@@ -33,6 +47,11 @@
 
   &-title {
     font-size: 1.125rem;
+  }
+
+  &-category {
+    font-size: 0.75rem;
+    color: $apple;
   }
 
   &-text {
@@ -53,6 +72,12 @@
   &-form {
     margin-bottom: 2rem;
     width: 100%;
+  }
+
+  &-featured {
+    .card-img {
+      height: 400px;
+    }
   }
 
   // CIRCLE CARDS
@@ -117,6 +142,19 @@
     }
   }
 
+  &-container {
+    &:not(.card-container-circle) {
+      .card {
+        &-body {
+          position: relative;
+          z-index: 2;
+          margin-top: -20px;
+          background-color: $white;
+        }
+      }
+    }
+  }
+
   // ICON CARDS
   &-container-icon {
     .card {
@@ -154,7 +192,6 @@
     padding: 0.75rem;
 
     .card-body {
-      border-radius: 6px;
       border: 1px dashed currentColor;
     }
   }

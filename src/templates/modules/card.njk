@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card{% if card.featured %} card-featured{% endif %}">
   <div class="card-img-top">
     <div class="card-img" style="background-image: url({{ card.image }})"></div>
   </div>
@@ -20,6 +20,11 @@
     <a href="{{ card.link }}" class="btn btn-primary">{{ card.linkText }}</a>
     {% else %}
     <a href="{{ card.link }}" class="card-button"></a>
+    {% endif %}
+    {% if card.linkText %}
+    <svg class="card-hover">
+
+    </svg>
     {% endif %}
   </div>
 </div>
