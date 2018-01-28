@@ -10,7 +10,5 @@
       </div>
     </div>
   </div>
-  {% if module.img %}
-  <img class="col-sm-12 col-md-6 hero-secondary-img" src="{{ module.img }}" />
-  {% endif %}
+  {% include module.include if module.include %}
 </div>

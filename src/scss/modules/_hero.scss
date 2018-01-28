@@ -23,6 +23,10 @@
         padding: 6rem;
       }
     }
+    .container {
+      position: relative;
+      z-index: 1;
+    }
     @include media-breakpoint-down(sm) {
       .container {
         padding: 0;
@@ -31,7 +35,9 @@
   }
   &-secondary-img {
     position: absolute;
-    top: 0;
+    top: auto;
+    bottom: 0;
     left: 0;
+    overflow: visible !important;
   }
 }
