@@ -17,3 +17,9 @@
 .hidden {
 	display: none;
 }
+
+.svg-hidden {
+	position: absolute;
+	height: 0;
+	width: 0;
+}
