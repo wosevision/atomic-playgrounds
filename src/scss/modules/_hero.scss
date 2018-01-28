@@ -23,5 +23,15 @@
         padding: 6rem;
       }
     }
+    @include media-breakpoint-down(sm) {
+      .container {
+        padding: 0;
+      }
+    }
+  }
+  &-secondary-img {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
