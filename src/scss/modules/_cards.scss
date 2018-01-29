@@ -1,6 +1,6 @@
 .card {
   flex-grow: 1;
-  margin-bottom: 30px;
+  margin-bottom: $grid-gutter-width;
   border: none;
   @include z-depth(6);
   @include z-depth-transition();

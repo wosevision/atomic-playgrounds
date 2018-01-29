@@ -1,14 +1,13 @@
-.icon-hide {
-  position: absolute;
-  height: 0;
-  width: 0;
-}
-
 .icon-group {
   .icon-wrapper {
     margin-bottom: 0.5rem;
     color: gray('500');
   }
+
+  .icon-col {
+    margin-bottom: $grid-gutter-width;
+  }
+
   .icon {
     height: 100px;
     fill: currentColor;
