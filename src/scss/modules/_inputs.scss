@@ -1,12 +1,25 @@
 .form-inline {
-  .form-container-underline {
-    &:not(:last-child) {
-      margin-right: 1rem;
+  @include media-breakpoint-up(sm) {
+    .form-container-underline {
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
     }
   }
 
+  .form-container-underline,
   .form-control-underline {
     width: 100%;
+  }
+
+  @include media-breakpoint-down(xs) {
+    flex-direction: column;
+
+    .form-container-underline {
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
   }
 }
 
