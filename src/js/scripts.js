@@ -10,27 +10,39 @@ import MEDIA, { MediaAwareListener } from './media-query';
 import SVG, { Animator } from './animation';
 
 window.jQuery = window.jQuery || $;
+$(window).on('load', () => {
+  const $body = $(document.body);
+  $body.addClass('loaded');
+  setTimeout(() => $body.removeClass('loading loaded'), 600);
+});
 
 const HERO_MOON = document.querySelector('.hero-moon .jumbotron');
 const moonAnimator = new Animator(HERO_MOON);
 const moonSwayEase = Elastic.easeOut.config(3, 0.4);
+moonAnimator.set({ opacity: 0 });
+
+const ROCKET_SHIP = document.getElementById('rocket_ship');
+const ROCKET_SHIP_PATH = document.getElementById('rocket_ship_path');
+const rocketAnimator = new Animator(ROCKET_SHIP);
+const rocketPathAnimator = new Animator(ROCKET_SHIP_PATH);
+const rocketBezier = { values: SVG.ROCKET_PATH_BEZIER, type: 'cubic', autoRotate: true };
+rocketAnimator.set({ opacity: 0 });
+rocketPathAnimator.set({ opacity: 0 })
 
 const mq = new MediaAwareListener(window, $);
 
 mq.on(MEDIA.SM_UP, () => {
   moonAnimator
+    .set({ opacity: 1 })
     .from(2, { ease: Bounce.easeOut, transformOrigin: '50% 50%', y: '-150%' })
     .from(6, { ease: moonSwayEase, transformOrigin: '0 -150%', x: 75 })
     .from(6, { ease: moonSwayEase, transformOrigin: '50% 0', rotationX: 15, });
 
-  TweenMax.to('#rocket_ship', 2, {
-    bezier: {
-      values: SVG.ROCKET_PATH_BEZIER,
-      type:'cubic',
-      autoRotate: true
-    },
-    ease: Linear.easeNone
-  });
+  rocketAnimator
+    .to(0.5, { opacity: 1, delay: 1.5, ease: Linear.easeNone })
+    .to(2, { bezier: rocketBezier, ease: Linear.easeNone, delay: 1.5 });
+
+  rocketPathAnimator.to(4, { opacity: 1, delay: 2, ease: Linear.easeNone });
 
   // $('.card-hover').on('mouseenter', function() {
   //   let box = this.querySelector('.card-hover-box')

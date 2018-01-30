@@ -23,3 +23,46 @@
 	height: 0;
 	width: 0;
 }
+
+body.loading {
+  overflow: hidden;
+  perspective: 50px;
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    transition: 0.5s;
+  }
+  &::before {
+    background: rgba(white, 0.95);
+    z-index: 1000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  &::after {
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+    width: 50px;
+    height: 50px;
+    z-index: 1001;
+    background-image: url(../img/atom-loader.svg);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 50px;
+    animation-duration: 2s;
+    animation-name: atomLoader;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+  }
+  &.loaded {
+    &::before {
+      background: rgba(white, 0);
+    }
+    &::after {
+      opacity: 0;
+    }
+  }
+}
