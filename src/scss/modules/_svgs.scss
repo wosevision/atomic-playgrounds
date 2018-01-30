@@ -60,3 +60,39 @@
     opacity: 0;
   }
 }
+
+.svg-castle {
+  width: 100%;
+  transform-origin: bottom center;
+
+  &:hover {
+    animation-name: bounce;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  &-container {
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    width: 390px;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1)
+  }
+  20% {
+    transform: scaleY(0.6)
+  }
+  35% {
+    transform: scaleY(1.1)
+  }
+  55% {
+    transform: scaleY(0.8)
+  }
+  80% {
+    transform: scaleY(1.05)
+  }
+}
