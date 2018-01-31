@@ -28,8 +28,82 @@ header {
   }
 }
 
+%ham {
+  content: '';
+  height: 2px;
+  width: 25px;
+  transform-origin: center center;
+  border-radius: 5px;
+  background-color: currentColor;
+}
+
 .navbar {
   @include z-depth(6);
+
+  &-collapse {
+    @include media-breakpoint-down(md) {
+      position: fixed;
+      z-index: -1;
+      top: 40px;
+      left: 0;
+      width: 100%;
+      min-height: 100vh;
+      background-color: pink;
+    }
+  }
+
+  &-toggler-icon {
+    position: relative;
+    color: theme-color('primary');
+    transition: 0.35s ease-in-out;
+    @extend %ham;
+
+    &::before,
+    &::after {
+      @extend %ham;
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  &-toggler {
+    &:focus {
+      outline: none;
+    }
+
+    &.collapsed {
+      .navbar-toggler-icon {
+        &::before,
+        &::after {
+          transition: top 0.2s ease-in-out 0.35s, transform 0.35s ease-in-out;
+        }
+        &::before {
+          top: -8px;
+        }
+        &::after {
+          top: 8px;
+        }
+      }
+    }
+
+    &:not(.collapsed) {
+      .navbar-toggler-icon {
+        background-color: transparent; 
+
+        &::before,
+        &::after {
+          top: 0;
+          transition: top 0.2s ease-in-out, transform 0.35s ease-in-out 0.2s;
+        }
+        &::before {
+          transform: rotate(225deg)
+        }
+        &::after {
+          transform: rotate(315deg)
+        }
+      }
+    }
+  }
 
   .row {
     flex-basis: 100%;
