@@ -12,6 +12,8 @@ import MEDIA, { MediaAwareListener } from './media-query';
 import SVG, { Animator } from './animation';
 
 window.jQuery = window.jQuery || $;
+import 'bootstrap';
+
 
 /**
  * Ready to initialize.
