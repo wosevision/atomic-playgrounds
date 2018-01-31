@@ -10,6 +10,8 @@ import MEDIA, { MediaAwareListener } from './media-query';
 import SVG, { Animator } from './animation';
 
 window.jQuery = window.jQuery || $;
+import 'bootstrap';
+
 $(window).on('load', () => {
   const $body = $(document.body);
   $body.addClass('loaded');
