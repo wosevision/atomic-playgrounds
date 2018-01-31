@@ -29,12 +29,18 @@ header {
 }
 
 .navbar {
+  @include z-depth(6);
+
   .row {
     flex-basis: 100%;
   }
 
   .nav {
     &-link {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
       position: relative;
       font-size: 0.875rem;
       font-weight: 700;
@@ -64,6 +70,12 @@ header {
   }
 
   .dropdown {
+    &-toggle {
+      &::after {
+        display: none;
+      }
+    }
+
     &-menu {
       top: calc(100% + 10px);
       left: 50%;
@@ -90,7 +102,6 @@ header {
 
     &-item {
       font-size: 0.875rem;
-      // color: gray('600');
     }
 
     &-divider {
