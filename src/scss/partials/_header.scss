@@ -27,3 +27,76 @@ header {
     border-radius: map-get($logo-border-radius, inner);
   }
 }
+
+.navbar {
+  .row {
+    flex-basis: 100%;
+  }
+
+  .nav {
+    &-link {
+      position: relative;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: gray('600');
+
+      &:hover {
+        color: $daisy-bush;
+
+        &::before {
+          transform: scale(1);
+        }
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: scale(0);
+        transform-origin: center center;
+        width: 100%;
+        height: 3px;
+        background-color: $mikado-yellow;
+        transition: 0.3s ease-in-out;
+      }
+    }
+  }
+
+  .dropdown {
+    &-menu {
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 1.25rem 0;
+      text-align: center;
+      @include z-depth(8);
+
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 15px 15px 15px;
+        border-color: transparent transparent $white transparent;
+        // filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+      }
+    }
+
+    &-item {
+      font-size: 0.875rem;
+      // color: gray('600');
+    }
+
+    &-divider {
+      margin-left: $dropdown-item-padding-x;
+      margin-right: $dropdown-item-padding-x;
+      border-top: 1px dashed gray('400');
+    }
+  }
+}
