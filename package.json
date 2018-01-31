@@ -55,7 +55,8 @@
     "bootstrap": "4.0.0-beta.3",
     "gsap": "^1.20.3",
     "jquery": "^3.2.1",
-    "popper.js": "^1.12.9"
+    "popper.js": "^1.12.9",
+    "swiper": "^4.1.0"
   },
   "description": "An opinionated static front-end prototype stack built on Gulp using Sass and Babel",
   "bugs": {
