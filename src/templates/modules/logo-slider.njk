@@ -1,5 +1,24 @@
 <div class="row">
   <div class="col-12">
-    
+    <!-- Slider main container -->
+    <div class="swiper-container logo-slider">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        {% for slide in module.slides %}
+          {% for i in range(0, 12) -%}
+          <div class="swiper-slide">
+            <a href="{{ slide.link }}" title="{{ slide.title }}">
+              <img data-src="{{ slide.image + i }}" alt="{{ slide.alt }}" class="swiper-lazy">
+            </a>
+          </div>
+          {%- endfor %}
+        {% endfor %}
+      </div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
   </div>
 </div>

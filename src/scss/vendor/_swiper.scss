@@ -1,0 +1,31 @@
+@import 'swiper/dist/css/swiper.css';
+
+.swiper {
+  &-container {
+    width: 100%;
+    height: 100%;
+
+    &.logo-slider {
+      margin-bottom: 8rem;
+    }
+  }
+  &-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: calc(100vw / 2);
+    @include media-breakpoint-up(sm) {
+      max-height: calc(100vw / 4);
+    }
+    @include media-breakpoint-up(md) {
+      max-height: calc(100vw / 5);
+    }
+    @include media-breakpoint-up(lg) {
+      max-height: calc(100vw / 6);
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
