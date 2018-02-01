@@ -138,20 +138,23 @@ header {
       justify-content: flex-end;
       align-items: center;
       position: relative;
-      padding-bottom: 1.5rem;
-      padding-top: 1.5rem;
+      padding-bottom: 1.25rem;
+      padding-top: 0.5rem;
       font-size: 0.875rem;
       font-weight: 700;
       color: gray('600');
 
 
       @include media-breakpoint-up(lg) {
-
         &:hover {
           color: $daisy-bush;
 
           &::before {
             transform: scale(1);
+          }
+
+          .nav-link-icon {
+            color: $daisy-bush;
           }
         }
 
@@ -166,6 +169,17 @@ header {
           height: 3px;
           background-color: $mikado-yellow;
           transition: 0.3s ease-in-out;
+        }
+      }
+
+      &-icon {
+        margin-bottom: 5px;
+        height: 50px;
+        color: gray('400');
+
+        &-fill {
+          fill: currentColor;
+          transition: 0.3s;
         }
       }
     }
