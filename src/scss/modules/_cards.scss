@@ -225,7 +225,8 @@
     }
   }
 
-  &.bg-primary {
+  &.bg-primary,
+  &.bg-primary .card-body {
     color: $white;
   }
 }
