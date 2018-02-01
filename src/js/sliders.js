@@ -43,7 +43,26 @@ export class CardsSlider extends Swiper {
         el: PAGINATION,
         dynamicBullets: true,
       }
-    })
+    });
+    this.on('touchStart', () => {
+      const grabbedIndex = this.activeIndex;
+      const grabbedSlide = this.slides[grabbedIndex];
+      const slideImg = grabbedSlide.querySelector('.card-img');
+
+      slideImg.style.transition = null;
+      const onProgress = (progress) => {
+        const numOfSlides = this.slides.length;
+        const activeProgress = (progress * (numOfSlides - 1)) - grabbedIndex;
+        slideImg.style.transform = `translateX(${ activeProgress * 100 }%)`;
+      };
+
+      this.on('progress', onProgress);
+      this.on('touchEnd', () => {
+        slideImg.style.transition = 'transform 0.6s ease-in-out';
+        slideImg.style.transform = null;
+        this.off('progress', onProgress);
+      });
+    });
   }
 }
 
