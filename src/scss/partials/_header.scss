@@ -20,10 +20,12 @@ header {
   border-radius: map-get($logo-border-radius, outer);
   background: $white;
   @include z-depth(8);
+
   svg {
     flex: 1 1 100%;
     padding: map-get($logo-border-radius, outer) + map-get($logo-border-radius, inner);
     border: dashed 1px gray('300');
+    border-top: none;
     border-radius: map-get($logo-border-radius, inner);
   }
 }
@@ -38,17 +40,35 @@ header {
 }
 
 .navbar {
+  padding-bottom: 0;
+  max-height: 125px;
   @include z-depth(6);
+
+  &-nav-wrapper {
+    @include media-breakpoint-down(md) {
+      text-align: right;
+    }
+    @include media-breakpoint-up(lg) {
+      align-self: stretch;
+    }
+  }
 
   &-collapse {
     @include media-breakpoint-down(md) {
       position: fixed;
       z-index: -1;
-      top: 40px;
+      top: 0;
       left: 0;
+      padding-top: 100px;
+      padding-bottom: 50px;
       width: 100%;
-      min-height: 100vh;
-      background-color: pink;
+      height: 100vh;
+      background-color: rgba($white, 0.95);
+      overflow-y: auto;
+    }
+    @include media-breakpoint-up(lg) {
+      align-items: stretch;
+      height: 100%;
     }
   }
 
@@ -67,6 +87,8 @@ header {
   }
 
   &-toggler {
+    margin-bottom: 0.5rem;
+
     &:focus {
       outline: none;
     }
@@ -116,29 +138,59 @@ header {
       justify-content: flex-end;
       align-items: center;
       position: relative;
+      padding-bottom: 1.5rem;
+      padding-top: 1.5rem;
       font-size: 0.875rem;
       font-weight: 700;
       color: gray('600');
 
-      &:hover {
-        color: $daisy-bush;
+
+      @include media-breakpoint-up(lg) {
+
+        &:hover {
+          color: $daisy-bush;
+
+          &::before {
+            transform: scale(1);
+          }
+        }
 
         &::before {
-          transform: scale(1);
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          transform: scale(0);
+          transform-origin: center center;
+          width: 100%;
+          height: 3px;
+          background-color: $mikado-yellow;
+          transition: 0.3s ease-in-out;
         }
       }
+    }
 
-      &::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        transform: scale(0);
-        transform-origin: center center;
-        width: 100%;
-        height: 3px;
-        background-color: $mikado-yellow;
-        transition: 0.3s ease-in-out;
+    &-secondary {
+      text-align: center;
+      
+      @include media-breakpoint-up(lg) {
+        align-self: center;
+      }
+
+      &-items {
+        margin-bottom: 0.875rem;
+        font-size: 0.75rem;
+      }
+
+      &-link {
+        text-decoration: underline;
+      }
+
+      &-button {
+        @include media-breakpoint-up(lg) {
+          display: block;
+          margin-bottom: 0.5rem;
+        }
       }
     }
   }
@@ -151,26 +203,29 @@ header {
     }
 
     &-menu {
-      top: calc(100% + 10px);
-      left: 50%;
-      transform: translateX(-50%);
       padding: 1.25rem 0;
       text-align: center;
-      @include z-depth(8);
-
-      &::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        top: -12px;
+      
+      @include media-breakpoint-up(lg) {
+        top: calc(100% + 5px);
         left: 50%;
         transform: translateX(-50%);
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 0 15px 15px 15px;
-        border-color: transparent transparent $white transparent;
-        // filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+        @include z-depth(8);
+
+        &::before {
+          content: '';
+          position: absolute;
+          z-index: -1;
+          top: -12px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 15px 15px 15px;
+          border-color: transparent transparent $white transparent;
+          // filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+        }
       }
     }
 

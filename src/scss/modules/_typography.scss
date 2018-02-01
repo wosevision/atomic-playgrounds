@@ -1,0 +1,16 @@
+.list-seperator {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  > li {
+    display: inline-block;
+
+    &:not(:last-child) {
+      &::after {
+        content: ' | ';
+        padding: 0 0.5em;
+      }
+    }
+  }
+}
