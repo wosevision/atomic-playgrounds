@@ -6,10 +6,10 @@ import {
   TimelineLite
 } from 'gsap';
 import $ from 'jquery';
-import Swiper from 'swiper';
 
 import MEDIA, { MediaAwareListener } from './media-query';
 import SVG, { Animator } from './animation';
+import SLIDERS, { LogoSlider, CardsSlider } from './sliders';
 
 window.jQuery = window.jQuery || $;
 import 'bootstrap';
@@ -19,35 +19,12 @@ import 'bootstrap';
  * Ready to initialize.
  */
 $(document).ready(() => {
-  const SWIPER = '.swiper-container';
-  const LOGO_SLIDER = `${SWIPER}.logo-slider`;
-  const logoSlider = new Swiper(LOGO_SLIDER, {
-    autoplay: { delay: 0 },
-    freeMode: true,
-    slidesPerView: 6,
-    spaceBetween: 50,
-    speed: 3000,
-    breakpoints: {
-      992: {
-        slidesPerView: 5,
-        spaceBetween: 40,
-      },
-      768: {
-        slidesPerView: 4,
-        spaceBetween: 30,
-      },
-      576: {
-        slidesPerView: 2,
-        spaceBetween: 20,
-      }
-    },
-    lazy: true,
-    loop: true,
-    navigation: {
-      nextEl: `${LOGO_SLIDER} .swiper-button-next`,
-      prevEl: `${LOGO_SLIDER} .swiper-button-prev`,
-    }
-  });
+  if ($(SLIDERS.LOGO_SLIDER).length) {
+    const logoSlider = new LogoSlider();
+  }
+  if ($(SLIDERS.CARDS_SLIDER).length) {
+    const cardsSlider = new CardsSlider();
+  }
 });
 
 /**

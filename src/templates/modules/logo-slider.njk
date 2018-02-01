@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-12">
-    <!-- Slider main container -->
+    <!-- container -->
     <div class="swiper-container logo-slider">
-      <!-- Additional required wrapper -->
+      <!-- wrapper -->
       <div class="swiper-wrapper">
-        <!-- Slides -->
+        <!-- slides -->
         {% for slide in module.slides %}
           {% for i in range(0, 12) -%}
           <div class="swiper-slide">
@@ -14,11 +14,10 @@
           </div>
           {%- endfor %}
         {% endfor %}
+        <!-- / slides -->
       </div>
-
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+      <!-- / wrapper -->
     </div>
+    <!-- / container -->
   </div>
 </div>

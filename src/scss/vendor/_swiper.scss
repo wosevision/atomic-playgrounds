@@ -7,22 +7,25 @@
 
     &.logo-slider {
       margin-bottom: 8rem;
+
+      .swiper-slide {
+        max-height: calc(100vw / 2);
+        @include media-breakpoint-up(sm) {
+          max-height: calc(100vw / 4);
+        }
+        @include media-breakpoint-up(md) {
+          max-height: calc(100vw / 5);
+        }
+        @include media-breakpoint-up(lg) {
+          max-height: calc(100vw / 6);
+        }
+      }
     }
   }
   &-slide {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: calc(100vw / 2);
-    @include media-breakpoint-up(sm) {
-      max-height: calc(100vw / 4);
-    }
-    @include media-breakpoint-up(md) {
-      max-height: calc(100vw / 5);
-    }
-    @include media-breakpoint-up(lg) {
-      max-height: calc(100vw / 6);
-    }
 
     img {
       max-width: 100%;

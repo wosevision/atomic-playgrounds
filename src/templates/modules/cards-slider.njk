@@ -1,7 +1,18 @@
 <div class="row justify-content-center card-container card-container-circle card-large">
-  {% for card in module.cards %}
-    <div class="col-lg-8">
-      {% include "modules/card.njk" %}
+  <div class="swiper-container cards-slider">
+    <div class="swiper-wrapper">
+      {% for card in module.cards %}
+        {% for i in range(0, 4) -%}
+          <div class="swiper-slide">
+            <div class="col-lg-8">
+              {% include "modules/card.njk" %}
+            </div>
+          </div>
+        {% endfor %}
+      {% endfor %}
     </div>
-  {% endfor %}
+    <div class="swiper-pagination"></div>
+    {# <div class="swiper-button-prev"></div> #}
+    {# <div class="swiper-button-next"></div> #}
+  </div>
 </div>
