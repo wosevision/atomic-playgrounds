@@ -19,7 +19,10 @@
     {% if card.linkText %}
     <a href="{{ card.link }}" class="btn btn-primary">{{ card.linkText }}</a>
     {% else %}
-    <a href="{{ card.link }}" class="card-button"></a>
+    <a href="{{ card.link }}" class="card-button">
+      <span class="button-icon">&gt;</span>
+      <span class="button-hidden-text">Go</span>
+    </a>
     {% endif %}
     {% if card.hover %}
     <svg class="card-hover" viewBox="0 0 400 400" preserveAspectRatio="xMinYMin slice">

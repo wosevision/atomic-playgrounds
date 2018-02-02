@@ -57,14 +57,55 @@
   }
 
   &-button {
+    position: relative;
     align-self: flex-end;
     margin-top: 0.5rem;
     height: 1.75rem;
-    width: 1.75rem;
+    max-width: 1.75rem;
+    min-width: 1.75rem;
     border: solid 2px $white;
-    border-radius: 50%;
+    border-radius: 1.75rem;
     @include z-depth(4);
     background-color: $mikado-yellow;
+    color: $white;
+    overflow: hidden;
+    transition: 0.25s ease-in-out;
+    
+    &:hover {
+      max-width: 300px;
+      color: $white;
+      text-decoration: none;
+
+      .button-icon {
+        transform: translate(150%, -50%);
+        visibility: hidden;
+        transition: 0.1s ease-in-out;
+      }
+
+      .button-hidden-text {
+        margin: 0 0.5em;
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        transition: 0.15s ease-in-out;
+      }
+    }
+    
+    .button-icon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: 0.1s 0.25s ease-in-out;
+    }
+    
+    .button-hidden-text {
+      display: inline-block;
+      transform: translateX(-150%);
+      opacity: 0; 
+      transition: 0.3s 0.1s ease-in-out;
+      visibility: hidden;
+    }
   }
 
   &-form {
