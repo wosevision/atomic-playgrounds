@@ -21,6 +21,11 @@
     height: 200px;
     background-size: cover;
     background-position: center;
+    background-color: $mikado-yellow;
+
+    @include media-breakpoint-down(sm) {
+      height: 150px;
+    }
 
     &-top & {
       border-bottom-left-radius: 0;
@@ -116,6 +121,13 @@
   &-featured {
     .card-img {
       height: 400px;
+
+      @include media-breakpoint-down(md) {
+        height: 250px;
+      }
+      @include media-breakpoint-down(sm) {
+        height: 150px;
+      }
     }
   }
 
@@ -150,6 +162,7 @@
       &-img {
         height: $card-circle-height;
         width: $card-circle-height;
+        transform-origin: bottom center;
         border-radius: 50%;
         border: solid 4px $white;
         @include z-depth(3);
