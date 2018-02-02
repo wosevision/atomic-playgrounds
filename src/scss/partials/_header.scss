@@ -15,8 +15,9 @@ header {
   flex-direction: column;
   bottom: -$spacer;
   padding: $spacer / 2;
-  margin-top: -$spacer * 2;
-  border-radius: map-get($logo-border-radius, outer);
+  margin-top: -$spacer * 2.5;
+  border-bottom-left-radius: map-get($logo-border-radius, outer);
+  border-bottom-right-radius: map-get($logo-border-radius, outer);
   background: $white;
   @include z-depth-transition;
   @include z-depth(8);
