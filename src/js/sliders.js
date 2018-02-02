@@ -1,4 +1,5 @@
 import Swiper from 'swiper';
+import $ from 'jquery';
 
 export const CONTAINER = '.swiper-container';
 export const PAGINATION = '.swiper-pagination';
@@ -48,18 +49,26 @@ export class CardsSlider extends Swiper {
       const grabbedIndex = this.activeIndex;
       const grabbedSlide = this.slides[grabbedIndex];
       const slideImg = grabbedSlide.querySelector('.card-img');
+      const contentBlock = $(slideImg).closest('.content-block')[0];
 
       slideImg.style.transition = null;
       const onProgress = (progress) => {
         const numOfSlides = this.slides.length;
         const activeProgress = (progress * (numOfSlides - 1)) - grabbedIndex;
-        slideImg.style.transform = `translateX(${ activeProgress * 100 }%)`;
+        slideImg.style.transform = `
+            translateX(${ activeProgress * -100 }%)
+            translateY(${ Math.abs(activeProgress * 100) * -1 }px)
+            translateZ(${ Math.abs(activeProgress * 200) }px)
+            rotateY(${ activeProgress * 180 }deg)
+          `;
+        slideImg.style.opacity = 1 - Math.abs(activeProgress);
+        contentBlock.style.backgroundPosition = `${ 50 * activeProgress }%`
       };
 
       this.on('progress', onProgress);
       this.on('touchEnd', () => {
-        slideImg.style.transition = 'transform 0.6s ease-in-out';
-        slideImg.style.transform = null;
+        slideImg.style.transition = '0.6s ease-in-out';
+        slideImg.style.transform = slideImg.style.opacity = null;
         this.off('progress', onProgress);
       });
     });

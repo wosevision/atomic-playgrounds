@@ -21,11 +21,19 @@
         }
       }
     }
+
+    &.cards-slider {
+      overflow: visible;
+    }
   }
   &-slide {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .card-img-top {
+      perspective: 400px;
+    }
 
     img {
       max-width: 100%;
