@@ -11,6 +11,10 @@
     .card-category {
       color: $white;
     }
+
+    .btn-primary {
+      background-color: theme-color-level('primary', 2)
+    }
   }
 
   &-img {
