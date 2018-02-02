@@ -1,5 +1,6 @@
 .content-block {
   position: relative;
+  z-index: 1;
   padding: 100px 0 50px;
   background-color: $white;
   background-size: cover;
@@ -68,5 +69,17 @@
       height: 100%;
       background-color: rgba($white, 0.6)
     }
+  }
+
+  .block-illustration-bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    mix-blend-mode: multiply;
   }
 }

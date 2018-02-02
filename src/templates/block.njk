@@ -8,5 +8,8 @@
       {% endfor %}
     {% endif %}
   </div>
+  {% if block.illustrationBg %}
+  <div class="block-illustration-bg" style="background-image: url({{ block.illustrationBg }});"></div>
+  {% endif %}
 </section>
 {% endmacro %}
