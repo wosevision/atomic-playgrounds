@@ -7,6 +7,30 @@ import {
 } from 'gsap';
 import $ from 'jquery';
 
+import fontawesome from '@fortawesome/fontawesome';
+
+import {
+  faArrowRight,
+  faComment,
+  faQuestion
+} from '@fortawesome/fontawesome-free-solid';
+import {
+  faFacebookF,
+  faYoutube,
+  faInstagram,
+  faSkype,
+} from '@fortawesome/fontawesome-free-brands';
+
+[
+  faArrowRight,
+  faComment,
+  faQuestion,
+  faFacebookF,
+  faYoutube,
+  faInstagram,
+  faSkype,
+].forEach(icon => fontawesome.library.add(icon));
+
 import MEDIA, { MediaAwareListener } from './media-query';
 import SVG, { Animator } from './animation';
 import SLIDERS, { LogoSlider, CardsSlider } from './sliders';
