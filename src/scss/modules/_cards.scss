@@ -97,10 +97,13 @@
     }
     
     .button-icon {
+      display: flex;
+      align-items: center;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+      font-size: 0.875rem;
       transition: 0.1s 0.25s ease-in-out;
     }
     
@@ -260,6 +263,7 @@
         width: 60px;
         border-radius: 50%;
         background-color: $white;
+        font-size: 2.25rem;
         color: theme-color("primary");
         @include z-depth(3);
       }

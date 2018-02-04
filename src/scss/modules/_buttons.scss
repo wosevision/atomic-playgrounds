@@ -15,12 +15,14 @@
     box-shadow: none;
   }
   &-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     height: 2.75rem;
     width: 2.75rem;
     border-radius: 2.75rem;
-    text-align: center;
   }
   @each $color, $value in $theme-colors {
     &-#{$color},
