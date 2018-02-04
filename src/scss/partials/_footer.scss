@@ -9,11 +9,13 @@
   clip-path: url(#wavy-line-1);
 
   a {
+    border-bottom: dashed 1px transparent;
     color: $white;
     text-decoration: none;
     
     &:hover {
-      color: $apple-tint-1;
+      border-bottom: dashed 1px;
+      color: $mikado-yellow-tint-1;
       text-decoration: none;
     }
   }
@@ -59,16 +61,13 @@
       margin-right: 0.75rem;
     }
   }
-  
-  .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2.875rem;
-    width: 2.875rem;
-    border-radius: 50%;
-    background-color: $mikado-yellow;
-    color: $white;
-    line-height: 1;
+
+  .btn-icon {
+    border-bottom: none;
+
+    &:hover {
+      color: $white;
+      border-bottom: none;
+    }
   }
 }

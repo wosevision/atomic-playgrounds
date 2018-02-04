@@ -14,6 +14,14 @@
   &-outline-link {
     box-shadow: none;
   }
+  &-icon {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    height: 2.75rem;
+    width: 2.75rem;
+    border-radius: 2.75rem;
+    text-align: center;
+  }
   @each $color, $value in $theme-colors {
     &-#{$color},
     &-outline-#{$color} {
