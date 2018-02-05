@@ -45,6 +45,9 @@ header {
 }
 
 .navbar {
+  position: absolute;
+  left: 0;
+  right: 0;
   padding-bottom: 0;
   max-height: 125px;
   @include z-depth(6);
