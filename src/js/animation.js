@@ -16,6 +16,7 @@ export class Animator {
   from(duration, opts) { TweenMax.from(this.el, duration, opts); return this; }
   to(duration, opts) { TweenMax.to(this.el, duration, opts); return this; }
   fromTo(duration, opts) { TweenMax.fromTo(this.el, duration, opts); return this; }
+  kill() { TweenMax.killTweensOf(this.el); }
 }
 
 export default {

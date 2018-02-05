@@ -6,23 +6,40 @@ export class MediaAwareListener {
      * Map of function arrays by media query.
      * @example { '(min-width: 576px)': [fn, ...], ... }
      */
-    this.fnMap = new Map();
+    this.matchFnMap = new Map();
+    this.unmatchFnMap = new Map();
 
     this.matchMedia = window.matchMedia.bind(window);
 
-    const reInit = debounce(this.checkAll, 400).bind(this);
-    $(window).on('resize load', reInit);
+    const check = debounce(this.checkAll, 400).bind(this);
+    $(window).on('resize', check);
+    check();
   }
-  on(mq, fn) {
-    this.fnMap.set(mq, [...(this.fnMap[mq] || []), fn]);
-  }
-  checkAll() {
-    for (const [mq, fnList] of this.fnMap) {
-      this.checkMatchMedia(mq, fnList);
+  /**
+   *
+   * @param {string} mq A CSS media query value
+   * @param {function} fn Handler to call on match
+   * @param {function} [offFn] Handler to call on unmatch
+   */
+  on(mq, matchFn, unmatchFn) {
+    this.matchFnMap.set(mq, [...(this.matchFnMap[mq] || []), matchFn]);
+    if (unmatchFn && unmatchFn instanceof Function) {
+      this.unmatchFnMap.set(mq, [...(this.unmatchFnMap[mq] || []), unmatchFn]);
     }
   }
-  checkMatchMedia(mq, fnList) {
-    this.matchMedia(mq).matches && fnList.forEach(fn => fn());
+  checkAll() {
+    for (const [mq, fnList] of this.matchFnMap) {
+      this.checkMatchMedia(mq, fnList);
+    }
+    for (const [mq, fnList] of this.unmatchFnMap) {
+      this.checkMatchMedia(mq, fnList, true);
+    }
+  }
+  checkMatchMedia(mq, fnList, unmatch = false) {
+    ( unmatch
+      ? !this.matchMedia(mq).matches
+      : this.matchMedia(mq).matches
+    ) && fnList.forEach(fn => fn());
   }
 }
 
