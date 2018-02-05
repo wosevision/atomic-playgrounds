@@ -34,7 +34,7 @@ const rocketBezier = { values: SVG.ROCKET_PATH_BEZIER, type: 'cubic', autoRotate
 rocketAnimator.set({ opacity: 0 });
 rocketPathAnimator.set({ opacity: 0 })
 
-const mq = new MediaAwareListener(window, $);
+const mq = new MediaAwareListener();
 
 /**
  * Banner image loaded - ready for animation

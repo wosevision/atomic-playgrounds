@@ -1,7 +1,8 @@
+import $ from 'jquery';
 import { debounce } from './utils';
 
 export class MediaAwareListener {
-  constructor(window, $) {
+  constructor() {
     /**
      * Map of function arrays by media query.
      * @example { '(min-width: 576px)': [fn, ...], ... }
