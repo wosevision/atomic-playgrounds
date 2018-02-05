@@ -7,11 +7,11 @@
   background-position: 50%;
 
   // &:not(:last-of-type) {
-		padding-bottom: 100px;
+		padding-bottom: 120px;
 	// }
 	
 	&:not(:first-of-type) {
-    margin-top: -50px;
+    margin-top: -7%;
     
     &:nth-child(odd) {
       clip-path: url(#wavy-line-1);
@@ -24,6 +24,10 @@
   &-title {
     color: $cool-blue;
     margin-bottom: 4rem;
+    
+    @include media-breakpoint-down(md) {
+      margin-bottom: 2.5rem;
+    }
   }
 
   &.blue,
