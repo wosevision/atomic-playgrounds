@@ -5,24 +5,41 @@
   position: relative;
   z-index: 0;
   &-moon {
+    &-svg-container {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      @include media-breakpoint-up(sm) {
+        padding-top: 100%;
+      }
+      @include media-breakpoint-down(xs) {
+        height: 100%;
+      }
+    }
+    &-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+
+      @include media-breakpoint-down(xs) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
     .jumbotron {
+      position: relative;
+      padding: 25% 4rem;
       background-color: transparent;
-      background-image: url(../img/moon.svg);
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: 50%;
+      // background-image: url(../img/moon.svg);
+      // background-size: contain;
+      // background-repeat: no-repeat;
+      // background-position: 50%;
       text-align: center;
       border-radius: 2000px;
-      padding: 0;
-      @include media-breakpoint-up(sm) {
-        padding: 5rem;
-      }
-      @include media-breakpoint-up(md) {
-        padding: 3rem;
-      }
-      @include media-breakpoint-up(lg) {
-        padding: 6rem;
-      }
     }
     .container {
       position: relative;
