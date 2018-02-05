@@ -75,24 +75,26 @@
     color: $white;
     overflow: hidden;
     transition: 0.25s ease-in-out;
-    
-    &:hover {
-      max-width: 300px;
-      color: $white;
-      text-decoration: none;
 
-      .button-icon {
-        transform: translate(150%, -50%);
-        visibility: hidden;
-        transition: 0.1s ease-in-out;
-      }
+    @include media-breakpoint-up(lg) {
+      &:hover {
+        max-width: 300px;
+        color: $white;
+        text-decoration: none;
 
-      .button-hidden-text {
-        margin: 0 0.5em;
-        transform: translateX(0);
-        opacity: 1;
-        visibility: visible;
-        transition: 0.15s ease-in-out;
+        .button-icon {
+          transform: translate(150%, -50%);
+          visibility: hidden;
+          transition: 0.1s ease-in-out;
+        }
+
+        .button-hidden-text {
+          margin: 0 0.5em;
+          transform: translateX(0);
+          opacity: 1;
+          visibility: visible;
+          transition: 0.15s ease-in-out;
+        }
       }
     }
     

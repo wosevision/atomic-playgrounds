@@ -9,17 +9,19 @@
   width: 100%;
   color: $daisy-bush;
 
-  &:hover {
-    .rocket {
-      animation-name: launch;
-      animation-duration: 2s;
-      animation-fill-mode: forwards;
-    }
-    .rocket-bubbles {
-      opacity: 0;
-      
-      path {
-        transform: scale(1.4) translateY(5px);
+  @include media-breakpoint-up(lg) {
+    &:hover {
+      .rocket {
+        animation-name: launch;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+      }
+      .rocket-bubbles {
+        opacity: 0;
+        
+        path {
+          transform: scale(1.4) translateY(5px);
+        }
       }
     }
   }
@@ -66,10 +68,12 @@
   transform-origin: bottom center;
   color: $grey;
 
-  &:hover {
-    animation-name: bounce;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+  @include media-breakpoint-up(lg) {
+    &:hover {
+      animation-name: bounce;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+    }
   }
 
   &-container {

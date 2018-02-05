@@ -81,5 +81,9 @@
     background-size: cover;
     background-position: center center;
     mix-blend-mode: multiply;
+
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
   }
 }
