@@ -16,6 +16,7 @@ import brands from '@fortawesome/fontawesome-free-brands';
 import MEDIA, { MediaAwareListener } from './media-query';
 import SVG, { Animator } from './animation';
 import SLIDERS, { LogoSlider, CardsSlider } from './sliders';
+import { NavigationBar } from './navigation';
 
 window.jQuery = window.jQuery || $;
 $.fn.waitForImages = $.fn.waitForImages || waitForImages;
@@ -76,6 +77,8 @@ $(document).ready(() => {
   if ($(SLIDERS.CARDS_SLIDER).length) {
     const cardsSlider = new CardsSlider();
   }
+  const NAVIGATION_BAR = document.getElementById('navigation-bar');
+  const navigationBar = new NavigationBar(NAVIGATION_BAR, 400);
 });
 
 // $('.card-hover').on('mouseenter', function() {
