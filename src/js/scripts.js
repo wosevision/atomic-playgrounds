@@ -6,38 +6,18 @@ import {
   TimelineLite
 } from 'gsap';
 import $ from 'jquery';
+import 'bootstrap';
 
 import fontawesome from '@fortawesome/fontawesome';
-
-import {
-  faArrowRight,
-  faComment,
-  faQuestion
-} from '@fortawesome/fontawesome-free-solid';
-import {
-  faFacebookF,
-  faYoutube,
-  faInstagram,
-  faSkype,
-} from '@fortawesome/fontawesome-free-brands';
-
-[
-  faArrowRight,
-  faComment,
-  faQuestion,
-  faFacebookF,
-  faYoutube,
-  faInstagram,
-  faSkype,
-].forEach(icon => fontawesome.library.add(icon));
+import solid from '@fortawesome/fontawesome-free-solid';
+import brands from '@fortawesome/fontawesome-free-brands';
 
 import MEDIA, { MediaAwareListener } from './media-query';
 import SVG, { Animator } from './animation';
 import SLIDERS, { LogoSlider, CardsSlider } from './sliders';
 
 window.jQuery = window.jQuery || $;
-import 'bootstrap';
-
+fontawesome.library.add(solid, brands);
 
 /**
  * Ready to initialize.
