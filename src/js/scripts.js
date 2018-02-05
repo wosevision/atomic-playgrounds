@@ -93,3 +93,11 @@ $(document).ready(() => {
 //     }
 //   })
 // });
+
+$('#btnNext').on('click', function(e) {
+  e.preventDefault();
+  let stepContainer = this.parentNode;
+  stepContainer.classList.add('inactive');
+  stepContainer.classList.remove('active');
+  stepContainer.nextElementSibling.classList.add('active');
+})

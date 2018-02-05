@@ -42,8 +42,8 @@
     &::after {
       content: '';
       @extend %decor;
-      height: 2px;
-      transform: scaleX(0);
+      height: 3px;
+      transform: scaleY(0);
       // transform-origin: left center;
       background-color: $primary-color-tint-1;
       transition: 0.3s;
@@ -74,9 +74,40 @@
 
     + .form-control-decor {
       &::after {
-        transform: scaleX(1);
+        transform: scaleY(1);
         transition: 0.4s cubic-bezier(0,0.5,0.3,1.5);
       }
+    }
+  }
+}
+
+.card-form {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  // overflow: hidden;
+  
+  &-step {
+    min-width: 100%;
+    transform: translateX(100%);
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.4s ease-in-out, opacity 0.3s 0.25s;
+
+    &:not(:first-child) {
+      position: absolute;
+    }
+  
+    &.inactive {
+      transform: translateX(-100%);
+      visibility: hidden;
+      opacity: 0;
+    }
+  
+    &.active {
+      transform: translateX(0);
+      visibility: visible;
+      opacity: 1;
     }
   }
 }

@@ -38,4 +38,16 @@
       }
     }
   }
+  &-white {
+    box-shadow: 0 0.125rem 0 0 theme-color-level('primary', 2);
+    color: theme-color('primary');
+    &:hover {
+      box-shadow: 0 0.2rem 0 0 theme-color-level('primary', 3);
+      transform: translateY(-0.075rem);
+    }
+    &:active {
+      box-shadow: none;
+      transform: translateY(0.125rem);
+    }
+  }
 }
