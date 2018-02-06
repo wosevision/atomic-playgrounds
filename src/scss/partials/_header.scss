@@ -276,6 +276,11 @@ header {
       svg {
         padding: 0;
         border: none;
+        &:hover #rocket {
+          animation-name: launch;
+          animation-duration: 2s;
+          animation-fill-mode: forwards;
+        }
       }
     }
     @include media-breakpoint-up(lg) {
