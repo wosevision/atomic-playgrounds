@@ -6,10 +6,10 @@
       <div class="swiper-wrapper">
         <!-- slides -->
         {% for slide in module.slides %}
-          {% for i in range(0, 12) -%}
+          {% for i in range(1, 7) -%}
           <div class="swiper-slide">
             <a href="{{ slide.link }}" title="{{ slide.title }}">
-              <img data-src="{{ slide.image + i }}" alt="{{ slide.alt }}" class="swiper-lazy">
+              <img data-src="{{ slide.image + i }}.jpg" alt="{{ slide.alt }}" class="swiper-lazy">
             </a>
           </div>
           {%- endfor %}
