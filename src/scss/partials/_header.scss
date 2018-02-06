@@ -263,9 +263,6 @@ header {
   }
 
   &-scrolled {
-    .nav-link-icon, .nav-secondary-items {
-      display: none;
-    }
     .nav-logo {
       max-width: 50px;
       margin: 0;
@@ -279,6 +276,14 @@ header {
       svg {
         padding: 0;
         border: none;
+      }
+    }
+    @include media-breakpoint-up(lg) {
+      .nav-secondary-items {
+        display: none;
+      }
+      .nav-link-icon {
+        display: none;
       }
     }
   }
