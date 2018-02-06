@@ -8,7 +8,7 @@
         {% for slide in module.slides %}
           {% for i in range(1, 7) -%}
           <div class="swiper-slide">
-            <a href="{{ slide.link }}" title="{{ slide.title }}">
+            <a href="{{ slide.link }}" target="_blank" title="{{ slide.title }}">
               <img data-src="{{ slide.image + i }}.jpg" alt="{{ slide.alt }}" class="swiper-lazy">
             </a>
           </div>
