@@ -1,14 +1,19 @@
 .content-block {
   position: relative;
   z-index: 1;
-  padding: 100px 0 50px;
+  padding: 100px 0 140px;
   background-color: $white;
   background-size: cover;
   background-position: 50%;
+      
+  @include media-breakpoint-down(md) {
+    padding: 90px 0 120px;
+  }
+  @include media-breakpoint-down(sm) {
+    padding: 60px 0 70px;
+  }
 
-  // &:not(:last-of-type) {
-		padding-bottom: 120px;
-	// }
+  
 	
 	&:not(:first-of-type) {
     margin-top: -7%;

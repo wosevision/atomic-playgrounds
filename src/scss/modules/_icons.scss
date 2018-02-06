@@ -2,10 +2,17 @@
   .icon-wrapper {
     margin-bottom: 0.5rem;
     color: gray('500');
+    transition: 0.3s;
   }
 
   .icon-col {
-    margin-bottom: $grid-gutter-width;
+    margin-bottom: $grid-gutter-width + 20px;
+
+    &:hover {
+      .icon-wrapper {
+        color: theme-color('primary');
+      }
+    }
   }
 
   .icon {
