@@ -3,7 +3,8 @@
   margin-bottom: $grid-gutter-width;
   border: none;
   @include z-depth(6);
-  @include z-depth-transition();
+  // @include z-depth-transition();
+  transition: $z-depth-transition, background-color 0.3s;
 
   &:hover {
     @include z-depth(16);
@@ -184,6 +185,13 @@
       &-body {
         padding-top: $card-circle-height - $card-circle-offset + 10;
         background-color: $white;
+      }
+
+      &.border-dashed {
+        &:hover {
+          border-color: $white;
+          background-color: theme-color("primary");
+        }
       }
     }
 
