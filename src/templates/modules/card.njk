@@ -1,4 +1,4 @@
-<div class="card{% if card.featured %} card-featured{% endif %}">
+<div class="card{% if card.class %} {{ card.class }}{% endif %}">
   <div class="card-img-top">
     <div class="card-img" style="background-image: url({{ card.image }})"></div>
   </div>
