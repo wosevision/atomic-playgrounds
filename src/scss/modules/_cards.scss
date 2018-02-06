@@ -189,8 +189,11 @@
 
       &.border-dashed {
         &:hover {
-          border-color: $white;
           background-color: theme-color("primary");
+          
+          .card-body {
+            border-color: $white;
+          }
         }
       }
     }
@@ -294,7 +297,13 @@
     padding: 0.75rem;
 
     .card-body {
-      border: 1px dashed currentColor;
+      border: 1px dashed $apple-tint-2;
+    }
+
+    &.bg-primary {
+      .card-body {
+        border: 1px dashed currentColor;
+      }
     }
   }
 
