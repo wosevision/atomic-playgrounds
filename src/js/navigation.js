@@ -26,13 +26,13 @@ export class NavigationBar {
   }
   handleScroll(event) {
     const scrollTop = document.body.scrollTop;
-    if (!this.navScrolled && document.body.scrollTop >= this.offset) {
+    if (!this.navScrolled && scrollTop >= this.offset) {
       this.navScrolled = true;
       this.show();
     }
     if (this.navScrolled) {
-      if (document.body.scrollTop === 0) {
-        this.attach();
+      if (scrollTop < this.offset) {
+        this.hide(() => this.attach());
         this.navScrolled = false;
       } else if (!this.hideDelay && this.navVisible && this.lastPosition < scrollTop) {
         this.hide();
@@ -42,8 +42,8 @@ export class NavigationBar {
     }
     this.lastPosition = scrollTop;
   }
-  show() {
-    this.el.classList.add('navbar-scrolled');
+  show(onComplete) {
+    this.el.classList.add(NavigationBar.SCROLLED_CLASS);
     TweenMax.set(this.el, {
       transformOrigin: '50% 0',
       rotationX: 70,
@@ -53,28 +53,31 @@ export class NavigationBar {
     TweenMax.to(this.el, 1, {
       ease: Bounce.easeOut,
       y: '0%',
-      rotationX: 0
+      rotationX: 0,
+      onComplete
     });
     this.navVisible = true;
     this.hideDelay = setTimeout(() => this.hideDelay = null, 3000);
     this._onShow && this._onShow();
   }
-  hide() {
+  hide(onComplete) {
     TweenMax.to(this.el, 1, {
       ease: Back.easeOut.config(4),
-      rotationX: 90
+      rotationX: 90,
+      onComplete
     });
     this.navVisible = false;
     this._onHide && this._onHide();
   }
-  attach() {
+  attach(onComplete) {
     TweenMax.to(this.el, 1, {
       ease: Bounce.easeOut,
       y: '0%',
       rotationX: 0,
-      position: 'absolute'
+      position: 'absolute',
+      onComplete
     });
-    this.el.classList.remove('navbar-scrolled');
+    this.el.classList.remove(NavigationBar.SCROLLED_CLASS);
     this._onAttach && this._onAttach();
   }
   onShow(callback) {
@@ -87,3 +90,5 @@ export class NavigationBar {
     this._onAttach = callback;
   }
 }
+
+NavigationBar.SCROLLED_CLASS = 'navbar-scrolled';
