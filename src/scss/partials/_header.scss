@@ -261,4 +261,25 @@ header {
       border-top: 1px dashed gray('400');
     }
   }
+
+  &-scrolled {
+    .nav-link-icon, .nav-secondary-items {
+      display: none;
+    }
+    .nav-logo {
+      max-width: 50px;
+      margin: 0;
+      padding: 0;
+      bottom: initial;
+      top: -0.25rem;
+      box-shadow: none;
+      #atomic, #playgrounds, #funner {
+        display: none;
+      }
+      svg {
+        padding: 0;
+        border: none;
+      }
+    }
+  }
 }

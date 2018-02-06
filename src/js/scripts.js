@@ -78,7 +78,10 @@ $(document).ready(() => {
     const cardsSlider = new CardsSlider();
   }
   const NAVIGATION_BAR = document.getElementById('navigation-bar');
+  const NAV_LOGO = document.querySelector('.nav-logo svg');
   const navigationBar = new NavigationBar(NAVIGATION_BAR, 400);
+  navigationBar.onShow(() => NAV_LOGO.setAttribute('viewBox', '0 0 130 130'));
+  navigationBar.onAttach(() => NAV_LOGO.setAttribute('viewBox', '0 0 370 130'))
 });
 
 // $('.card-hover').on('mouseenter', function() {
