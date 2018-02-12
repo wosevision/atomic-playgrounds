@@ -12,18 +12,17 @@ export const NAVBAR_LOGO = '.nav-logo';
 
 export function swingDown(el, backwards = false) {
   TweenMax.set(el, {
-    y: '-100%',
+    // y: '-100%',
     rotationX: backwards ? -90 : 90,
     transformOrigin: '50% 0%'
   });
-  TweenMax.to(el, 1.5, {
-    ease: Bounce.easeOut,
-    y: '0%'
-  });
+  // TweenMax.to(el, 1.5, {
+  //   ease: Bounce.easeOut,
+  //   y: '0%'
+  // });
   TweenMax.to(el, 2.5, {
     ease: Elastic.easeOut.config(1, 0.3),
-    rotationX: 0,
-    delay: 0.5
+    rotationX: 0
   });
 }
 
