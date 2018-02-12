@@ -303,6 +303,10 @@
         color: theme-color("primary");
         @include z-depth(3);
       }
+
+      &-icon-svg {
+        height: 40px;
+      }
    
       &-icon-title {
         margin-top: 1rem;
