@@ -7,9 +7,17 @@ import {
 } from 'gsap';
 import $ from 'jquery';
 
+export const NAVBAR_EL = '#navigation-bar';
+export const NAVBAR_LOGO = '.nav-logo';
+
 export class NavigationBar {
-  constructor(el, offset) {
-    this.el = el;
+  constructor(elSelector, {
+    logoSelector = null,
+    offset = 0
+  } = {}) {
+    this.el = document.querySelector(elSelector);
+    this.logo = document.querySelector(logoSelector);
+    this.svg = this.logo.querySelector('svg');
     this.offset = offset;
 
     this.navScrolled = false;
@@ -17,10 +25,6 @@ export class NavigationBar {
 
     this.hideDelay = null;
     this.lastPosition = 0;
-
-    this._onShow = null;
-    this._onHide = null;
-    this._onAttach = null;
 
     $(document.body).scroll(event => this.handleScroll(event));
   }
@@ -58,7 +62,7 @@ export class NavigationBar {
     });
     this.navVisible = true;
     this.hideDelay = setTimeout(() => this.hideDelay = null, 3000);
-    this._onShow && this._onShow();
+    this.svg.setAttribute('viewBox', '0 0 130 130');
   }
   hide(onComplete) {
     TweenMax.to(this.el, 1, {
@@ -67,9 +71,22 @@ export class NavigationBar {
       onComplete
     });
     this.navVisible = false;
-    this._onHide && this._onHide();
   }
   attach(onComplete) {
+    TweenMax.set(this.logo, {
+      y: '-100%',
+      rotationX: 90,
+      transformOrigin: '50% 0%'
+    });
+    TweenMax.to(this.logo, 1.5, {
+      ease: Bounce.easeOut,
+      y: '0%'
+    });
+    TweenMax.to(this.logo, 2.5, {
+      ease: Elastic.easeOut.config(1, 0.3),
+      rotationX: 0,
+      delay: 0.5
+    });
     TweenMax.to(this.el, 1, {
       ease: Bounce.easeOut,
       y: '0%',
@@ -78,17 +95,13 @@ export class NavigationBar {
       onComplete
     });
     this.el.classList.remove(NavigationBar.SCROLLED_CLASS);
-    this._onAttach && this._onAttach();
-  }
-  onShow(callback) {
-    this._onShow = callback;
-  }
-  onHide(callback) {
-    this._onHide = callback;
-  }
-  onAttach(callback) {
-    this._onAttach = callback;
+    this.svg.setAttribute('viewBox', '0 0 370 130');
   }
 }
 
 NavigationBar.SCROLLED_CLASS = 'navbar-scrolled';
+
+export default {
+  NAVBAR_EL,
+  NAVBAR_LOGO
+};

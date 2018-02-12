@@ -14,9 +14,9 @@ import solid from '@fortawesome/fontawesome-free-solid';
 import brands from '@fortawesome/fontawesome-free-brands';
 
 import MEDIA, { MediaAwareListener } from './media-query';
-import SVG, { Animator } from './animation';
-import SLIDERS, { LogoSlider, CardsSlider } from './sliders';
-import { NavigationBar } from './navigation';
+import svg, { Animator } from './animation';
+import sliders, { LogoSlider, CardsSlider } from './sliders';
+import nav, { NavigationBar } from './navigation';
 
 import { debounce } from './utils';
 
@@ -33,11 +33,11 @@ const ROCKET_SHIP = document.getElementById('rocket_ship');
 const ROCKET_SHIP_PATH = document.getElementById('rocket_ship_path');
 const rocketAnimator = new Animator(ROCKET_SHIP);
 const rocketPathAnimator = new Animator(ROCKET_SHIP_PATH);
-const rocketBezier = { values: SVG.ROCKET_PATH_BEZIER, type: 'cubic', autoRotate: true };
+const rocketBezier = { values: svg.ROCKET_PATH_BEZIER, type: 'cubic', autoRotate: true };
 rocketAnimator.set({ opacity: 0 });
 rocketPathAnimator.set({ opacity: 0 })
 
-const mq = new MediaAwareListener();
+// const mq = new MediaAwareListener();
 
 /**
  * Banner image loaded - ready for animation
@@ -71,17 +71,17 @@ $('.hero-moon')
  * Ready to initialize.
  */
 $(document).ready(() => {
-  if ($(SLIDERS.LOGO_SLIDER).length) {
+  if ($(sliders.LOGO_SLIDER).length) {
     const logoSlider = new LogoSlider();
   }
-  if ($(SLIDERS.CARDS_SLIDER).length) {
+  if ($(sliders.CARDS_SLIDER).length) {
     const cardsSlider = new CardsSlider();
   }
-  const NAVIGATION_BAR = document.getElementById('navigation-bar');
-  const NAV_LOGO = document.querySelector('.nav-logo svg');
-  const navigationBar = new NavigationBar(NAVIGATION_BAR, 400);
-  navigationBar.onShow(() => NAV_LOGO.setAttribute('viewBox', '0 0 130 130'));
-  navigationBar.onAttach(() => NAV_LOGO.setAttribute('viewBox', '0 0 370 130'))
+
+  const navigationBar = new NavigationBar(nav.NAVBAR_EL, {
+    logoSelector: nav.NAVBAR_LOGO,
+    offset: 400
+  });
 });
 
 // $('.card-hover').on('mouseenter', function() {
