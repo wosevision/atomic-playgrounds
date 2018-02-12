@@ -7,7 +7,7 @@
   transition: $z-depth-transition, background-color 0.3s;
 
   &:hover {
-    @include z-depth(16);
+    @include z-depth(24);
 
     .card-category {
       color: $white;
@@ -19,7 +19,7 @@
   }
 
   &-img {
-    height: 200px;
+    height: 220px;
     background-size: cover;
     background-position: center;
     background-color: $mikado-yellow;
@@ -127,7 +127,7 @@
 
   &-featured {
     .card-img {
-      height: 400px;
+      height: 410px;
 
       @include media-breakpoint-down(md) {
         height: 250px;
@@ -135,6 +135,10 @@
       @include media-breakpoint-down(sm) {
         height: 150px;
       }
+    }
+
+    .card-title {
+      font-size: 1.5rem;
     }
   }
 
@@ -254,6 +258,21 @@
         margin-top: -#{$card-hover-offset-spacer};
         padding-top: $card-hover-offset-spacer;
         background-color: transparent;
+      }
+    }
+  }
+
+  // FEATURED LAYOUT 
+  &-container-featured {
+    .card {
+      &:not(.card-featured) {
+        .card-img {
+          height: 150px;
+        }
+
+        .card-content {
+          padding-bottom: 0;
+        }
       }
     }
   }
