@@ -329,12 +329,16 @@
     padding: 0.75rem;
 
     .card-body {
-      border: 1px dashed $apple-tint-2;
+      // border: 1px dashed $apple-tint-2;
+      border: solid 10px transparent;
+      border-image: url(../img/border-dashed.svg) 70 round;
     }
 
     &.bg-primary {
       .card-body {
-        border: 1px dashed currentColor;
+        // border: 1px dashed currentColor;
+        border: solid 10px transparent;
+        border-image: url(../img/border-dashed.svg) 45 round;
       }
     }
   }
