@@ -18,6 +18,8 @@ import SVG, { Animator } from './animation';
 import SLIDERS, { LogoSlider, CardsSlider } from './sliders';
 import { NavigationBar } from './navigation';
 
+import { debounce } from './utils';
+
 window.jQuery = window.jQuery || $;
 $.fn.waitForImages = $.fn.waitForImages || waitForImages;
 fontawesome.library.add(solid, brands);
@@ -47,24 +49,22 @@ $('.hero-moon')
     $body.addClass('loaded');
     setTimeout(() => $body.removeClass('loading loaded'), 600);
 
-    mq.on(MEDIA.SM_UP, () => {
-      console.log('small up!')
-      moonAnimator
-        .set({ opacity: 1 })
-        .from(2, { ease: Bounce.easeOut, transformOrigin: '50% 50%', y: '-150%' })
-        .from(6, { ease: moonSwayEase, transformOrigin: '0 -150%', x: 75 })
-        .from(6, { ease: moonSwayEase, transformOrigin: '50% 0', rotationX: 15, });
+    moonAnimator
+      .set({ opacity: 1 })
+      .from(2, { ease: Bounce.easeOut, transformOrigin: '50% 50%', y: '-150%' })
+      .from(6, { ease: moonSwayEase, transformOrigin: '0 -150%', x: 75 })
+      .from(6, { ease: moonSwayEase, transformOrigin: '50% 0', rotationX: 15, });
 
-      rocketAnimator
-        .to(0.5, { opacity: 1, delay: 1.5, ease: Linear.easeNone })
-        .to(2, { bezier: rocketBezier, ease: Linear.easeNone, delay: 1.5 });
+    rocketAnimator
+      .to(0.5, { opacity: 1, delay: 1.5, ease: Linear.easeNone })
+      .to(2, { bezier: rocketBezier, ease: Linear.easeNone, delay: 1.5 });
 
-      rocketPathAnimator.to(4, { opacity: 1, delay: 2, ease: Linear.easeNone });
-    }, () => {
-      console.log('NOT small up!');
-      moonAnimator.kill();
-      rocketAnimator.kill();
-    });
+    rocketPathAnimator
+      .to(4, { opacity: 1, delay: 2, ease: Linear.easeNone });
+
+    const restartTweens = () => TweenMax.getAllTweens().map(tween => tween.restart());
+    const debouncedRestart = debounce(restartTweens);
+    $(window).on('resize', debouncedRestart);
   });
 
 /**
