@@ -32,6 +32,14 @@ header {
     border: dashed 1px gray('300');
     border-top: none;
     border-radius: map-get($logo-border-radius, inner);
+    #rocket {
+      transform-origin: bottom center;
+    }
+    &:hover #rocket {
+      animation-name: launch;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+    }
   }
 }
 
@@ -277,11 +285,6 @@ header {
       svg {
         padding: 0;
         border: none;
-        &:hover #rocket {
-          animation-name: launch;
-          animation-duration: 2s;
-          animation-fill-mode: forwards;
-        }
       }
     }
     @include media-breakpoint-up(lg) {
