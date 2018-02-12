@@ -220,6 +220,10 @@
           align-items: center;
           text-align: center;
         }
+
+        &-title {
+          font-size: 3rem;
+        }
       }
     }
   }
@@ -307,6 +311,11 @@
         text-align: center;
       }
     }
+  }
+
+
+  .btn {
+    margin-top: 1rem;
   }
 
   

@@ -6,7 +6,7 @@
     height: 100%;
 
     &.logo-slider {
-      margin-bottom: 8rem;
+      // margin-bottom: 8rem;
 
       .swiper-slide {
         max-height: calc(100vw / 2);
@@ -24,6 +24,21 @@
 
     &.cards-slider {
       overflow: visible;
+
+      .swiper-pagination {
+        bottom: -10px;
+
+        .swiper-pagination-bullet {
+          width: 1rem;
+          height: 1rem;
+          background: $white;
+          opacity: 0.6;
+        }
+        .swiper-pagination-bullet-active {
+          background: theme-color("primary");
+          opacity: 1;
+        }
+      }
     }
   }
   &-slide {
