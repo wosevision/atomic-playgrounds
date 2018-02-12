@@ -13,7 +13,7 @@ import fontawesome from '@fortawesome/fontawesome';
 import solid from '@fortawesome/fontawesome-free-solid';
 import brands from '@fortawesome/fontawesome-free-brands';
 
-import MEDIA, { MediaAwareListener } from './media-query';
+// import MEDIA, { MediaAwareListener } from './media-query';
 import svg, { Animator } from './animation';
 import sliders, { LogoSlider, CardsSlider } from './sliders';
 import nav, { NavigationBar } from './navigation';

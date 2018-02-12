@@ -10,6 +10,23 @@ import $ from 'jquery';
 export const NAVBAR_EL = '#navigation-bar';
 export const NAVBAR_LOGO = '.nav-logo';
 
+export function swingDown(el, backwards = false) {
+  TweenMax.set(el, {
+    y: '-100%',
+    rotationX: backwards ? -90 : 90,
+    transformOrigin: '50% 0%'
+  });
+  TweenMax.to(el, 1.5, {
+    ease: Bounce.easeOut,
+    y: '0%'
+  });
+  TweenMax.to(el, 2.5, {
+    ease: Elastic.easeOut.config(1, 0.3),
+    rotationX: 0,
+    delay: 0.5
+  });
+}
+
 export class NavigationBar {
   constructor(elSelector, {
     logoSelector = null,
@@ -27,6 +44,10 @@ export class NavigationBar {
     this.lastPosition = 0;
 
     $(document.body).scroll(event => this.handleScroll(event));
+
+    const dropdownMenus = document.querySelectorAll(`${elSelector} .dropdown-menu`);
+    const dropdowns = document.querySelectorAll(`${elSelector} .dropdown`);
+    $(dropdowns).on('show.bs.dropdown', () => swingDown(dropdownMenus, true))
   }
   handleScroll(event) {
     const scrollTop = document.body.scrollTop;
@@ -73,20 +94,7 @@ export class NavigationBar {
     this.navVisible = false;
   }
   attach(onComplete) {
-    TweenMax.set(this.logo, {
-      y: '-100%',
-      rotationX: 90,
-      transformOrigin: '50% 0%'
-    });
-    TweenMax.to(this.logo, 1.5, {
-      ease: Bounce.easeOut,
-      y: '0%'
-    });
-    TweenMax.to(this.logo, 2.5, {
-      ease: Elastic.easeOut.config(1, 0.3),
-      rotationX: 0,
-      delay: 0.5
-    });
+    swingDown(this.logo);
     TweenMax.to(this.el, 1, {
       ease: Bounce.easeOut,
       y: '0%',
