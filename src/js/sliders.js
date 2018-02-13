@@ -1,15 +1,11 @@
 import Swiper from 'swiper';
 import $ from 'jquery';
 
-export const CONTAINER = '.swiper-container';
-export const PAGINATION = '.swiper-pagination';
-
-export const LOGO_SLIDER = `${CONTAINER}.logo-slider`;
-export const CARDS_SLIDER = `${CONTAINER}.cards-slider`;
+import { selector } from './constants';
 
 export class LogoSlider extends Swiper {
   constructor() {
-    super(LOGO_SLIDER, {
+    super(selector.LOGO_SLIDER, {
       autoplay: { delay: 0 },
       freeMode: true,
       slidesPerView: 6,
@@ -37,11 +33,11 @@ export class LogoSlider extends Swiper {
 
 export class CardsSlider extends Swiper {
   constructor() {
-    super(CARDS_SLIDER, {
+    super(selector.CARDS_SLIDER, {
       speed: 1000,
       loop: true,
       pagination: {
-        el: PAGINATION,
+        el: selector.PAGINATION,
         dynamicBullets: true,
       }
     });
@@ -74,10 +70,3 @@ export class CardsSlider extends Swiper {
     });
   }
 }
-
-export default {
-  CONTAINER,
-  PAGINATION,
-  LOGO_SLIDER,
-  CARDS_SLIDER
-};

@@ -13,37 +13,45 @@ import fontawesome from '@fortawesome/fontawesome';
 import solid from '@fortawesome/fontawesome-free-solid';
 import brands from '@fortawesome/fontawesome-free-brands';
 
-// import MEDIA, { MediaAwareListener } from './media-query';
-import svg, { Animator } from './animation';
-import sliders, { LogoSlider, CardsSlider } from './sliders';
-import nav, { NavigationBar } from './navigation';
+import { LogoSlider, CardsSlider } from './sliders';
+import { NavigationBar } from './navigation';
 
+import { el, selector, svg } from './constants';
+import { swingDown } from './animations';
 import { debounce } from './utils';
 
 window.jQuery = window.jQuery || $;
 $.fn.waitForImages = $.fn.waitForImages || waitForImages;
 fontawesome.library.add(solid, brands);
 
-const HERO_MOON = document.querySelector('.hero-moon .jumbotron');
-const moonAnimator = new Animator(HERO_MOON);
+/**
+ * Tiny proxy class for more terse method chaining on GSAP animations
+ * that need to be applied in parallel to one element.
+ */
+class Animator {
+  constructor(el) { this.el = el; }
+  set(opts) { TweenMax.set(this.el, opts); return this; }
+  from(duration, opts) { TweenMax.from(this.el, duration, opts); return this; }
+  to(duration, opts) { TweenMax.to(this.el, duration, opts); return this; }
+  fromTo(duration, opts) { TweenMax.fromTo(this.el, duration, opts); return this; }
+  kill() { TweenMax.killTweensOf(this.el); }
+}
+
+const moonAnimator = new Animator(el.HERO_MOON);
 const moonSwayEase = Elastic.easeOut.config(3, 0.4);
 moonAnimator.set({ opacity: 0 });
 
-const ROCKET_SHIP = document.getElementById('rocket_ship');
-const ROCKET_SHIP_PATH = document.getElementById('rocket_ship_path');
-const rocketAnimator = new Animator(ROCKET_SHIP);
-const rocketPathAnimator = new Animator(ROCKET_SHIP_PATH);
+const rocketAnimator = new Animator(el.ROCKET_SHIP);
+const rocketPathAnimator = new Animator(el.ROCKET_SHIP_PATH);
 const rocketBezier = { values: svg.ROCKET_PATH_BEZIER, type: 'cubic', autoRotate: true };
 rocketAnimator.set({ opacity: 0 });
-rocketPathAnimator.set({ opacity: 0 })
-
-// const mq = new MediaAwareListener();
+rocketPathAnimator.set({ opacity: 0 });
 
 /**
  * Banner image loaded - ready for animation
  */
-$('.hero-moon')
-  .closest('.content-block')
+$(selector.HERO_MOON)
+  .closest(selector.CONTENT_BLOCK)
   .waitForImages(() => {
     const $body = $(document.body);
     $body.addClass('loaded');
@@ -71,15 +79,15 @@ $('.hero-moon')
  * Ready to initialize.
  */
 $(document).ready(() => {
-  if ($(sliders.LOGO_SLIDER).length) {
+  if ($(selector.LOGO_SLIDER).length) {
     const logoSlider = new LogoSlider();
   }
-  if ($(sliders.CARDS_SLIDER).length) {
+  if ($(selector.CARDS_SLIDER).length) {
     const cardsSlider = new CardsSlider();
   }
 
-  const navigationBar = new NavigationBar(nav.NAVBAR_EL, {
-    logoSelector: nav.NAVBAR_LOGO,
+  const navigationBar = new NavigationBar(selector.NAVBAR_EL, {
+    logoSelector: selector.NAVBAR_LOGO,
     offset: 400
   });
 });
