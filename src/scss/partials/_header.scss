@@ -10,12 +10,15 @@ header {
 }
 
 .nav-logo {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  bottom: -$spacer;
-  padding: $spacer / 2;
-  margin-top: -$spacer * 2.5;
+  position: absolute;
+  // display: flex;
+  // flex-direction: column;
+  // bottom: -$spacer;
+  top: -($spacer / 2);
+  padding: 0 ($spacer / 2);
+  // margin-top: -$spacer * 2.5;
+  // width: 100%;
+  flex: 1 1 100%;
   border-bottom-left-radius: map-get($logo-border-radius, outer);
   border-bottom-right-radius: map-get($logo-border-radius, outer);
   background: $white;
@@ -27,8 +30,9 @@ header {
   }
 
   svg {
-    flex: 1 1 100%;
+    // flex: 1 1 100%;
     padding: map-get($logo-border-radius, outer) + map-get($logo-border-radius, inner);
+    width: 100%;
     border: dashed 1px gray('300');
     border-top: none;
     border-radius: map-get($logo-border-radius, inner);
@@ -58,7 +62,7 @@ header {
   left: 0;
   right: 0;
   padding-bottom: 0;
-  max-height: 125px;
+  max-height: 100px;
   @include z-depth(6);
 
   &-nav-wrapper {
@@ -161,7 +165,7 @@ header {
       display: flex;
       align-items: center;
       position: relative;
-      padding-bottom: 1.25rem;
+      padding-bottom: 1.125rem;
       padding-top: 0.5rem;
       font-weight: 700;
       color: gray('600');
@@ -209,7 +213,7 @@ header {
 
       &.active {
         color: $daisy-bush;
-        
+
         .nav-link-icon {
           color: $daisy-bush;
         }
@@ -223,7 +227,7 @@ header {
 
       &-icon {
         margin-bottom: 5px;
-        height: 50px;
+        height: 40px;
         color: gray('400');
 
         &-fill {
@@ -304,7 +308,7 @@ header {
         border-width: 0 15px 15px 15px;
         border-color: transparent transparent $white transparent;
         // filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
-        
+
         @include media-breakpoint-down(md) {
           border-color: transparent transparent theme-color("primary") transparent;
         }

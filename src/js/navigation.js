@@ -25,14 +25,14 @@ export class NavigationBar {
     this.hideDelay = null;
     this.lastPosition = 0;
 
-    $(document.body).scroll(event => this.handleScroll(event));
+    $(window).scroll(event => this.handleScroll(event));
 
     const dropdownMenus = document.querySelectorAll(`${elSelector} .dropdown-menu`);
     const dropdowns = document.querySelectorAll(`${elSelector} .dropdown`);
     $(dropdowns).on('show.bs.dropdown', () => swingDown(dropdownMenus, true))
   }
   handleScroll(event) {
-    const scrollTop = document.body.scrollTop;
+    const scrollTop = window.scrollY;
     if (!this.navScrolled && scrollTop >= this.offset) {
       this.navScrolled = true;
       this.show();
