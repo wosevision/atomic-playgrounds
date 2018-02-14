@@ -15,6 +15,7 @@ import brands from '@fortawesome/fontawesome-free-brands';
 
 import { LogoSlider, CardsSlider } from './sliders';
 import { NavigationBar } from './navigation';
+import { Parallax } from './parallax';
 
 import { el, selector, svg } from './constants';
 import { swingDown } from './animations';
@@ -84,6 +85,9 @@ $(document).ready(() => {
   }
   if ($(selector.CARDS_SLIDER).length) {
     const cardsSlider = new CardsSlider();
+  }
+  if ($(selector.PARALLAX).length) {
+    const parallax = new Parallax();
   }
 
   const navigationBar = new NavigationBar(selector.NAVBAR_EL, {

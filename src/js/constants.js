@@ -15,6 +15,8 @@ export const selector = {
   PAGINATION: '.swiper-pagination',
   LOGO_SLIDER: `.swiper-container.logo-slider`,
   CARDS_SLIDER: `.swiper-container.cards-slider`,
+
+  PARALLAX: '.parallax-bg'
 };
 
 export const svg = {
