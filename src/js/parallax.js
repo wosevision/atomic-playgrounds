@@ -4,13 +4,17 @@ import { selector } from './constants';
 
 export class Parallax {
   constructor() {
+    this.els = [...document.querySelectorAll(selector.PARALLAX)];
     this.lastScrollY = 0;
-    this.elMap = new Map([
-      ...document.querySelectorAll(selector.PARALLAX)
-    ].map(el => [el, 0]));
 
+    this.elMap = this.getElMap();
     $(window).scroll(() => this.handleParallax());
   }
+
+  getElMap() {
+    return new Map(this.els.map(el => [el, 0]));
+  }
+
   handleParallax() {
     const { scrollY, innerHeight } = window;
     const windowBottom = scrollY + innerHeight;
