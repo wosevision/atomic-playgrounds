@@ -20,15 +20,17 @@ export class Parallax {
       const bgBottom = bgTop + height;
 
       if (bgTop > windowBottom || bgBottom < scrollY) return;
+
       const delta = scrollY - this.lastScrollY;
       offset += delta;
 
-      window.requestAnimationFrame(() => {
-        el.style.backgroundPosition = `50% ${offset / 2}px`;
-      });
-
+      window.requestAnimationFrame(() => this.handleAnimationFrame(offset, el));
       this.elMap.set(el, offset);
     });
     this.lastScrollY = scrollY;
+  }
+
+  handleAnimationFrame(offset, el) {
+    el.style.transform = `translateY(${offset / 6}px)`;
   }
 }
