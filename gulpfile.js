@@ -182,9 +182,10 @@ gulp.task('images', function() {
  */
 gulp.task('generate-favicons', ['templates'], function () {
     return gulp.src(sources.favicon).pipe($.favicons({
-      appName: 'Title goes here',
-      appDescription: 'Lorem description goesum heremet',
-      background: '#bada55',
+      appName: 'Atomic Playgrounds',
+      appDescription: 'Atomic Indoor Playground Manufacturing is the perfect place to start planning your Indoor Playground or fun center project.',
+      background: '#ffffff',
+      theme_color: '#f5c909',
       path: 'favicons/',
       display: 'standalone',
       orientation: 'portrait',
