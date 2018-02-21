@@ -5,7 +5,7 @@
   background-color: $white;
   background-size: cover;
   background-position: 50%;
-      
+
   @include media-breakpoint-down(md) {
     padding: 90px 0 120px;
   }
@@ -13,21 +13,21 @@
     padding: 60px 0 70px;
   }
 
-  
-	
+
+
 	&:not(:first-of-type) {
     margin-top: -7%;
-    
+
     &:nth-child(odd) {
       clip-path: url(#wavy-line-1);
-      
+
       @include media-breakpoint-down(md) {
         clip-path: url(#wavy-line-sm-1);
       }
     }
     &:nth-child(even) {
       clip-path: url(#wavy-line-2);
-      
+
       @include media-breakpoint-down(md) {
         clip-path: url(#wavy-line-sm-2);
       }
@@ -37,7 +37,7 @@
   &-title {
     color: $cool-blue;
     margin-bottom: 4rem;
-    
+
     @include media-breakpoint-down(md) {
       margin-bottom: 2.5rem;
     }
@@ -97,7 +97,7 @@
     height: 100%;
     background-size: cover;
     background-position: center center;
-    // mix-blend-mode: multiply;
+    mix-blend-mode: multiply;
 
     @include media-breakpoint-down(sm) {
       display: none;
