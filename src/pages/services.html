@@ -1,0 +1,132 @@
+---
+contentBlocks:
+  - fluid: true
+    bg: assets/img/jump-jacks.jpg
+  - theme: white
+    modules:
+      - type: content-columns
+        title: Our products + services
+        columns: 2
+        content: From exciting wall murals to fully featured play centers, our theming experts can design an environment that meets your customer’s needs and your budget.
+  - theme: white
+    modules:
+      - type: cards-feature
+        cardsFeature:
+          - image: assets/img/cards/treehouse.jpg
+            link: #
+            class: card-featured
+            title: Playgrounds
+            text: Youngsters find our play equipment exciting and challenging and will play for hours on our well designed and well themed soft indoor playgrounds.
+            hover: true
+        cards:
+          - image: assets/img/cards/playground.jpg
+            link: #
+            title: Toddler Areas
+            text: Youngsters can find our play equipment super exciting!
+            hover: true
+          - image: assets/img/cards/house-tv.jpg
+            link: #
+            title: Theming
+            text: Youngsters can find our play equipment super exciting!
+            hover: true
+          - image: assets/img/cards/climbing-wall.jpg
+            link: #
+            title: Climbing Walls
+            text: Youngsters can find our play equipment super exciting!
+            hover: true
+          - image: assets/img/cards/turtle-mural.jpg
+            link: #
+            title: Branding & Murals
+            text: Youngsters can find our play equipment super exciting!
+            hover: true
+  - theme: white
+    modules:
+      - type: cards-feature
+        cards:
+          - image: assets/img/cards/playground.jpg
+            link: #
+            title: Toddler Areas
+            text: Youngsters can find our play equipment super exciting!
+            hover: true
+          - image: assets/img/cards/house-tv.jpg
+            link: #
+            title: Theming
+            text: Youngsters can find our play equipment super exciting!
+            hover: true
+          - image: assets/img/cards/climbing-wall.jpg
+            link: #
+            title: Climbing Walls
+            text: Youngsters can find our play equipment super exciting!
+            hover: true
+          - image: assets/img/cards/turtle-mural.jpg
+            link: #
+            title: Branding & Murals
+            text: Youngsters can find our play equipment super exciting!
+            hover: true
+        cardsFeature:
+          - image: assets/img/cards/treehouse.jpg
+            link: #
+            class: card-featured
+            title: Playgrounds
+            text: Youngsters find our play equipment exciting and challenging and will play for hours on our well designed and well themed soft indoor playgrounds.
+            hover: true
+            align: right
+  - theme: white
+    modules:
+      - type: cards-feature
+        cardsFeature:
+          - image: assets/img/cards/treehouse.jpg
+            link: #
+            class: card-featured
+            title: Playgrounds
+            text: Youngsters find our play equipment exciting and challenging and will play for hours on our well designed and well themed soft indoor playgrounds.
+            hover: true
+          - image: assets/img/cards/treehouse.jpg
+            link: #
+            class: card-featured
+            title: Playgrounds
+            text: Youngsters find our play equipment exciting and challenging and will play for hours on our well designed and well themed soft indoor playgrounds.
+            hover: true
+  - theme: white
+    modules:
+      - type: contact-small
+        title: We like questions
+        buttonText: Get Answer Now
+        placeholder: Write a quetion please
+  - theme: gradient-blue
+    modules:
+      - type: title
+        title: Even more to explore!
+      - type: cards
+        cards:
+          - image: assets/img/cards/ball-pit.jpg
+            link: #
+            category: FaceBook
+            title: It Was All Fun And Games Until..
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+          - image: assets/img/cards/tent.jpg
+            link: #
+            category: Projects
+            title: Up Coming project in Vancouver
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+          - image: assets/img/cards/sliding-kid.jpg
+            link: #
+            category: Blog
+            title: Fun People Say Nice Things
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+---
+
+
+{%- extends "layout.njk" %}
+
+{%- block content %}
+
+{%- from "block.njk" import renderContentBlock %}
+{%- for block in contentBlocks %}
+{{ renderContentBlock(block) }}
+{%- endfor %}
+
+{%- endblock %}

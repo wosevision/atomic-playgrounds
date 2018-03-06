@@ -1,9 +1,11 @@
 <div class="row card-container card-container-stacked card-container-featured">
-  <div class="col-lg-6 d-flex">
-    {% for card in module.cardsFeature %}
-      {% include "modules/card.njk" %}
-    {% endfor %}
-  </div>
+  {% for card in module.cardsFeature %}
+    {% if card.align !== "right" %}
+      <div class="col-lg-6 d-flex">
+        {% include "modules/card.njk" %}
+      </div>
+    {% endif %}
+  {% endfor %}
   <div class="col-lg-6">
     <div class="row">
       {% for card in module.cards %}
@@ -13,6 +15,13 @@
       {% endfor %}
     </div>
   </div>
+  {% for card in module.cardsFeature %}
+    {% if card.align === "right" %}
+      <div class="col-lg-6 d-flex">
+        {% include "modules/card.njk" %}
+      </div>
+    {% endif %}
+  {% endfor %}
 </div>
 
 {% if module.buttonText %}
