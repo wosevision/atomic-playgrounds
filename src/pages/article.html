@@ -1,0 +1,107 @@
+---
+contentBlocks:
+  - fluid: true
+    bg: assets/img/jump-jacks.jpg
+    modules:
+      - type: hero-small
+  - theme: white
+    modules:
+      - type: article
+        title: 5 Fun Rainy Day Activities For Kids
+        intro: Even when the weather outside is frightful these indoor activities will inspire creativity and fill a Spring afternoon with fun and laughter.
+        list:
+          - title: 1. Indoor Camp Out 
+            description: Take the “blanket tent” to the next level with a full indoor campsite complete with a real tent, mock fire, and s’mores.
+          - title: 2. Monster Feet
+            description: Put your best foot forward with some cardboard, a Sharpie and a pair of scissors.
+  - theme: orange
+    illustrationBg: assets/img/illustration-bg-03.png
+    modules:
+      - type: title
+        title: Proven Fun
+      - type: cards-circle
+        cards:
+          - image: 
+            link: #
+            title: Interactive Floor
+            text: Youngsters can find our play equipment super exciting!
+          - image: 
+            link: #
+            title: Race Track/Plasma
+            text: Youngsters can find our play equipment super exciting!
+          - image: assets/img/cards/fish-table.jpg
+            link: #
+            title: Soft 'n Safe
+            text: Youngsters can find our play equipment super exciting!
+          - image: 
+            link: #
+            title: Imagination blocks
+            text: Youngsters can find our play equipment super exciting!
+  - theme: white
+    modules:
+      - type: contact-small
+        title: We like questions
+        buttonText: Get Answer Now
+        placeholder: Write a quetion please
+  - theme: gradient-blue
+    modules:
+      - type: title
+        title: Even more to explore!
+      - type: cards
+        cards:
+          - image: assets/img/cards/ball-pit.jpg
+            link: #
+            category: FaceBook
+            title: It Was All Fun And Games Until..
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+          - image: assets/img/cards/tent.jpg
+            link: #
+            category: Projects
+            title: Up Coming project in Vancouver
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+          - image: assets/img/cards/sliding-kid.jpg
+            link: #
+            category: Blog
+            title: Fun People Say Nice Things
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+  - theme: gradient-blue
+    modules:
+      - type: title
+        title: Even more to explore!
+      - type: cards
+        cards:
+          - image: assets/img/cards/ball-pit.jpg
+            link: #
+            category: FaceBook
+            title: It Was All Fun And Games Until..
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+          - image: assets/img/cards/tent.jpg
+            link: #
+            category: Projects
+            title: Up Coming project in Vancouver
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+          - image: assets/img/cards/sliding-kid.jpg
+            link: #
+            category: Blog
+            title: Fun People Say Nice Things
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+    
+---
+
+
+{%- extends "layout.njk" %}
+
+{%- block content %}
+
+{%- from "block.njk" import renderContentBlock %}
+{%- for block in contentBlocks %}
+{{ renderContentBlock(block) }}
+{%- endfor %}
+
+{%- endblock %}

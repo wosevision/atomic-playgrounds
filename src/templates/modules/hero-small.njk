@@ -1,0 +1,19 @@
+<div class="hero-small">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-lg-6">
+        {% if module.title %}
+          <div class="jumbotron">
+            <h1>{{ module.title }}</h1>
+            {% if module.subtitle %}
+              <p class="lead">{{ module.subtitle }}</p>
+            {% endif %}
+            {% if module.button %}
+              <p><a class="btn btn-primary btn-lg" href="#" role="button">{{ module.button }}</a></p>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -72,4 +72,15 @@
       display: none;
     }
   }
+
+  // small hero
+  &-small {
+    margin-top: 100px;
+    min-height: 50px;
+
+    .jumbotron {
+      padding: 1.5rem 2.25rem;
+      background-color: rgba($white, 0.8);
+    }
+  }
 }

@@ -1,0 +1,85 @@
+---
+contentBlocks:
+  - fluid: true
+    bg: assets/img/jump-jacks.jpg
+    modules:
+      - type: hero-small
+        title: Fun Center Success Starts Here!
+        subtitle: Atomic Indoor Playground Manufacturing is the perfect place to start planning your Indoor Playground or fun center project.
+        button: How We Help
+  - theme: white
+    modules:
+      - type: cards
+        cards:
+          - image: assets/img/cards/ball-pit.jpg
+            link: #
+            category: Category
+            title: 9 Benefits of Coloring
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+          - image: assets/img/cards/tent.jpg
+            link: #
+            category: Category
+            title: 9 Benefits of Coloring
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+          - image: assets/img/cards/sliding-kid.jpg
+            link: #
+            category: Category
+            title: 9 Benefits of Coloring
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+          - image: assets/img/cards/ball-pit.jpg
+            link: #
+            category: Category
+            title: 9 Benefits of Coloring
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+          - image: assets/img/cards/tent.jpg
+            link: #
+            category: Category
+            title: 9 Benefits of Coloring
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+          - image: assets/img/cards/sliding-kid.jpg
+            link: #
+            category: Category
+            title: 9 Benefits of Coloring
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+  - theme: blue
+    illustrationBg: assets/img/illustration-bg-02.png
+    modules:
+      - type: title
+        title: Lots of Toddler Stuff
+      - type: cards-circle
+        cards:
+          - image: 
+            link: #
+            title: Finishing Touches
+            text: Youngsters can find our play equipment super exciting!
+          - image: assets/img/cards/house-tv.jpg
+            link: #
+            title: Playground Theming
+            text: Youngsters can find our play equipment super exciting!
+          - image: assets/img/cards/fish-table.jpg
+            link: #
+            title: Funiture & Accessories
+            text: Youngsters can find our play equipment super exciting!
+          - image: assets/img/cards/turtle-mural.jpg
+            link: #
+            title: Murals & Logos
+            text: Youngsters can find our play equipment super exciting!
+---
+
+
+{%- extends "layout.njk" %}
+
+{%- block content %}
+
+{%- from "block.njk" import renderContentBlock %}
+{%- for block in contentBlocks %}
+{{ renderContentBlock(block) }}
+{%- endfor %}
+
+{%- endblock %}
