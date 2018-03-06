@@ -14,15 +14,25 @@
   &-outline-link {
     box-shadow: none;
   }
-  &-icon {
+  &-icon,
+  &-icon-small {
     display: flex;
     align-items: center;
     justify-content: center;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    color: $white;
+  }
+  &-icon {
     height: 2.75rem;
     width: 2.75rem;
     border-radius: 2.75rem;
+  }
+  &-icon-small {
+    height: 2.3125rem;
+    width: 2.3125rem;
+    border-radius: 2.3125rem;
+    font-size: 0.875rem;
   }
   @each $color, $value in $theme-colors {
     &-#{$color},

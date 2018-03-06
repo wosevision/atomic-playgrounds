@@ -1,0 +1,79 @@
+// HORIZONTAL RULE
+
+hr {
+  border-top: solid 10px transparent;
+  border-image: url(../img/border-dashed.svg) 11 round;
+}
+
+// ARTICLE STYLES
+
+.article {
+  p {
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+
+  hr {
+    margin: 2.5rem 0 2rem;
+  }
+}
+
+// MEDIA ITEMS
+
+.media-container {
+  margin: 2rem 0;
+
+  .media {
+    margin: 1.5rem 0;
+
+    &-img-circle {
+      margin-right: 2rem;
+      height: 135px;
+      width: 135px;
+      border-radius: 50%;
+      border: solid 2px theme-color("tertiary");
+      background-color: theme-color("tertiary");
+      background-size: cover;
+      background-position: center;
+
+      @include media-breakpoint-down(sm) {
+        align-self: flex-start;
+        margin-right: 1rem;
+        height: 100px;
+        width: 100px;
+      }
+    }
+
+    &-title {
+      color: theme-color("tertiary");
+    }
+
+    &-body {
+      p {
+        font-size: 0.875rem;
+      }
+    }
+  }
+}
+
+
+// SHARE BUTTONS
+
+.share-container {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.share {
+  &-text {
+    display: inline-block;
+    margin-right: 1.5rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+  }
+
+  &-items {
+    margin-bottom: 0;
+  }
+}
