@@ -38,25 +38,27 @@ class Animator {
   kill() { TweenMax.killTweensOf(this.el); }
 }
 
-const moonAnimator = new Animator(el.HERO_MOON);
-const moonSwayEase = Elastic.easeOut.config(3, 0.4);
-moonAnimator.set({ opacity: 0 });
+const onReadyToAnimate = () => {
+  const $body = $(document.body);
+  $body.addClass('loaded');
+  setTimeout(() => $body.removeClass('loading loaded'), 600);
+};
 
-const rocketAnimator = new Animator(el.ROCKET_SHIP);
-const rocketPathAnimator = new Animator(el.ROCKET_SHIP_PATH);
-const rocketBezier = { values: svg.ROCKET_PATH_BEZIER, type: 'cubic', autoRotate: true };
-rocketAnimator.set({ opacity: 0 });
-rocketPathAnimator.set({ opacity: 0 });
+const $heroMoon = $(selector.HERO_MOON);
 
-/**
- * Banner image loaded - ready for animation
- */
-$(selector.HERO_MOON)
-  .closest(selector.CONTENT_BLOCK)
-  .waitForImages(() => {
-    const $body = $(document.body);
-    $body.addClass('loaded');
-    setTimeout(() => $body.removeClass('loading loaded'), 600);
+if ($heroMoon.length) {
+  const moonAnimator = new Animator(el.HERO_MOON);
+  const moonSwayEase = Elastic.easeOut.config(3, 0.4);
+  moonAnimator.set({ opacity: 0 });
+
+  const rocketAnimator = new Animator(el.ROCKET_SHIP);
+  const rocketPathAnimator = new Animator(el.ROCKET_SHIP_PATH);
+  const rocketBezier = { values: svg.ROCKET_PATH_BEZIER, type: 'cubic', autoRotate: true };
+  rocketAnimator.set({ opacity: 0 });
+  rocketPathAnimator.set({ opacity: 0 });
+
+  const animateHero = () => {
+    onReadyToAnimate();
 
     moonAnimator
       .set({ opacity: 1 })
@@ -74,7 +76,16 @@ $(selector.HERO_MOON)
     const restartTweens = () => TweenMax.getAllTweens().map(tween => tween.restart());
     const debouncedRestart = debounce(restartTweens);
     $(window).on('resize', debouncedRestart);
-  });
+  };
+
+  /** Banner image loaded - ready for animation */
+  $heroMoon
+    .closest(selector.CONTENT_BLOCK)
+    .waitForImages(animateHero);
+} else {
+  /** No hero present – just remove white overlay */
+  onReadyToAnimate();
+}
 
 /**
  * Ready to initialize.
