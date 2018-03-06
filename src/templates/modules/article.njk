@@ -1,23 +1,41 @@
-<div class="row justify-content-center">
+<div class="article row justify-content-center">
 	<div class="col-lg-8 col-md-10">
 		<h1>{{ module.title }}</h1>
 		<p>{{ module.intro }}</p>
-		{% for item in module.list %}
-			<div class="media align-items-center">
-				<div class="media-img-circle align-self-start mr-3" style="background-image: url()"></div>
-				<div class="media-body">
-					<h3>{{ item.title }}</h3>
-					<p>{{ item.description }}</p>
+		<div class="media-container">
+			{% for item in module.list %}
+				<div class="media align-items-center">
+					<div class="media-img-circle" style="background-image: url({{ item.image }})"></div>
+					<div class="media-body">
+						<h3 class="media-title">{{ item.title }}</h3>
+						<p>{{ item.description }}</p>
+					</div>
 				</div>
-			</div>
-		{% endfor%}
+			{% endfor %}
+		</div>
+		
 		<hr/>
 		<div class="share-container">
-			Share article
-			<ul class="list-inline">
+			<span class="share-text">Share article</span>
+			<ul class="share-items list-inline">
 				<li class="list-inline-item">
-					<a href="" class="btn btn-icon btn-tertiary">
+					<a href="#" class="btn btn-icon-small btn-tertiary" target="_blank">
 						<i class="fab fa-facebook"></i>
+					</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="#" class="btn btn-icon-small btn-tertiary" target="_blank">
+						<i class="fab fa-google-plus-g"></i>
+					</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="#" class="btn btn-icon-small btn-tertiary" target="_blank">
+						<i class="fab fa-twitter"></i>
+					</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="#" class="btn btn-icon-small btn-tertiary" target="_blank">
+						<i class="fab fa-pinterest-p"></i>
 					</a>
 				</li>
 			</ul>
