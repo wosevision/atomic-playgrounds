@@ -14,7 +14,7 @@
     <link href="//fonts.googleapis.com" rel="dns-prefetch">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
-    <link href="assets/css/styles.min.css" rel="stylesheet">
+    <link href="assets/css/styles{{ '.min.' if env === 'production' else '.' }}css" rel="stylesheet">
 
     <!-- *** FAVICONS *** -->
     <!-- inject:head:html -->
@@ -28,7 +28,7 @@
 
     {% include "partials/footer.njk" %}
 
-    <script src="assets/js/scripts.min.js"></script>
+    <script src="assets/js/scripts{{ '.min.' if env === 'production' else '.' }}js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

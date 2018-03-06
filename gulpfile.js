@@ -10,7 +10,9 @@ const path = require('path'),
 			browserify = require('browserify'),
 			watchify = require('watchify'),
 			babelify = require('babelify'),
-			package = require('./package.json');
+      package = require('./package.json');
+
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 /**
  * Dynamically append package info to top of
@@ -152,17 +154,19 @@ gulp.task('templates', function() {
 		.pipe($.nunjucksRender({
 			path: [ sources.templates ],
 			manageEnv(environment) {
-        environment.addFilter('slug', text => text
-          ? text
-            .toString()
-            .toLowerCase()
-            .replace(/\s+/g, '-') // Replace spaces with -
-            .replace(/[^\w\-]+/g, '') // Remove all non-word chars
-            .replace(/\-\-+/g, '-') // Replace multiple - with single -
-            .replace(/^-+/, '') // Trim - from start of text
-            .replace(/-+$/, '') // Trim - from end of text
-          : ''
-        );
+        environment
+          .addFilter('slug', text => text
+            ? text
+              .toString()
+              .toLowerCase()
+              .replace(/\s+/g, '-') // Replace spaces with -
+              .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+              .replace(/\-\-+/g, '-') // Replace multiple - with single -
+              .replace(/^-+/, '') // Trim - from start of text
+              .replace(/-+$/, '') // Trim - from end of text
+            : ''
+          )
+          .addGlobal('env', NODE_ENV);
 			}
 		}))
 		.pipe(gulp.dest(base.dist))
