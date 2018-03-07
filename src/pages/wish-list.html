@@ -1,0 +1,71 @@
+---
+contentBlocks:
+  - fluid: true
+    bg: assets/img/jump-jacks.jpg
+    modules:
+      - type: hero-small
+  - theme: orange
+    illustrationBg: assets/img/illustration-bg-03.png
+    modules:
+      - type: title
+        title: Proven Fun
+      - type: cards-circle
+        cards:
+          - image:
+            link: #
+            title: Interactive Floor
+            text: Youngsters can find our play equipment super exciting!
+          - image:
+            link: #
+            title: Race Track/Plasma
+            text: Youngsters can find our play equipment super exciting!
+          - image: assets/img/cards/fish-table.jpg
+            link: #
+            title: Soft 'n Safe
+            text: Youngsters can find our play equipment super exciting!
+          - image:
+            link: #
+            title: Imagination blocks
+            text: Youngsters can find our play equipment super exciting!
+  - theme: white
+    modules:
+      - type: contact-small
+        title: We like questions
+        buttonText: Get Answer Now
+        placeholder: Write a quetion please
+  - theme: blue
+    illustrationBg: assets/img/illustration-bg-02.png
+    modules:
+      - type: title
+        title: Lots of Toddler Stuff
+      - type: cards-circle
+        cards:
+          - image:
+            link: #
+            title: Finishing Touches
+            text: Youngsters can find our play equipment super exciting!
+          - image: assets/img/cards/house-tv.jpg
+            link: #
+            title: Playground Theming
+            text: Youngsters can find our play equipment super exciting!
+          - image: assets/img/cards/fish-table.jpg
+            link: #
+            title: Funiture & Accessories
+            text: Youngsters can find our play equipment super exciting!
+          - image: assets/img/cards/turtle-mural.jpg
+            link: #
+            title: Murals & Logos
+            text: Youngsters can find our play equipment super exciting!
+---
+
+
+{%- extends "layout.njk" %}
+
+{%- block content %}
+
+{%- from "block.njk" import renderContentBlock %}
+{%- for block in contentBlocks %}
+{{ renderContentBlock(block) }}
+{%- endfor %}
+
+{%- endblock %}

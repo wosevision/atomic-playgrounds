@@ -1,0 +1,49 @@
+---
+contentBlocks:
+  - fluid: true
+    bg: assets/img/jump-jacks.jpg
+    modules:
+      - type: hero-small
+  - theme: white
+    modules:
+      - type: contact-small
+        title: We like questions
+        buttonText: Get Answer Now
+        placeholder: Write a quetion please
+  - theme: gradient-blue
+    modules:
+      - type: title
+        title: Even more to explore!
+      - type: cards
+        cards:
+          - image: assets/img/cards/ball-pit.jpg
+            link: #
+            category: FaceBook
+            title: It Was All Fun And Games Until..
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+          - image: assets/img/cards/tent.jpg
+            link: #
+            category: Projects
+            title: Up Coming project in Vancouver
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+          - image: assets/img/cards/sliding-kid.jpg
+            link: #
+            category: Blog
+            title: Fun People Say Nice Things
+            text: There are several ways people can make money online. From selling products to advertising. In this article I am going to explain the concept of contextual advertising
+            hover: true
+---
+
+
+{%- extends "layout.njk" %}
+
+{%- block content %}
+
+{%- from "block.njk" import renderContentBlock %}
+{%- for block in contentBlocks %}
+{{ renderContentBlock(block) }}
+{%- endfor %}
+
+{%- endblock %}
