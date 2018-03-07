@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-12">
+    <div class="gallery">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="gallery-image gallery-image-main" style="background-image: url({{ module.imageFeatured }})"></div>
+        </div>
+        <div class="col-lg-6">
+          <div class="row">
+            {% for item in module.images %}
+            <div class="col-6 col-md-4">
+              <div class="gallery-image" style="background-image: url({{ item.image }})">
+                {% if loop.last %}
+                <a class="gallery-link" href="#">
+                  <span class="number">22</span>
+                  Click to see them all
+                </a>
+                {% endif %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
