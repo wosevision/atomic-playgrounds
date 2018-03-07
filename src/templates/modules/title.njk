@@ -1,9 +1,11 @@
 <div class="row">
   <div class="col-lg-10 offset-lg-1 offset-md-0">
     <h{{ module.headingLevel if module.headingLevel else 2 }} class="text-center content-block-title {{ module.class }}">
+      {% if module.icon -%}
       <span class="content-block-title-icon">
         <i class="fas fa-phone"></i>
       </span>
+      {%- endif %}
       {{ module.title }}
     </h{{ module.headingLevel if module.headingLevel else 2 }}>
   </div>
