@@ -33,18 +33,31 @@
 	}
 
   &-title {
-    color: $cool-blue;
+    color: theme-color('primary');
     margin-bottom: 4rem;
 
     @include media-breakpoint-down(md) {
       margin-bottom: 2.5rem;
+    }
+
+    &-icon {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      flex: 0 1 auto;
+      border: solid 10px theme-color('primary');
+      border-radius: 1000em;
+      color: $daisy-bush;
+      font-size: 1rem;
+      padding: 0.5rem;
+      vertical-align: text-bottom;
     }
   }
 
   &.blue,
   &.gradient-blue  {
     .content-block-title {
-      color: $cool-blue;
+      color: theme-color('primary');
     }
   }
 
@@ -56,7 +69,7 @@
     background-color: $orange-tint-1;
 
     .content-block-title {
-      color: $orange;
+      color: theme-color('secondary');;
     }
   }
 
