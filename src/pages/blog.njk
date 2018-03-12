@@ -1,4 +1,5 @@
 ---
+title: Blog
 contentBlocks:
   - fluid: true
     bg: assets/img/jump-jacks.jpg
@@ -55,7 +56,7 @@ contentBlocks:
         title: Lots of Toddler Stuff
       - type: cards-circle
         cards:
-          - image: 
+          - image:
             link: article.html
             title: Finishing Touches
             text: Youngsters can find our play equipment super exciting!
@@ -75,6 +76,8 @@ contentBlocks:
 
 
 {%- extends "layout.njk" %}
+
+{%- block title %}{{ title }}{%- endblock %}
 
 {%- block content %}
 

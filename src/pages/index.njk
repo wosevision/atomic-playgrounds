@@ -172,6 +172,8 @@ contentBlocks:
 
 {%- extends "layout.njk" %}
 
+{%- block title %}{{ title }}{%- endblock %}
+
 {%- block content %}
 
 {%- from "block.njk" import renderContentBlock %}
