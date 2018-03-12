@@ -15,6 +15,77 @@
   }
 }
 
+.blockquote {
+  position: relative;
+  padding: 0 2rem;
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: inherit;
+
+  &::before,
+  &::after {
+    font-family: "Font Awesome 5 Solid";
+    display: none;
+  }
+  
+  &::before {
+    content: '\f10d';
+  }
+
+  &::after {
+    content: '\f10e';
+  }
+
+  .fa-quote-left,
+  .fa-quote-right {
+    position: absolute;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: theme-color("primary");
+  }
+
+  .fa-quote-left {
+    top: 0;
+    left: 0;
+  }
+
+  .fa-quote-right {
+    margin-left: 1rem;
+  }
+}
+
+.blockquote-container {
+  margin-bottom: 1rem;
+
+  .blockquote + .blockquote-cite {
+    margin-top: 1rem;
+  }
+}
+
+.blockquote-cite {
+  font-weight: 700;
+
+  .media-img-circle {
+    margin-right: 0.75rem;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: gray('300');
+  }
+
+  .media-body {
+    flex-direction: column;
+  }
+
+  .cite-name {
+    display: block;
+  }
+
+  .cite-link {
+    font-size: 0.875rem;
+  }
+}
+
 .list-seperator {
   padding: 0;
   margin: 0;
