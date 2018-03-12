@@ -28,7 +28,11 @@
 
     {% include "partials/footer.njk" %}
 
-    <script src="assets/js/scripts{{ '.min.' if env === 'production' else '.' }}js"></script>
+    <script>
+      FontAwesomeConfig = { searchPseudoElements: true };
+    </script>
+
+    <script defer src="assets/js/scripts{{ '.min.' if env === 'production' else '.' }}js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
