@@ -1,7 +1,9 @@
 <div class="article row justify-content-center">
+  {% if module.title -%}
 	<div class="col-12">
 		<h1>{{ module.title }}</h1>
   </div>
+  {%- endif %}
   {% for i in range(0, module.columns) -%}
   <div class="col-12 col-md-{{ (12 / module.columns) | int }}">
 		<p>{{ module.content }}</p>
