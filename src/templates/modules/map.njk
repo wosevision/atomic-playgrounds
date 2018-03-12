@@ -1,0 +1,16 @@
+<div class="row">
+  {% if module.text -%}
+  <div class="col-12">
+    <p><strong>{{ module.text }}</strong><p>
+  </div>
+  {%- endif %}
+  <iframe
+    class="col-12"
+    width="600"
+    height="450"
+    frameborder="0"
+    style="border: 0"
+    src="https://www.google.com/maps/embed/v1/view?center={{ module.map.center }}&zoom={{ module.map.zoom }}&key=AIzaSyCB6hWHfu79mFK57R-tgdobkg_YEMWtL-Q"
+    allowfullscreen>
+  </iframe>
+</div>
