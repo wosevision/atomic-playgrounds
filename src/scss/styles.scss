@@ -2,11 +2,11 @@
 // SCSS MIXINS
 //----------------------------------*/
 
-@import 'mixins/icons';
-@import 'mixins/position';
-@import 'mixins/animations';
-@import 'mixins/shadows';
-
+@import "mixins/prefix";
+@import "mixins/icons";
+@import "mixins/position";
+@import "mixins/animations";
+@import "mixins/shadows";
 
 //----------------------------------*\
 // CONFIG MODULES

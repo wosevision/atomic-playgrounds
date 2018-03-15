@@ -1,0 +1,23 @@
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &::-ms-input-placeholder {
+    @content;
+  }
+  &::-moz-input-placeholder {
+    @content;
+  }
+}
+
+@mixin selection {
+  ::selection {
+    @content;
+  }
+  ::-moz-selection {
+    @content;
+  }
+  ::-webkit-selection {
+    @content;
+  }
+}

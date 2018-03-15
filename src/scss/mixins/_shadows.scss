@@ -14,10 +14,11 @@
 // Mixins
 // ------------------------------------
 
-$z-depth-transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+$md-cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+$z-depth-transition: box-shadow 0.28s $md-cubic-bezier;
 
 @mixin z-depth-transition() {
-  transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+  transition: $z-depth-transition;
 }
 
 @mixin z-depth-focus() {
