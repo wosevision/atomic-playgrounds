@@ -20,7 +20,7 @@
       </p>
     </div>
     {% if card.linkText %}
-    <div class="card-button-container">
+    <div class="{{ "card-button-container" if card.linkSecondaryText }}">
       {% if card.linkSecondaryText %}
       <a href="{{ card.linkSecondary }}" class="btn btn-outline-primary">{{ card.linkSecondaryText }}</a>
       {% endif %}
