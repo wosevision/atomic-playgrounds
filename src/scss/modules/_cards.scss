@@ -14,7 +14,12 @@
     }
 
     .btn-primary {
+      border-color: theme-color-level('primary', 2);
       background-color: theme-color-level('primary', 2)
+    }
+    .btn-outline-primary {
+      border-color: theme-color-level('primary', 2);
+      color: $white;
     }
   }
 
@@ -60,6 +65,10 @@
 
   &-text {
     font-size: 0.875rem;
+  }
+
+  &-icon {
+    margin-right: 0.5em;
   }
 
   &-button {
@@ -120,6 +129,28 @@
     }
   }
 
+  &-button-container {
+    width: 100%;
+    text-align: right;
+
+    @include media-breakpoint-up(sm) {
+      .btn {
+        &:not(:last-child) {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+    @include media-breakpoint-down(sm) {
+      .btn {
+        width: 100%;
+        
+        &:not(:last-child) {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+
   &-form {
     margin-bottom: 2rem;
     width: 100%;
@@ -153,6 +184,23 @@
     &-box {
       fill: $white;
       transition: 0.3s;
+    }
+  }
+
+  &-badge {
+    display: flex;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: $white;
+    @include z-depth(3);
+
+    .card-badge-icon {
+      margin: auto;
+      color: $daisy-bush;
     }
   }
 
