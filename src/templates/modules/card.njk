@@ -13,11 +13,19 @@
         {{ card.title }}
       </h4>
       <p class="card-text">
+        {% if card.icon %}
+        <i class="card-icon fas fa-{{ card.icon }}"></i>
+        {% endif %}
         {{ card.text }}
       </p>
     </div>
     {% if card.linkText %}
-    <a href="{{ card.link }}" class="btn btn-primary">{{ card.linkText }}</a>
+    <div class="card-button-container">
+      {% if card.linkSecondaryText %}
+      <a href="{{ card.linkSecondary }}" class="btn btn-outline-primary">{{ card.linkSecondaryText }}</a>
+      {% endif %}
+      <a href="{{ card.link }}" class="btn btn-primary">{{ card.linkText }}</a>
+    </div>
     {% else %}
     <a href="{{ card.link }}" class="card-button">
       <span class="button-icon"><i class="fas fa-arrow-right"></i></span>
@@ -31,4 +39,9 @@
     </svg>
     {% endif %}
   </div>
+  {% if card.badge %}
+  <div class="card-badge">
+    <i class="card-badge-icon fas fa-{{ card.badge }}"></i>
+  </div>
+  {% endif %}
 </div>
