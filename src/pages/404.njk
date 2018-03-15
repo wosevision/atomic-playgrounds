@@ -1,7 +1,32 @@
 ---
 title: 404 Not Found
+contentBlocks:
+  - fluid: true
+    bg: assets/img/jump-jacks.jpg
+    modules:
+      - type: hero-small
+  - theme: white
+    modules:
+      - type: title
+        title: Oops 404
+        class: text-muted
+        headingLevel: 1
+      - type: content-columns
+        columns: 9
+        class: text-center
+        body: 
+          - content: Some text for customers please go to <a href="/">Home Page</a>
 ---
 
 {%- extends "layout.njk" %}
 
 {%- block title %}{{ title }}{%- endblock %}
+
+{%- block content %}
+
+{%- from "block.njk" import renderContentBlock %}
+{%- for block in contentBlocks %}
+{{ renderContentBlock(block) }}
+{%- endfor %}
+
+{%- endblock %}
