@@ -4,27 +4,27 @@
 		<h1>{{ module.title }}</h1>
   </div>
   {%- endif %}
-  {% for i in range(0, module.columns) -%}
-  <div class="col-12 col-md-{{ (12 / module.columns) | int }}">
-    {% if module.contentQuote and loop.last %}
+  {% for item in module.body -%}
+  <div class="col-12 col-md-{{ module.columns }}{{ " " + module.class if module.class }}">
+    {% if item.contentQuote %}
       <div class="blockquote-container">
         <blockquote class="blockquote">
-          {{ module.contentQuote.quote }}
+          {{ item.contentQuote.quote }}
         </blockquote>
         <div class="blockquote-cite media align-items-center">
           <div class="media-img-circle" style="background-image: url({{ item.image }})"></div>
-          <div class="media-body">
+          <div class="media-item">
             <span class="cite-name">
-              {{ module.contentQuote.name }}
+              {{ item.contentQuote.name }}
             </span>
-            <a class="cite-link" href="{{ module.contentQuote.link }}">
-              {{ module.contentQuote.linkText }}
+            <a class="cite-link" href="{{ item.contentQuote.link }}">
+              {{ item.contentQuote.linkText }}
             </a>
           </div>
         </div>
       </div>
     {% else %}
-      <p>{{ module.content | safe }}</p>
+      <p>{{ item.content | safe }}</p>
     {% endif %}
   </div>
   {%- endfor %}
