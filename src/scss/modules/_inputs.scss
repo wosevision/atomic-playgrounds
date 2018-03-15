@@ -49,6 +49,12 @@
       transition: 0.3s;
     }
   }
+
+  .form-control-label {
+    position: absolute;
+    top: 0.6rem;
+    transition: 0.4s $md-cubic-bezier;
+  }
 }
 
 .form-control-underline {
@@ -66,13 +72,19 @@
 
   &:focus {
     background-color: transparent;
-    color: currentColor;  
+    color: currentColor;
+    box-shadow: none;
 
     + .form-control-decor {
       &::after {
         transform: scaleY(1);
-        transition: 0.4s cubic-bezier(0,0.5,0.3,1.5);
+        transition: 0.4s cubic-bezier(0, 0.5, 0.3, 1.5);
       }
+    }
+
+    ~ .form-control-label {
+      font-size: 0.5em;
+      top: -0.25rem;
     }
   }
 }
