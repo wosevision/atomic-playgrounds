@@ -98,7 +98,7 @@
   align-items: flex-start;
   position: relative;
   // overflow: hidden;
-  
+
   &-step {
     min-width: 100%;
     transform: translateX(100%);
@@ -109,13 +109,13 @@
     &:not(:first-child) {
       position: absolute;
     }
-  
+
     &.inactive {
       transform: translateX(-100%);
       visibility: hidden;
       opacity: 0;
     }
-  
+
     &.active {
       transform: translateX(0);
       visibility: visible;

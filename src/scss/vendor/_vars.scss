@@ -3,7 +3,6 @@
 // Variables should follow the `$component-state-property-size` formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 
-
 //
 // Color system
 //
@@ -18,17 +17,20 @@ $gray-600: $grey-dark-2;
 $gray-700: $grey-dark-3;
 
 $grays: ();
-$grays: map-merge((
-  "100": $white,
-  "200": $gray-100,
-  "300": $gray-200,
-  "400": $gray-300,
-  "500": $gray-400,
-  "600": $gray-500,
-  "700": $gray-600,
-  "800": $gray-700,
-  "900": $black
-), $grays);
+$grays: map-merge(
+  (
+    '100': $white,
+    '200': $gray-100,
+    '300': $gray-200,
+    '400': $gray-300,
+    '500': $gray-400,
+    '600': $gray-500,
+    '700': $gray-600,
+    '800': $gray-700,
+    '900': $black
+  ),
+  $grays
+);
 
 // $blue:    #007bff !default;
 // $indigo:  #6610f2 !default;
@@ -58,31 +60,33 @@ $grays: map-merge((
 //   "gray-dark":  $gray-800
 // ), $colors);
 
-$primary : $cool-blue;
-$secondary : $orange;
-$tertiary : $apple-tint-1;
-$accent : $mikado-yellow;
-$success : $apple;
+$primary: $cool-blue;
+$secondary: $orange;
+$tertiary: $apple-tint-1;
+$accent: $mikado-yellow;
+$success: $apple;
 $info: $cool-blue-tint-1;
-$warning : $mikado-yellow-tint-1;
+$warning: $mikado-yellow-tint-1;
 $danger: $orange-tint-1;
-$light : $gray-400;
-$dark : $gray-700;
-
+$light: $gray-400;
+$dark: $gray-700;
 
 $theme-colors: ();
-$theme-colors: map-merge((
-  "primary":    $primary,
-  "secondary":  $secondary,
-  "accent":     $accent,
-  "tertiary":   $tertiary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark
-), $theme-colors);
+$theme-colors: map-merge(
+  (
+    'primary': $primary,
+    'secondary': $secondary,
+    'accent': $accent,
+    'tertiary': $tertiary,
+    'success': $success,
+    'info': $info,
+    'warning': $warning,
+    'danger': $danger,
+    'light': $light,
+    'dark': $dark
+  ),
+  $theme-colors
+);
 // stylelint-enable
 
 // Set a specific jump point for requesting color jumps
@@ -107,7 +111,6 @@ $theme-colors: map-merge((
 // $enable-hover-media-query:  false !default; // Deprecated, no longer affects any compiled CSS
 // $enable-grid-classes:       true !default;
 // $enable-print-styles:       true !default;
-
 
 // Spacing
 //
@@ -138,7 +141,7 @@ $theme-colors: map-merge((
 // Settings for the `<body>` element.
 
 // $body-bg:                   $white !default;
-$body-color:                $gray-600 !default;
+$body-color: $gray-600 !default;
 
 // Links
 //
@@ -154,7 +157,6 @@ $body-color:                $gray-600 !default;
 // Style p element.
 
 // $paragraph-margin-bottom:   1rem !default;
-
 
 // Grid breakpoints
 //
@@ -172,7 +174,6 @@ $body-color:                $gray-600 !default;
 // @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
 // @include _assert-starts-at-zero($grid-breakpoints);
 
-
 // Grid containers
 //
 // Define the maximum width of `.container` for different screen sizes.
@@ -185,7 +186,6 @@ $body-color:                $gray-600 !default;
 // ) !default;
 
 // @include _assert-ascending($container-max-widths, "$container-max-widths");
-
 
 // Grid columns
 //
@@ -217,7 +217,6 @@ $body-color:                $gray-600 !default;
 // $transition-fade:             opacity .15s linear !default;
 // $transition-collapse:         height .35s ease !default;
 
-
 // Fonts
 //
 // Font, line-height, and color for body text, headings, and more.
@@ -228,27 +227,27 @@ $body-color:                $gray-600 !default;
 // $font-family-base:            $font-family-sans-serif !default;
 // stylelint-enable value-keyword-case
 
-$font-size-base:              1rem; // Assumes the browser default, typically `16px`
+$font-size-base: 1rem; // Assumes the browser default, typically `16px`
 // $font-size-lg:                ($font-size-base * 1.25) !default;
 // $font-size-sm:                ($font-size-base * .875) !default;
 
-$font-weight-light:           400;
-$font-weight-normal:          500;
-$font-weight-bold:            700;
+$font-weight-light: 400;
+$font-weight-normal: 500;
+$font-weight-bold: 700;
 
-$font-weight-base:            $font-weight-light;
+$font-weight-base: $font-weight-light;
 // $line-height-base:            1.5 !default;
 
-$h1-font-size:                $font-size-base * 3;
-$h2-font-size:                $font-size-base * 2.25;
-$h3-font-size:                $font-size-base * 1.5;
-$h4-font-size:                $font-size-base * 1.125;
-$h5-font-size:                $font-size-base * 1.125;
+$h1-font-size: $font-size-base * 3;
+$h2-font-size: $font-size-base * 2.25;
+$h3-font-size: $font-size-base * 1.5;
+$h4-font-size: $font-size-base * 1.125;
+$h5-font-size: $font-size-base * 1.125;
 // $h6-font-size:                $font-size-base !default;
 
 // $headings-margin-bottom:      ($spacer / 2) !default;
 // $headings-font-family:        inherit !default;
-$headings-font-weight:        $font-weight-bold;
+$headings-font-weight: $font-weight-bold;
 // $headings-line-height:        1.2 !default;
 // $headings-color:              inherit !default;
 
@@ -263,8 +262,8 @@ $headings-font-weight:        $font-weight-bold;
 // $display4-weight:             300 !default;
 // $display-line-height:         $headings-line-height !default;
 
-$lead-font-size:              ($font-size-base * 1.125);
-$lead-font-weight:            $font-weight-light;
+$lead-font-size: ($font-size-base * 1.125);
+$lead-font-weight: $font-weight-light;
 
 // $small-font-size:             80% !default;
 
@@ -288,7 +287,6 @@ $lead-font-weight:            $font-weight-light;
 // $mark-bg:                     #fcf8e3 !default;
 
 // $hr-margin-y:                 $spacer !default;
-
 
 // Tables
 //
@@ -314,13 +312,12 @@ $lead-font-weight:            $font-weight-light;
 // $table-dark-border-color:     lighten($gray-900, 7.5%) !default;
 // $table-dark-color:            $body-bg !default;
 
-
 // Buttons + Forms
 //
 // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
 
-$input-btn-padding-y:         .625rem;
-$input-btn-padding-x:         1.25rem;
+$input-btn-padding-y: 0.625rem;
+$input-btn-padding-x: 1.25rem;
 // $input-btn-line-height:       $line-height-base !default;
 
 // $input-btn-focus-width:       .2rem !default;
@@ -335,8 +332,7 @@ $input-btn-padding-x:         1.25rem;
 // $input-btn-padding-x-lg:      1rem !default;
 // $input-btn-line-height-lg:    $line-height-lg !default;
 
-$input-btn-border-width:      1px;
-
+$input-btn-border-width: 1px;
 
 // Buttons
 //
@@ -356,8 +352,8 @@ $input-btn-border-width:      1px;
 
 // $btn-border-width:            $input-btn-border-width !default;
 
-$btn-font-weight:             $font-weight-normal;
-$btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+$btn-font-weight: $font-weight-normal;
+$btn-box-shadow: inset 0 1px 0 rgba($white, 0.15), 0 1px 1px rgba($black, 0.075) !default;
 // $btn-focus-width:             $input-btn-focus-width !default;
 // $btn-focus-box-shadow:        $input-btn-focus-box-shadow !default;
 // $btn-disabled-opacity:        .65 !default;
@@ -373,7 +369,6 @@ $btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($b
 // $btn-border-radius-sm:        $border-radius-sm !default;
 
 // $btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
-
 
 // Forms
 
@@ -514,13 +509,11 @@ $btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($b
 //   en: "Browse"
 // ) !default;
 
-
 // Form validation
 // $form-feedback-margin-top:          $form-text-margin-top !default;
 // $form-feedback-font-size:           $small-font-size !default;
 // $form-feedback-valid-color:         theme-color("success") !default;
 // $form-feedback-invalid-color:       theme-color("danger") !default;
-
 
 // Dropdowns
 //
@@ -531,17 +524,17 @@ $btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($b
 // $dropdown-spacer:                   .125rem !default;
 // $dropdown-bg:                       $white !default;
 // $dropdown-border-color:             rgba($black, .15) !default;
-$dropdown-border-radius:               8px;
-$dropdown-border-width:                0;
-$dropdown-divider-bg:                  $gray-400;
+$dropdown-border-radius: 8px;
+$dropdown-border-width: 0;
+$dropdown-divider-bg: $gray-400;
 // $dropdown-box-shadow:               0 .5rem 1rem rgba($black, .175) !default;
 
-$dropdown-link-color:                  $gray-600;
-$dropdown-link-hover-color:            $daisy-bush;
-$dropdown-link-hover-bg:               transparent;
+$dropdown-link-color: $gray-600;
+$dropdown-link-hover-color: $daisy-bush;
+$dropdown-link-hover-bg: transparent;
 
-$dropdown-link-active-color:        $daisy-bush !default;
-$dropdown-link-active-bg:           transparent;
+$dropdown-link-active-color: $daisy-bush !default;
+$dropdown-link-active-bg: transparent;
 
 // $dropdown-link-disabled-color:      $gray-600 !default;
 
@@ -549,7 +542,6 @@ $dropdown-link-active-bg:           transparent;
 // $dropdown-item-padding-x:           1.5rem !default;
 
 // $dropdown-header-color:             $gray-600 !default;
-
 
 // Z-index master list
 //
@@ -643,19 +635,17 @@ $dropdown-link-active-bg:           transparent;
 // $pagination-disabled-bg:            $white !default;
 // $pagination-disabled-border-color:  $gray-300 !default;
 
-
 // Jumbotron
 
 // $jumbotron-padding:                 2rem !default;
 // $jumbotron-bg:                      $gray-200 !default;
-
 
 // Cards
 
 // $card-spacer-y:                     .75rem !default;
 // $card-spacer-x:                     1.25rem !default;
 // $card-border-width:                 $border-width !default;
-$card-border-radius:                   6px;
+$card-border-radius: 6px;
 // $card-border-color:                 rgba($black, .125) !default;
 // $card-inner-border-radius:          calc(#{$card-border-radius} - #{$card-border-width}) !default;
 // $card-cap-bg:                       rgba($black, .03) !default;
@@ -669,7 +659,6 @@ $card-border-radius:                   6px;
 // $card-columns-count:                3 !default;
 // $card-columns-gap:                  1.25rem !default;
 // $card-columns-margin:               $card-spacer-y !default;
-
 
 // Tooltips
 
@@ -686,7 +675,6 @@ $card-border-radius:                   6px;
 // $tooltip-arrow-width:         .8rem !default;
 // $tooltip-arrow-height:        .4rem !default;
 // $tooltip-arrow-color:         $tooltip-bg !default;
-
 
 // Popovers
 
@@ -713,7 +701,6 @@ $card-border-radius:                   6px;
 
 // $popover-arrow-outer-color:         fade-in($popover-border-color, .05) !default;
 
-
 // Badges
 
 // $badge-font-size:                   75% !default;
@@ -726,7 +713,6 @@ $card-border-radius:                   6px;
 // Use a higher than normal value to ensure completely rounded edges when
 // customizing padding or font-size on labels.
 // $badge-pill-border-radius:          10rem !default;
-
 
 // Modals
 
@@ -758,7 +744,6 @@ $card-border-radius:                   6px;
 
 // $modal-transition:                  transform .3s ease-out !default;
 
-
 // Alerts
 //
 // Define alert colors, border radius, and padding.
@@ -773,7 +758,6 @@ $card-border-radius:                   6px;
 // $alert-bg-level:                    -10 !default;
 // $alert-border-level:                -9 !default;
 // $alert-color-level:                 6 !default;
-
 
 // Progress bars
 
@@ -811,7 +795,6 @@ $card-border-radius:                   6px;
 // $list-group-action-active-color:    $body-color !default;
 // $list-group-action-active-bg:       $gray-200 !default;
 
-
 // Image thumbnails
 
 // $thumbnail-padding:                 .25rem !default;
@@ -821,12 +804,10 @@ $card-border-radius:                   6px;
 // $thumbnail-border-radius:           $border-radius !default;
 // $thumbnail-box-shadow:              0 1px 2px rgba($black, .075) !default;
 
-
 // Figures
 
 // $figure-caption-font-size:          90% !default;
 // $figure-caption-color:              $gray-600 !default;
-
 
 // Breadcrumbs
 
@@ -840,7 +821,6 @@ $card-border-radius:                   6px;
 // $breadcrumb-divider-color:          $gray-600 !default;
 // $breadcrumb-active-color:           $gray-600 !default;
 // $breadcrumb-divider:                "/" !default;
-
 
 // Carousel
 
@@ -863,7 +843,6 @@ $card-border-radius:                   6px;
 
 // $carousel-transition:               transform .6s ease !default;
 
-
 // Close
 
 // $close-font-size:                   $font-size-base * 1.5 !default;
@@ -884,7 +863,6 @@ $card-border-radius:                   6px;
 
 // $pre-color:                         $gray-900 !default;
 // $pre-scrollable-max-height:         340px !default;
-
 
 // Printing
 // $print-page-size:                   a3 !default;
