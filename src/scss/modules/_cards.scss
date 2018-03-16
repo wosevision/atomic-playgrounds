@@ -47,7 +47,7 @@
     color: gray('600');
     border-radius: $card-border-radius;
     transition: 0.3s;
-    overflow: hidden;
+    // overflow: hidden;
   }
 
   &-content {
@@ -176,10 +176,18 @@
   &-hover {
     position: absolute;
     z-index: -1;
-    bottom: 0;
+    bottom: calc(100% - 2px);
     left: 0;
     width: 100%;
-    height: 100%;
+    font-size: 0;
+    line-height: 1;
+    transform-origin: center bottom;
+    transform: scaleY(0);
+    transition: 0.3s ease-in-out;
+
+    &-svg {
+      width: 100%;
+    }
 
     &-box {
       fill: $white;
@@ -291,9 +299,16 @@
   &-container-stacked {
     .card {
       &:hover {
+        .card-hover {
+          transform: scaleY(1);
+        }
+
         .card-hover-box {
-          d: path('M400,25.27c0,0-57.72-15.27-200-15.27S0,25.27,0,25.27V400h400V25.27z');
           fill: theme-color("primary");
+        }
+
+        .card-body {
+          background-color: theme-color("primary");
         }
       }
 
@@ -307,9 +322,7 @@
       &-body {
         position: relative;
         z-index: 2;
-        margin-top: -#{$card-hover-offset-spacer};
-        padding-top: $card-hover-offset-spacer;
-        background-color: transparent;
+        background-color: $white;
       }
     }
   }

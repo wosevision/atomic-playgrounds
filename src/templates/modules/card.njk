@@ -28,15 +28,18 @@
     </div>
     {% else %}
     <a href="{{ card.link }}" class="card-button">
-      <span class="button-icon"><i class="fas fa-arrow-right"></i></span>
+      <span class="button-icon">
+        <i class="fas fa-arrow-right"></i>
+      </span>
       <span class="button-hidden-text">Go</span>
     </a>
-    {% endif %}
+    {% endif %} 
     {% if card.hover %}
-    <svg class="card-hover" viewBox="0 0 400 400" preserveAspectRatio="xMinYMin slice">
-     <!-- <path class="st0" d="M400,25.27c0,0-57.72-15.27-200-15.27S0,25.27,0,25.27V400h400V25.27z"/> -->
-     <path class="card-hover-box" d="M400,25.27c0,0-178.21,0-200,0s-200,0-200,0V400h400V25.27z"/>
-    </svg>
+    <div class="card-hover">
+      <svg class="card-hover-svg" viewBox="0 0 400 25">
+        <path class="card-hover-box" d="M400,15.27S342.28,0,200,0,0,15.27,0,15.27V25H400Z" />
+      </svg>
+    </div>
     {% endif %}
   </div>
   {% if card.badge %}
