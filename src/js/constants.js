@@ -16,7 +16,11 @@ export const selector = {
   LOGO_SLIDER: `.swiper-container.logo-slider`,
   CARDS_SLIDER: `.swiper-container.cards-slider`,
 
-  PARALLAX: '.parallax-bg'
+  PARALLAX: '.parallax-bg',
+
+  CONTAINER_UNDERLINE: '.form-container-underline',
+  CONTROL_UNDERLINE: '.form-control-underline',
+  CONTROL_LABEL: '.form-control-label'
 };
 
 export const svg = {

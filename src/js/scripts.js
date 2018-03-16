@@ -101,6 +101,15 @@ $(document).ready(() => {
     const parallax = new Parallax();
   }
 
+  const $inputs = $(selector.CONTAINER_UNDERLINE).filter(
+    `:has(${selector.CONTROL_LABEL})`
+  );
+  if ($inputs.length) {
+    $inputs
+      .find(selector.CONTROL_UNDERLINE)
+      .each((_, input) => new FloatingLabelInput(input));
+  }
+
   const navigationBar = new NavigationBar(selector.NAVBAR_EL, {
     logoSelector: selector.NAVBAR_LOGO,
     offset: 400

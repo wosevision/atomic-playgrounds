@@ -49,12 +49,6 @@
       transition: 0.3s;
     }
   }
-
-  .form-control-label {
-    position: absolute;
-    top: 0.6rem;
-    transition: 0.4s $md-cubic-bezier;
-  }
 }
 
 .form-control-underline {
@@ -70,6 +64,21 @@
     opacity: 0.7;
   }
 
+  ~ .form-control-label {
+    position: absolute;
+    transition: 0.4s $md-cubic-bezier;
+    top: -0.25rem;
+  }
+
+  &:not([data-input-empty]) ~ .form-control-label,
+  &:focus ~ .form-control-label {
+    font-size: 0.5em;
+  }
+  &[data-input-empty]:not(:focus) ~ .form-control-label {
+    top: 0.6rem;
+    font-size: initial;
+  }
+
   &:focus {
     background-color: transparent;
     color: currentColor;
@@ -80,11 +89,6 @@
         transform: scaleY(1);
         transition: 0.4s cubic-bezier(0, 0.5, 0.3, 1.5);
       }
-    }
-
-    ~ .form-control-label {
-      font-size: 0.5em;
-      top: -0.25rem;
     }
   }
 }
