@@ -45,7 +45,7 @@
       height: 3px;
       transform: scaleY(0);
       // transform-origin: left center;
-      background-color: $primary-color-tint-1;
+      background-color: theme-color("primary");
       transition: 0.3s;
     }
   }
@@ -120,6 +120,14 @@
       transform: translateX(0);
       visibility: visible;
       opacity: 1;
+    }
+
+    .form-container-underline {
+      .form-control-decor {
+        &::after {
+          background-color: $primary-color-tint-1;
+        }
+      }
     }
   }
 }
