@@ -154,6 +154,30 @@
 
 .input {
   &-filters {
+    legend {
+      border-top: solid 0.2rem white;
+    }
+    .btn {
+      position: relative;
+
+      &:before {
+        position: absolute;
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        left: calc(50% - 1rem);
+        top: -75%;
+        border: solid 0.2rem white;
+        border-radius: 1rem;
+        background-color: transparent;
+        content: '';
+      }
+
+      &-group-toggle {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
   }
 
   &-tags {
