@@ -1,0 +1,24 @@
+<form>
+  <div class="form-row">
+    <fieldset class="col-12 col-lg-5 input-filters">
+      <legend>Size</legend>
+      <div class="btn-group-toggle" data-toggle="buttons">
+        {% for filter in module.filters %}
+        <label class="btn btn-primary">
+          <input type="radio" name="filter_size" autocomplete="off" value="{{ filter }}"> {{ filter | capitalize }}
+        </label>
+        {% endfor %}
+      </div>
+    </fieldset>
+    <fieldset class="col-12 col-lg-7 input-tags">
+      <legend>Features</legend>
+      <div class="btn-group-toggle" data-toggle="buttons">
+        {% for tag in module.tags %}
+        <label class="btn btn-outline-primary active">
+          <input type="checkbox" checked autocomplete="off" name="filter_features[]" value="{{ tag }}"> {{ tag | capitalize }}
+        </label>
+        {% endfor %}
+      </div>
+    </fieldset>
+  </div>
+</form>

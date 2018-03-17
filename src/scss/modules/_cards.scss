@@ -378,6 +378,12 @@
     }
   }
 
+  // OVERLAPPING HERO CARD
+  &-container-overlap {
+    position: relative;
+    margin-top: 25vh;
+    // margin-bottom: -25vh;
+  }
 
   .btn {
     margin-top: 1rem;
