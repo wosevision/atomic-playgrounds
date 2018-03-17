@@ -1,0 +1,61 @@
+---
+title: Thanks for your request
+contentBlocks:
+  - fluid: true
+    bg: assets/img/jump-jacks.jpg
+    modules:
+      - type: hero-small
+  - theme: white
+    modules:
+      - type: title
+        title: Thanks for your request! 
+        class: text-muted
+        icon: phone
+        headingLevel: 1
+      - type: content-columns
+        columns: 9
+        class: text-center
+        body: 
+          - content: Thanks for getting in touch! We’ll reach out to you within 24 hours either by phone to discuss options for your request. Call us at 604 507-1260 if you have any questions.</p><p><img class="mt-5 img-fluid" src="assets/img/ballpit.png" alt="Ballpit">
+      - type: map
+        text: Feel free to stop by our office
+        map:
+          center: 49.1913,-122.8490
+          zoom: 12
+  - theme: blue
+    illustrationBg: assets/img/illustration-bg-02.png
+    modules:
+      - type: title
+        title: Lots of Toddler Stuff
+      - type: cards-circle
+        cards:
+          - image:
+            link: article.html
+            title: Finishing Touches
+            text: Youngsters can find our play equipment super exciting!
+          - image: assets/img/cards/house-tv.jpg
+            link: article.html
+            title: Playground Theming
+            text: Youngsters can find our play equipment super exciting!
+          - image: assets/img/cards/fish-table.jpg
+            link: article.html
+            title: Funiture & Accessories
+            text: Youngsters can find our play equipment super exciting!
+          - image: assets/img/cards/turtle-mural.jpg
+            link: article.html
+            title: Murals & Logos
+            text: Youngsters can find our play equipment super exciting!
+---
+
+{%- extends "layout.njk" %}
+
+{%- block title %}{{ title }}{%- endblock %}
+
+{%- block content %}
+
+{%- from "block.njk" import renderContentBlock %}
+{%- for block in contentBlocks %}
+{{ renderContentBlock(block) }}
+{%- endfor %}
+
+{%- endblock %}
