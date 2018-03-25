@@ -155,25 +155,64 @@
 .input {
   &-filters {
     legend {
-      border-top: solid 0.2rem white;
+      // border-top: solid 0.2rem white;
     }
     .btn {
       position: relative;
+      width: 100%;
+      box-shadow: none;
+      border: none;
+      background-color: transparent;
+      
+      &:focus,
+      &:active,
+      &:hover {
+        box-shadow: none;
+        background-color: transparent;
+        transform: none;
+      }
 
-      &:before {
+      &::before {
         position: absolute;
         display: block;
         width: 2rem;
         height: 2rem;
         left: calc(50% - 1rem);
         top: -75%;
-        border: solid 0.2rem white;
+        border: solid 0.2rem $white;
+        box-shadow: inset 0 0 0 0.2rem plum;
         border-radius: 1rem;
         background-color: transparent;
         content: '';
       }
+      
+      &:not(:last-child) {
+        &::after {
+          content: '';
+          position: absolute;
+          top: calc(-75% + 1rem);
+          left: calc(50% + 1rem);
+          width: calc(100% - 2rem);
+          border-top: solid 0.2rem white;
+        }
+      }
+      
+      &:active,
+      &.active {
+        &:not(.disabled):not([disabled]) {
+          border: none;
+          background-color: transparent;
+        }
+      }
+
+      &.active {
+        &::before {
+          background-color: $white;
+        }
+      }
 
       &-group-toggle {
+        margin-top: 2.5rem;
         display: flex;
         justify-content: space-between;
       }
@@ -182,6 +221,61 @@
 
   &-tags {
   }
+}
+
+.tag {
+  box-shadow: none;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: $white;
+
+  &:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  &::before {
+    content: '+';
+    display: inline-block;
+    height: 0.875rem;
+    width: 0.875rem;
+    margin-right: 0.5em;
+    border-radius: 50%;
+    background-color: $white;
+    line-height: 1;
+  }
+
+  &-white {
+    border: solid 1px $white;
+    background-color: transparent;
+
+    &::before {
+      background-color: $white;
+      color: theme-color("primary");
+    }
+
+    &.active {
+      border-color: theme-color("primary");
+
+      &::before {
+        content: '-';
+        background-color: theme-color("primary");
+        color: $white;
+      }
+
+      &:not(.disabled):not([disabled]) {
+        box-shadow: none;
+        background-color: $white;
+        color: theme-color("primary");
+      }
+    }
+  }
+}
+
+.legend-white {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: $white;
 }
 
 .input-group {
