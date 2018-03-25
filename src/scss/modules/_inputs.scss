@@ -194,6 +194,8 @@
           left: calc(50% + 1rem);
           width: calc(100% - 2rem);
           border-top: solid 0.2rem white;
+          pointer-events: none;
+          cursor: default;
         }
       }
       
