@@ -8,7 +8,7 @@ import solid from '@fortawesome/fontawesome-free-solid';
 import brands from '@fortawesome/fontawesome-free-brands';
 
 import { FloatingLabelInput } from './floating-label';
-import { LogoSlider, CardsSlider } from './sliders';
+import { LogoSlider, CardsSlider, DialogSlider } from './sliders';
 import { NavigationBar } from './navigation';
 import { Parallax } from './parallax';
 
@@ -87,8 +87,7 @@ if ($heroMoon.length) {
 
     rocketPathAnimator.to(4, { opacity: 1, delay: 2, ease: Linear.easeNone });
 
-    const restartTweens = () =>
-      TweenMax.getAllTweens().map(tween => tween.restart());
+    const restartTweens = () => TweenMax.getAllTweens().map(tween => tween.restart());
     const debouncedRestart = debounce(restartTweens);
     $(window).on('resize', debouncedRestart);
   };
@@ -110,17 +109,16 @@ $(document).ready(() => {
   if ($(selector.CARDS_SLIDER).length) {
     const cardsSlider = new CardsSlider();
   }
+  if ($(`${selector.DIALOG_SLIDER_BOTTOM}, ${selector.DIALOG_SLIDER_TOP}`).length) {
+    const dialogSlider = new DialogSlider();
+  }
   if ($(selector.PARALLAX).length) {
     const parallax = new Parallax();
   }
 
-  const $inputs = $(selector.CONTAINER_UNDERLINE).filter(
-    `:has(${selector.CONTROL_LABEL})`
-  );
+  const $inputs = $(selector.CONTAINER_UNDERLINE).filter(`:has(${selector.CONTROL_LABEL})`);
   if ($inputs.length) {
-    $inputs
-      .find(selector.CONTROL_UNDERLINE)
-      .each((_, input) => new FloatingLabelInput(input));
+    $inputs.find(selector.CONTROL_UNDERLINE).each((_, input) => new FloatingLabelInput(input));
   }
 
   const navigationBar = new NavigationBar(selector.NAVBAR_EL, {

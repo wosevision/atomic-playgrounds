@@ -1,9 +1,35 @@
-<div class="modal fade" id="{{ dialog.id }}-dialog" tabindex="-1" role="dialog" aria-labelledby="{{ dialog.id }}-dialog-title" aria-hidden="true">
+<div class="modal fade" id="{{ dialog.id }}-dialog" tabindex="-1" role="dialog" aria-labelledby="{{ dialog.id }}-dialog-title"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <h3 id="{{ dialog.id }}-dialog-title">{{ dialog.title }}</h3>
-        <p>{{ dialog.description }}</p>
+        <div class="row">
+          {% if dialog.slideshow -%}
+          <div class="col-12 col-md-6">
+            <div class="swiper-container dialog-slider-top">
+              <div class="swiper-wrapper">
+                {%- for slide in dialog.slideshow -%}
+                <div class="swiper-slide" style="background-image:url({{ slide.image }})"></div>
+                {%- endfor %}
+              </div>
+              <!-- Add Arrows -->
+              <div class="swiper-button-next swiper-button-white"></div>
+              <div class="swiper-button-prev swiper-button-white"></div>
+            </div>
+            <div class="swiper-container dialog-slider-bottom">
+              <div class="swiper-wrapper">
+                {% for slide in dialog.slideshow -%}
+                <div class="swiper-slide" style="background-image:url({{ slide.image }})"></div>
+                {%- endfor %}
+              </div>
+            </div>
+          </div>
+          {%- endif %}
+          <div class="col-12{% if dialog.slideshow %} col-md-6{% endif %}">
+            <h3 id="{{ dialog.id }}-dialog-title">{{ dialog.title }}</h3>
+            <p>{{ dialog.description }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

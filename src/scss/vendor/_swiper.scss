@@ -35,12 +35,46 @@
           opacity: 0.6;
         }
         .swiper-pagination-bullet-active {
-          background: theme-color("primary");
+          background: theme-color('primary');
+          opacity: 1;
+        }
+      }
+    }
+
+    &.dialog-slider-top,
+    &.dialog-slider-bottom {
+      width: 100%;
+      height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+
+      .swiper-slide {
+        background-size: cover;
+        background-position: center;
+      }
+    }
+
+    &.dialog-slider-top {
+      height: 80%;
+      width: 100%;
+    }
+
+    &.dialog-slider-bottom {
+      height: 20%;
+      box-sizing: border-box;
+      padding: 10px 0;
+
+      .swiper-slide {
+        width: 25%;
+        height: 100%;
+        opacity: 0.4;
+        &-active {
           opacity: 1;
         }
       }
     }
   }
+
   &-slide {
     display: flex;
     justify-content: center;
