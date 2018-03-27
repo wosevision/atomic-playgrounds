@@ -51,6 +51,8 @@
   &-white {
     box-shadow: 0 0.125rem 0 0 theme-color-level('primary', 2);
     color: theme-color('primary');
+    background-color:  $white;
+    
     &:hover {
       box-shadow: 0 0.2rem 0 0 theme-color-level('primary', 3);
       transform: translateY(-0.075rem);

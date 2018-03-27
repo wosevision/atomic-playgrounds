@@ -16,13 +16,14 @@
       top: 0;
       left: 0;
       width: 100%;
+      height: 100%;
 
       @include media-breakpoint-up(sm) {
         padding-top: 100%;
       }
-      @include media-breakpoint-down(xs) {
-        height: 100%;
-      }
+      // @include media-breakpoint-down(xs) {
+      //   height: 100%;
+      // }
     }
     &-svg {
       position: absolute;

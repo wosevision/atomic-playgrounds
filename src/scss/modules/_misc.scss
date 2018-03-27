@@ -16,6 +16,7 @@
 
 body.loading {
   overflow: hidden;
+  max-height: 100vh;
   perspective: 50px;
   &::before, &::after {
     content: '';
