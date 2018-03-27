@@ -1,7 +1,7 @@
 <form>
-  <div class="form-row">
+  <div class="form-row mb-5">
     <fieldset class="col-12 col-lg-5 input-filters">
-      <legend>Size</legend>
+      <legend class="legend-white">Size</legend>
       <div class="btn-group-toggle" data-toggle="buttons">
         {% for filter in module.filters %}
         <label class="btn btn-primary">
@@ -11,10 +11,10 @@
       </div>
     </fieldset>
     <fieldset class="col-12 col-lg-7 input-tags">
-      <legend>Features</legend>
+      <legend class="legend-white">Features</legend>
       <div class="btn-group-toggle" data-toggle="buttons">
         {% for tag in module.tags %}
-        <label class="btn btn-outline-primary active">
+        <label class="btn btn-outline-primary btn-sm tag tag-white active">
           <input type="checkbox" checked autocomplete="off" name="filter_features[]" value="{{ tag }}"> {{ tag | capitalize }}
         </label>
         {% endfor %}
