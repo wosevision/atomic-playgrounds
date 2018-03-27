@@ -1,16 +1,16 @@
-const path = require('path'),
-			del = require('del'),
-			gulp = require('gulp'),
-			$ = require('gulp-load-plugins')(),
-			browserSync = require('browser-sync'),
-			moduleImporter = require('sass-module-importer'),
-			frontMatter = require('front-matter'),
-			source = require('vinyl-source-stream'),
-			buffer = require('vinyl-buffer'),
-			browserify = require('browserify'),
-			watchify = require('watchify'),
-			babelify = require('babelify'),
-      package = require('./package.json');
+const path = require('path');
+const del = require('del');
+const gulp = require('gulp');
+const $ = require('gulp-load-plugins')();
+const browserSync = require('browser-sync');
+const moduleImporter = require('sass-module-importer');
+const frontMatter = require('front-matter');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
+const browserify = require('browserify');
+const watchify = require('watchify');
+const babelify = require('babelify');
+const package = require('./package.json');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -18,53 +18,55 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
  * Dynamically append package info to top of
  * generated files.
  */
-package.contributors = package.contributors.map(author => `${ author.name } <${ author.email }>`);
+package.contributors = package.contributors.map(author => `${author.name} <${author.email}>`);
 const banner = [
-	'/*!\n' +
-	' * <%= package.name %>\n' +
-	' * <%= package.title %>\n' +
-	' * <%= package.url %>\n' +
-	' * @author <%= package.contributors.join(\' & \') %>>\n' +
-	' * @version <%= package.version %>\n' +
-	' * Copyright ' + new Date().getFullYear() + '. <%= package.license %> licensed.\n' +
-	' */',
-	'\n'
+  '/*!\n' +
+    ' * <%= package.name %>\n' +
+    ' * <%= package.title %>\n' +
+    ' * <%= package.url %>\n' +
+    " * @author <%= package.contributors.join(' & ') %>>\n" +
+    ' * @version <%= package.version %>\n' +
+    ' * Copyright ' +
+    new Date().getFullYear() +
+    '. <%= package.license %> licensed.\n' +
+    ' */',
+  '\n'
 ].join('');
 
 /**
  * Constants for file path parts and full paths.
  */
 const base = {
-	src: 'src',
-	dist: 'build',
-}
+  src: 'src',
+  dist: 'build'
+};
 const sources = {
-	// sources
-	pages: path.join(base.src, 'pages'),
-	templates: path.join(base.src, 'templates'),
-	sass: path.join(base.src, 'scss'),
-	js: path.join(base.src, 'js'),
-	img: path.join(base.src, 'img'),
-	fonts: path.join(base.src, 'fonts'),
-	favicon: path.join(base.src, 'favicon.png'),
-	// destinations
-	assets: path.join(base.dist, 'assets'),
-	html: path.join(base.dist, '*.html')
-}
+  // sources
+  pages: path.join(base.src, 'pages'),
+  templates: path.join(base.src, 'templates'),
+  sass: path.join(base.src, 'scss'),
+  js: path.join(base.src, 'js'),
+  img: path.join(base.src, 'img'),
+  fonts: path.join(base.src, 'fonts'),
+  favicon: path.join(base.src, 'favicon.png'),
+  // destinations
+  assets: path.join(base.dist, 'assets'),
+  html: path.join(base.dist, '*.html')
+};
 const paths = {
-	// sources
-	styles: path.join(sources.sass, 'styles.scss'),
-	scripts: path.join(sources.js, 'scripts.js'),
-	html: path.join(sources.pages, '**/*.+(html|njk)'),
-	njk: path.join(sources.templates, '**/*.+(html|njk)'),
-	img: path.join(sources.img, '**/*.+(jpg|jpeg|gif|png|svg)'),
-	fonts: path.join(sources.fonts, '**/*.{eot,svg,ttf,woff,woff2}'),
-	// destinations
-	styleDest: path.join(sources.assets, 'css'),
-	scriptDest: path.join(sources.assets, 'js'),
-	imageDest: path.join(sources.assets, 'img'),
-	fontsDest: path.join(sources.assets, 'fonts'),
-	faviconsDest: path.join(base.dist, 'favicons')
+  // sources
+  styles: path.join(sources.sass, 'styles.scss'),
+  scripts: path.join(sources.js, 'scripts.js'),
+  html: path.join(sources.pages, '**/*.+(html|njk)'),
+  njk: path.join(sources.templates, '**/*.+(html|njk)'),
+  img: path.join(sources.img, '**/*.+(jpg|jpeg|gif|png|svg)'),
+  fonts: path.join(sources.fonts, '**/*.{eot,svg,ttf,woff,woff2}'),
+  // destinations
+  styleDest: path.join(sources.assets, 'css'),
+  scriptDest: path.join(sources.assets, 'js'),
+  imageDest: path.join(sources.assets, 'img'),
+  fontsDest: path.join(sources.assets, 'fonts'),
+  faviconsDest: path.join(base.dist, 'favicons')
 };
 
 /**
@@ -79,18 +81,23 @@ const paths = {
  * - launches browserSync
  */
 gulp.task('css', function() {
-	return gulp.src(paths.styles)
-		.pipe($.sourcemaps.init())
-		.pipe($.plumber({errorHandler: $.notify.onError('YOUR SASS IS WACK!\n<%= error.message %>')}))
-		.pipe($.sass({ importer: moduleImporter() }).on('error', $.sass.logError))
-		.pipe($.autoprefixer('last 4 version'))
-		.pipe(gulp.dest(paths.styleDest))
-		.pipe($.cssnano())
-		.pipe($.rename({ suffix: '.min' }))
-		.pipe($.header(banner, { package : package }))
-		.pipe($.sourcemaps.write())
-		.pipe(gulp.dest(paths.styleDest))
-		.pipe(browserSync.reload({stream:true}));
+  return gulp
+    .src(paths.styles)
+    .pipe($.sourcemaps.init())
+    .pipe(
+      $.plumber({
+        errorHandler: $.notify.onError('YOUR SASS IS WACK!\n<%= error.message %>')
+      })
+    )
+    .pipe($.sass({ importer: moduleImporter() }).on('error', $.sass.logError))
+    .pipe($.autoprefixer('last 4 version'))
+    .pipe(gulp.dest(paths.styleDest))
+    .pipe($.cssnano())
+    .pipe($.rename({ suffix: '.min' }))
+    .pipe($.header(banner, { package: package }))
+    .pipe($.sourcemaps.write('../maps'))
+    .pipe(gulp.dest(paths.styleDest))
+    .pipe(browserSync.reload({ stream: true }));
 });
 
 /**
@@ -106,38 +113,39 @@ gulp.task('css', function() {
  * - launches browserSync
  */
 const bundle = watch => {
-  var bundler = watchify(browserify(paths.scripts, {
-  	debug: true
-  }).transform(babelify, {
-		presets: ['env']
-	}));
+  var bundler = watchify(
+    browserify(paths.scripts, {
+      debug: true
+    }).transform(babelify, {
+      presets: ['env']
+    })
+  );
   const rebundle = () => {
-    bundler.bundle()
+    bundler
+      .bundle()
       .on('error', function(err) {
-      	console.error(err);
-      	this.emit('end');
+        console.error(err);
+        this.emit('end');
       })
       .pipe(source('scripts.js'))
       .pipe(buffer())
-      .pipe($.sourcemaps.init({
-      	loadMaps: true
-      }))
-      .pipe($.sourcemaps.write())
       .pipe(gulp.dest(paths.scriptDest))
-			.pipe($.uglify())
-			.pipe($.header(banner, { package : package }))
-			.pipe($.rename({ suffix: '.min' }))
+      .pipe($.sourcemaps.init())
+      .pipe($.uglify())
+      .pipe($.header(banner, { package: package }))
+      .pipe($.rename({ suffix: '.min' }))
+      .pipe($.sourcemaps.write('../maps'))
       .pipe(gulp.dest(paths.scriptDest))
-			.pipe(browserSync.reload({stream:true, once: true}));
-  }
+      .pipe(browserSync.reload({ stream: true, once: true }));
+  };
   if (watch) {
-	  bundler.on('update', () => {
-	    console.log('Rebundling...');
-	    rebundle();
-	  });
-	}
+    bundler.on('update', () => {
+      console.log('Rebundling...');
+      rebundle();
+    });
+  }
   rebundle();
-}
+};
 const watch = () => bundle(true);
 gulp.task('js', () => bundle());
 
@@ -149,57 +157,67 @@ gulp.task('js', () => bundle());
  * - writes assets
  */
 gulp.task('templates', function() {
-	return gulp.src(paths.html)
-		.pipe($.data(file => frontMatter(String(file.contents)).attributes))
-		.pipe($.nunjucksRender({
-			path: [ sources.templates ],
-			manageEnv(environment) {
-        environment
-          .addFilter('slug', text => text
-            ? text
-              .toString()
-              .toLowerCase()
-              .replace(/\s+/g, '-') // Replace spaces with -
-              .replace(/[^\w\-]+/g, '') // Remove all non-word chars
-              .replace(/\-\-+/g, '-') // Replace multiple - with single -
-              .replace(/^-+/, '') // Trim - from start of text
-              .replace(/-+$/, '') // Trim - from end of text
-            : ''
-          )
-          .addGlobal('env', NODE_ENV);
-			}
-		}))
-		.pipe(gulp.dest(base.dist))
-		.pipe(browserSync.reload({stream:true}));
+  return gulp
+    .src(paths.html)
+    .pipe($.data(file => frontMatter(String(file.contents)).attributes))
+    .pipe(
+      $.nunjucksRender({
+        path: [sources.templates],
+        manageEnv(environment) {
+          environment
+            .addFilter(
+              'slug',
+              text =>
+                text
+                  ? text
+                      .toString()
+                      .toLowerCase()
+                      .replace(/\s+/g, '-') // Replace spaces with -
+                      .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+                      .replace(/\-\-+/g, '-') // Replace multiple - with single -
+                      .replace(/^-+/, '') // Trim - from start of text
+                      .replace(/-+$/, '') // Trim - from end of text
+                  : ''
+            )
+            .addGlobal('env', NODE_ENV);
+        }
+      })
+    )
+    .pipe(gulp.dest(base.dist))
+    .pipe(browserSync.reload({ stream: true }));
 });
 
 /**
  * Copy static image assets to `app/assets`
  */
 gulp.task('images', function() {
-	return gulp.src(paths.img)
-		.pipe(gulp.dest(paths.imageDest));
+  return gulp.src(paths.img).pipe(gulp.dest(paths.imageDest));
 });
 
 /**
  * Generate favicons for all platforms.
  */
-gulp.task('generate-favicons', ['templates'], function () {
-    return gulp.src(sources.favicon).pipe($.favicons({
-      appName: 'Atomic Playgrounds',
-      appDescription: 'Atomic Indoor Playground Manufacturing is the perfect place to start planning your Indoor Playground or fun center project.',
-      background: '#ffffff',
-      theme_color: '#f5c909',
-      path: 'favicons/',
-      display: 'standalone',
-      orientation: 'portrait',
-      version: 1.0,
-      logging: false,
-      online: false,
-      html: 'favicon.html',
-      pipeHTML: true,
-      replace: true
-    }))
+gulp.task('generate-favicons', ['templates'], function() {
+  return gulp
+    .src(sources.favicon)
+    .pipe(
+      $.favicons({
+        appName: 'Atomic Playgrounds',
+        appDescription:
+          'Atomic Indoor Playground Manufacturing is the perfect place to start planning your Indoor Playground or fun center project.',
+        background: '#ffffff',
+        theme_color: '#f5c909',
+        path: 'favicons/',
+        display: 'standalone',
+        orientation: 'portrait',
+        version: 1.0,
+        logging: false,
+        online: false,
+        html: 'favicon.html',
+        pipeHTML: true,
+        replace: true
+      })
+    )
     .on('error', $.notify.onError('Your favicons have insubordinated:\n<%= error.message %>'))
     .pipe(gulp.dest(paths.faviconsDest));
 });
@@ -211,14 +229,17 @@ gulp.task('generate-favicons', ['templates'], function () {
 const faviconsTemplate = path.join(paths.faviconsDest, 'favicon.html');
 
 gulp.task('inject-favicons', ['generate-favicons'], function() {
-  gulp.src(sources.html)
-	  .pipe($.inject(gulp.src([faviconsTemplate]), {
-	    starttag: '<!-- inject:head:{{ext}} -->',
-	    transform(filePath, file) {
-	      return file.contents.toString('utf8'); // return file contents as string
-	    }
-	  }))
-	  .pipe(gulp.dest(base.dist));
+  gulp
+    .src(sources.html)
+    .pipe(
+      $.inject(gulp.src([faviconsTemplate]), {
+        starttag: '<!-- inject:head:{{ext}} -->',
+        transform(filePath, file) {
+          return file.contents.toString('utf8'); // return file contents as string
+        }
+      })
+    )
+    .pipe(gulp.dest(base.dist));
 });
 
 /**
@@ -237,22 +258,23 @@ gulp.task('clean-favicons-template', ['inject-favicons'], function() {
 gulp.task('favicons', ['clean-favicons-template']);
 
 gulp.task('fonts', function() {
-  return gulp.src(paths.fonts)
+  return gulp
+    .src(paths.fonts)
     .pipe($.changed(paths.fontsDest))
     .pipe(gulp.dest(paths.fontsDest))
     .pipe(browserSync.stream());
 });
 
 gulp.task('browser-sync', function() {
-	browserSync.init(null, {
-		server: {
-			baseDir: base.dist
-		}
-	});
+  browserSync.init(null, {
+    server: {
+      baseDir: base.dist
+    }
+  });
 });
 
 gulp.task('bs-reload', function() {
-	browserSync.reload();
+  browserSync.reload();
 });
 
 gulp.task('clean', function() {
@@ -260,12 +282,12 @@ gulp.task('clean', function() {
 });
 
 gulp.task('default', ['images', 'css', 'fonts', 'js', 'templates', 'browser-sync'], function() {
-	gulp.watch(path.join(sources.sass, '**/*.scss'), ['css']);
-	gulp.watch(paths.fonts, ['fonts']);
-	gulp.watch([paths.html, paths.njk], ['templates']);
-	watch();
+  gulp.watch(path.join(sources.sass, '**/*.scss'), ['css']);
+  gulp.watch(paths.fonts, ['fonts']);
+  gulp.watch([paths.html, paths.njk], ['templates']);
+  watch();
 });
 
-gulp.task('build', ['clean'], function () {
-	return gulp.run(['images', 'css', 'fonts', 'js', 'templates', 'favicons']);
+gulp.task('build', ['clean'], function() {
+  return gulp.run(['images', 'css', 'fonts', 'js', 'templates', 'favicons']);
 });
