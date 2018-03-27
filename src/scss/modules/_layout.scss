@@ -129,4 +129,22 @@ hr {
       line-height: 1.125;
     }
   }
+
+  &-icon {
+    width: 55px;
+    margin-bottom: 1rem;
+
+    &-wrapper {
+      background-color: gray('200');
+
+      .gallery-link,
+      .gallery-link:hover {
+        background-color: transparent;
+      }
+    }
+
+    &-fill {
+      fill: currentColor;
+    }
+  }
 }
