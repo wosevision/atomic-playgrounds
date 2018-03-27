@@ -22,11 +22,10 @@
   </head>
   <body class="loading">
 
-    {% include "partials/header.njk" %}
+    {% include "partials/header.njk" -%}
+    {%- block content -%}{%- endblock -%}
+    {%- include "partials/footer.njk" %}
 
-    {% block content %} {% endblock %}
-
-    {% include "partials/footer.njk" %}
 
     <script>
       FontAwesomeConfig = { searchPseudoElements: true };
