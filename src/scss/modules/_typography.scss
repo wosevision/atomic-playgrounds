@@ -15,6 +15,10 @@
   }
 }
 
+.caption {
+  font-size: 0.875rem;
+}
+
 .blockquote {
   position: relative;
   padding: 0 2rem;
@@ -98,6 +102,26 @@
       &::after {
         content: ' | ';
         padding: 0 0.5em;
+      }
+    }
+  }
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.2rem;
+  border: 1px solid gray('500');
+  background-color: transparent;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: gray('500');
+
+  &-container {
+    .tag {
+      &:not(:last-child) {
+        margin-right: 0.5em;
       }
     }
   }

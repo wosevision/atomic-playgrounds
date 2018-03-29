@@ -227,11 +227,8 @@
   }
 }
 
-.tag {
+.btn.tag {
   box-shadow: none;
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: $white;
 
   &:hover {
     box-shadow: none;
@@ -252,6 +249,7 @@
   &-white {
     border: solid 1px $white;
     background-color: transparent;
+    color: $white;
 
     &::before {
       background-color: $white;

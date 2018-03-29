@@ -53,6 +53,23 @@ hr {
         font-size: 0.875rem;
       }
     }
+
+    &-shadow {
+      .media {
+        &-img-circle {
+          flex: 0 0 100px;
+          height: 100px;
+          width: 100px;
+          margin-right: 0.5rem;
+          border: solid 3px $white;
+          @include z-depth(2);
+        }
+
+        &-item {
+          font-size: 0.875rem;
+        }
+      }
+    }
   }
 }
 
@@ -146,5 +163,20 @@ hr {
     &-fill {
       fill: currentColor;
     }
+  }
+}
+
+
+// MODAL
+
+@include media-breakpoint-up(md) {
+  .modal-lg {
+    max-width: 600px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .modal-lg {
+    max-width: 1000px;
   }
 }
