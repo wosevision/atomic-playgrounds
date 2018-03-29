@@ -56,11 +56,14 @@
 
     &.dialog-slider-top {
       height: 80%;
+      min-height: 300px;
+      max-height: 500px;
       width: 100%;
     }
 
     &.dialog-slider-bottom {
-      height: 20%;
+      // height: 20%;
+      max-height: 70px;
       box-sizing: border-box;
       padding: 10px 0;
 
