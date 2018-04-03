@@ -289,5 +289,5 @@ gulp.task('default', ['images', 'css', 'fonts', 'js', 'templates', 'browser-sync
 });
 
 gulp.task('build', ['clean'], function() {
-  return gulp.run(['images', 'css', 'fonts', 'js', 'templates', 'favicons']);
+  return gulp.run(['images', 'css', 'fonts', 'js', 'templates', 'favicons'], () => process.exit(0));
 });
