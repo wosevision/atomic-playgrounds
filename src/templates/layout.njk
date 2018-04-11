@@ -29,6 +29,9 @@
     {% if dialog -%}
     {%- include "partials/dialog.njk" -%}
     {%- endif %}
+    {% if dialogSuccess -%}
+    {%- include "partials/dialogSuccess.njk" -%}
+    {%- endif %}
 
     <script>
       FontAwesomeConfig = { searchPseudoElements: true };

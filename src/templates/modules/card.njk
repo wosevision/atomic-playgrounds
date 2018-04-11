@@ -10,7 +10,13 @@
       </span>
       {% endif %}
       <h4 class="card-title">
+        {% if card.modal %}
+        <a href="javascript:;" data-toggle="modal" data-target="#{{ card.modal }}">
+          {{ card.title }}
+        </a>
+        {% else %}
         {{ card.title }}
+        {% endif %}
       </h4>
       <p class="card-text">
         {% if card.icon %}
@@ -24,7 +30,7 @@
       {% if card.linkSecondaryText %}
       <a href="{{ card.linkSecondary }}" class="btn btn-outline-primary">{{ card.linkSecondaryText }}</a>
       {% endif %}
-      <a href="{{ card.link }}" class="btn btn-primary">{{ card.linkText }}</a>
+      <a href="{{ card.link }}" class="btn btn-primary"{% if card.linkModal %} data-toggle="modal" data-target="#{{ card.linkModal }}"{% endif %}>{{ card.linkText }}</a>
     </div>
     {% else %}
     <a href="{{ card.link }}" class="card-button">

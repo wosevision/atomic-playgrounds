@@ -1,0 +1,19 @@
+<div class="modal fade" id="{{ dialogSuccess.id }}-dialog" tabindex="-1" role="dialog" aria-labelledby="{{ dialogSuccess.id }}-dialog-title"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="fas fa-times"></span>
+        </button>
+        <i class="modal-icon-large fas fa-{{ dialogSuccess.icon }}"></i>
+        <h3>
+          {{ dialogSuccess.title }}
+        </h3>
+        <p>
+          {{ dialogSuccess.description }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

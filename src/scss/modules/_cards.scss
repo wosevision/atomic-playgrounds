@@ -13,6 +13,16 @@
       color: $white;
     }
 
+    .card-title {
+      a {
+        color: $white;
+
+        &:hover {
+          color: rgba($white, 0.8);
+        }
+      }
+    }
+
     .btn-primary {
       border-color: theme-color-level('primary', 2);
       background-color: theme-color-level('primary', 2)
@@ -56,6 +66,12 @@
 
   &-title {
     font-size: 1.125rem;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: 0.2s;
+    }
   }
 
   &-category {

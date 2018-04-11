@@ -180,3 +180,17 @@ hr {
     max-width: 1000px;
   }
 }
+
+.modal-icon-large  {
+  margin: 1rem 0;
+  font-size: 4rem;
+  color: theme-color("success");
+}
+
+.modal {
+  .close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+}
