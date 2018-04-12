@@ -33,7 +33,7 @@
 	}
 
   &-title {
-    color: theme-color('primary');
+    color: theme-color('secondary');
     margin-bottom: 4rem;
 
     @include media-breakpoint-down(md) {
@@ -47,7 +47,7 @@
       flex: 0 1 auto;
       border: solid 10px theme-color('primary');
       border-radius: 1000em;
-      color: $daisy-bush;
+      color: theme-color('secondary');
       font-size: 1rem;
       padding: 0.5rem;
       vertical-align: text-bottom;

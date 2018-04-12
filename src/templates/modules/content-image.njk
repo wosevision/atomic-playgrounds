@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-lg-6">
+    <img src="{{ module.image }}" alt="" class="img-fluid">
+  </div>
+	<div class="col-lg-6">
+    <h2>{{ module.title }}</h2>
+    <p>{{ module.description }}</p>
+    <ul class="list-feature">
+      {% for item in module.list %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+    <a href="#" class="btn btn-primary">{{ module.linkText }}</a>
+  </div>
+</div>
