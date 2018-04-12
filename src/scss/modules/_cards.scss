@@ -1,6 +1,7 @@
 .card {
-  flex-grow: 1;
+  flex: 1 0 auto;
   margin-bottom: $grid-gutter-width;
+  width: 100%;
   border: none;
   @include z-depth(6);
   // @include z-depth-transition();
@@ -54,6 +55,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    width: 100%;
     color: gray('600');
     border-radius: $card-border-radius;
     transition: 0.3s;
@@ -62,6 +64,7 @@
 
   &-content {
     padding-bottom: 1rem;
+    width: 100%;
   }
 
   &-title {
