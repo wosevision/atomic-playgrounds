@@ -196,14 +196,14 @@ header {
         font-size: 0.875rem;
 
         &:hover {
-          color: $daisy-bush;
+          color: theme-color('secondary');
 
           &::before {
             transform: scale(1);
           }
 
           .nav-link-icon {
-            color: $daisy-bush;
+            color: gray('500');
           }
         }
 
@@ -222,10 +222,10 @@ header {
       }
 
       &.active {
-        color: $daisy-bush;
+        color: theme-color('secondary');
 
         .nav-link-icon {
-          color: $daisy-bush;
+          color: gray('500');
         }
 
         .nav-link-text {
