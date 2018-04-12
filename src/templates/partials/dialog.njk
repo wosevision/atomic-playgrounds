@@ -8,7 +8,7 @@
         </button>
         <div class="row">
           {% if dialog.slideshow -%}
-          <div class="col-12 col-lg-6">
+          <div class="col-12{% if dialog.buttonText or dialog.tags or dialog.quote -%} col-lg-6{%- endif %}">
             <div class="swiper-container dialog-slider-top">
               <div class="swiper-wrapper">
                 {%- for slide in dialog.slideshow -%}
@@ -28,6 +28,7 @@
             </div>
           </div>
           {%- endif %}
+          {% if dialog.buttonText or dialog.tags or dialog.quote -%}
           <div class="col-12{% if dialog.slideshow %} col-lg-6{% endif %}">
             <h2 id="{{ dialog.id }}-dialog-title" class="text-primary">{{ dialog.title }}</h2>
             <p class="caption">
@@ -72,6 +73,7 @@
             </div>
             {%- endif %}
           </div>
+          {%- endif %}
         </div>
         {% if dialog.moreLinks -%}
         <div class="row mt-4">

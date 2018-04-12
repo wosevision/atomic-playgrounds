@@ -3,20 +3,20 @@
     <div class="gallery">
       <div class="row">
         <div class="col-lg-6">
-          <div class="gallery-image gallery-image-main" style="background-image: url({{ module.imageFeatured }})"></div>
+          <a href data-toggle="modal" data-target="#gallery-dialog" class="gallery-image gallery-image-main" style="background-image: url({{ module.imageFeatured }})"></a>
         </div>
         <div class="col-lg-6">
           <div class="row">
             {% for item in module.images %}
             <div class="col-6 col-md-4">
-              <div class="gallery-image" style="background-image: url({{ item.image }})">
+              <a href data-toggle="modal" data-target="#gallery-dialog" class="gallery-image" style="background-image: url({{ item.image }})">
                 {% if loop.last %}
-                <a class="gallery-link" href="#">
-                  <span class="number">22</span>
-                  Click to see them all
-                </a>
+                  <div class="gallery-link">
+                    <span class="number">22</span>
+                    Click to see them all
+                  </div>
                 {% endif %}
-              </div>
+              </a>
             </div>
             {% endfor %}
           </div>
@@ -25,3 +25,4 @@
     </div>
   </div>
 </div>
+

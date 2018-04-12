@@ -2,11 +2,11 @@
 // SCSS MIXINS
 //----------------------------------*/
 
-@import "mixins/prefix";
-@import "mixins/icons";
-@import "mixins/position";
-@import "mixins/animations";
-@import "mixins/shadows";
+@import 'mixins/prefix';
+@import 'mixins/icons';
+@import 'mixins/position';
+@import 'mixins/animations';
+@import 'mixins/shadows';
 
 //----------------------------------*\
 // CONFIG MODULES
@@ -16,7 +16,6 @@
 @import 'modules/clearfix';
 @import 'modules/defaults';
 
-
 //----------------------------------*\
 // VENDOR
 //----------------------------------*/
@@ -24,7 +23,6 @@
 @import 'vendor/vars';
 @import 'vendor/bootstrap';
 @import 'vendor/swiper';
-
 
 //----------------------------------*\
 // PARTIALS
@@ -36,7 +34,6 @@
 @import 'partials/main';
 @import 'partials/footer';
 
-
 //----------------------------------*\
 // OBJECTS & MODULES
 //----------------------------------*/
@@ -44,6 +41,7 @@
 @import 'modules/app';
 @import 'modules/buttons';
 @import 'modules/cards';
+@import 'modules/gallery';
 @import 'modules/hero';
 @import 'modules/inputs';
 @import 'modules/layout';
