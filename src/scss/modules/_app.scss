@@ -33,7 +33,7 @@
 	}
 
   &-title {
-    color: theme-color('secondary');
+    // color: theme-color('secondary');
     margin-bottom: 4rem;
 
     @include media-breakpoint-down(md) {
