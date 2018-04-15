@@ -364,6 +364,10 @@ header {
       svg {
         padding: 0;
         border: none;
+
+        @include media-breakpoint-down(md) {
+          height: 40px;
+        }
       }
     }
     @include media-breakpoint-up(lg) {
