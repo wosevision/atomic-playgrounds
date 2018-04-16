@@ -3,9 +3,17 @@ import $ from 'jquery';
 
 import { selector } from './constants';
 
+const UI_DEFAULTS = {
+  keyboard: {
+    enabled: true
+  },
+  grabCursor: true
+}
+
 export class LogoSlider extends Swiper {
   constructor() {
     super(selector.LOGO_SLIDER, {
+      ...UI_DEFAULTS,
       autoplay: { delay: 0 },
       freeMode: true,
       slidesPerView: 6,
@@ -34,6 +42,7 @@ export class LogoSlider extends Swiper {
 export class CardsSlider extends Swiper {
   constructor() {
     super(selector.CARDS_SLIDER, {
+      ...UI_DEFAULTS,
       speed: 1000,
       loop: true,
       pagination: {
@@ -74,6 +83,7 @@ export class CardsSlider extends Swiper {
 export class DialogSlider {
   constructor() {
     this.top = new Swiper(selector.DIALOG_SLIDER_TOP, {
+      ...UI_DEFAULTS,
       spaceBetween: 10,
       navigation: {
         nextEl: `${selector.DIALOG_SLIDER_TOP} .swiper-button-next`,
@@ -83,6 +93,7 @@ export class DialogSlider {
       observeParents: true
     });
     this.bottom = new Swiper(selector.DIALOG_SLIDER_BOTTOM, {
+      ...UI_DEFAULTS,
       spaceBetween: 10,
       centeredSlides: true,
       slidesPerView: 'auto',
