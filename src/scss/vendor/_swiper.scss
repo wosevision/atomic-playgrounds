@@ -92,3 +92,15 @@
     }
   }
 }
+
+#gallery-dialog {
+  .swiper-pagination {
+    &-bullet {
+      width: auto;
+      height: auto;
+      &-active {
+        color: white;
+      }
+    }
+  }
+}

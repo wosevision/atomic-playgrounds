@@ -11,17 +11,23 @@
           <div class="col-12{% if dialog.buttonText or dialog.tags or dialog.quote %} col-lg-6{% endif %}">
             <div class="swiper-container dialog-slider-top">
               <div class="swiper-wrapper">
-                {%- for slide in dialog.slideshow -%}
+                {%- for slide in dialog.slideshow.slides -%}
                 <div class="swiper-slide" style="background-image:url({{ slide.image }})"></div>
                 {%- endfor %}
               </div>
+              {% if dialog.slideshow.arrows -%}
               <!-- Add Arrows -->
               <div class="swiper-button-next swiper-button-white"></div>
               <div class="swiper-button-prev swiper-button-white"></div>
+              {%- endif %}
+              {% if dialog.slideshow.pagination -%}
+              <!-- Add Pagination -->
+              <div class="swiper-pagination"></div>
+              {%- endif %}
             </div>
             <div class="swiper-container dialog-slider-bottom">
               <div class="swiper-wrapper">
-                {% for slide in dialog.slideshow -%}
+                {% for slide in dialog.slideshow.slides -%}
                 <div class="swiper-slide" style="background-image:url({{ slide.image }})"></div>
                 {%- endfor %}
               </div>

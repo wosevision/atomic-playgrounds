@@ -93,7 +93,16 @@ export class DialogSlider {
         prevEl: `${selector.DIALOG_SLIDER_TOP} .swiper-button-prev`
       },
       observer: true,
-      observeParents: true
+      observeParents: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        renderBullet (index, className) {
+          return `<span class="${className} badge badge-secondary">
+            ${(index + 1)}
+          </span>`;
+        }
+      }
     });
     this.bottom = new Swiper(selector.DIALOG_SLIDER_BOTTOM, {
       ...UI_DEFAULTS,
