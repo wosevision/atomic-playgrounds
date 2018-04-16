@@ -18,6 +18,7 @@
     "url": "https://github.com/wosevision/atomic-playgrounds.git"
   },
   "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babelify": "^8.0.0",
     "browser-sync": "^2.23.3",

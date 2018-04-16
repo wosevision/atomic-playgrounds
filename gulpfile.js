@@ -117,7 +117,8 @@ const bundle = watch => {
     browserify(paths.scripts, {
       debug: true
     }).transform(babelify, {
-      presets: ['env']
+      presets: ['env'],
+      plugins: ['transform-object-rest-spread']
     })
   );
   const rebundle = () => {
