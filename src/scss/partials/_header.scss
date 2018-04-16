@@ -34,8 +34,16 @@ header {
     padding: map-get($logo-border-radius, outer) + map-get($logo-border-radius, inner);
     width: 100%;
     border: dashed 1px gray('300');
+    // border: solid 10px transparent;
+    // border-image: url(../img/border-dashed.svg) 11 round;
     border-top: none;
     border-radius: map-get($logo-border-radius, inner);
+
+    @include media-breakpoint-between(lg, lg) {
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+    }
+    
     #rocket {
       transform-origin: bottom center;
     }

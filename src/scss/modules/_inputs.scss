@@ -193,7 +193,7 @@
           position: absolute;
           top: calc(-75% + 1rem);
           left: calc(50% + 1rem);
-          width: calc(100% - 2rem);
+          width: calc(100% - 2rem + 4px);
           border-top: solid 0.2rem white;
           pointer-events: none;
           cursor: default;
@@ -271,6 +271,12 @@
         color: theme-color("primary");
       }
     }
+  }
+}
+
+.btn-group-toggle {
+  > .tag {
+    margin-bottom: 0.5rem;
   }
 }
 
