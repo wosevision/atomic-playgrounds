@@ -15,9 +15,9 @@ header {
   // flex-direction: column;
   // bottom: -$spacer;
   top: -($spacer / 2);
-  padding: 0 ($spacer / 2);
+  padding: 0 ($spacer / 2) ($spacer / 2);
   // margin-top: -$spacer * 2.5;
-  // width: 100%;
+  width: 100%;
   flex: 1 1 100%;
   border-bottom-left-radius: map-get($logo-border-radius, outer);
   border-bottom-right-radius: map-get($logo-border-radius, outer);
@@ -29,10 +29,22 @@ header {
     @include z-depth(16);
   }
 
-  svg {
+  .ap-logo-svg-wrapper {
+    position: relative;
+    padding-bottom: calc(130 / 370 * 100%);
+
+    .ap-logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  .ap-logo-wrapper {
     // flex: 1 1 100%;
     padding: map-get($logo-border-radius, outer) + map-get($logo-border-radius, inner);
-    width: 100%;
+    // width: 100%;
     border: dashed 1px gray('300');
     // border: solid 10px transparent;
     // border-image: url(../img/border-dashed.svg) 11 round;
@@ -369,7 +381,7 @@ header {
       #atomic, #playgrounds, #funner {
         display: none;
       }
-      svg {
+      .ap-logo-wrapper {
         padding: 0;
         border: none;
 
