@@ -405,14 +405,12 @@
   // OVERLAPPING HERO CARD
   &-container-overlap {
     position: relative;
-    // margin-bottom: -300px - 140px;
+    top: -250px - 140px;
+    margin-bottom: -250px - 100px;
 
-    // @include media-breakpoint-down(md) {
-    //   top: -300px - 120px;
-    // }
-    // @include media-breakpoint-down(sm) {
-    //   top: -300px - 70px;
-    // }
+    @include media-breakpoint-down(sm) {
+      top: -250px - 120px;
+    }
   }
 
   .btn {
