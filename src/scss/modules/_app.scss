@@ -178,6 +178,13 @@
     }
   }
 
+  &.repeated {
+    .block-bg {
+      background-repeat: repeat;
+      background-size: auto;
+    }
+  }
+
   .block-illustration-bg {
     position: absolute;
     z-index: -2;
