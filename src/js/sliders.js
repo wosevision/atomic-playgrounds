@@ -33,8 +33,11 @@ export class LogoSlider extends Swiper {
           spaceBetween: 20
         }
       },
-      lazy: true,
-      loop: true
+      loop: true,
+      lazy: {
+        loadOnTransitionStart: true
+      },
+      preloadImages: false,
     });
   }
 }
