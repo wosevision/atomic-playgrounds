@@ -94,6 +94,16 @@
 }
 
 #gallery-dialog {
+  .swiper-container {
+    &.dialog-slider-top {
+      min-height: 60vh;
+      max-height: none;
+    }
+    &.dialog-slider-bottom {
+      height: 120px;
+      max-height: none;
+    }
+  }
   .swiper-pagination {
     &-bullet {
       width: auto;

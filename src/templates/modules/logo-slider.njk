@@ -10,6 +10,7 @@
           <div class="swiper-slide">
             <a href="{{ slide.link }}" target="_blank" title="{{ slide.title }}">
               <img data-src="{{ slide.image + i }}.jpg" alt="{{ slide.alt }}" class="swiper-lazy">
+              <div class="swiper-lazy-preloader"></div>
             </a>
           </div>
           {%- endfor %}
