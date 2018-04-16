@@ -48,7 +48,7 @@
 
   hr {
     margin: 1.875rem 0 2.5rem;
-    border-top: dashed 1px $white;
+    // border-top: dashed 1px $white;
     
     @include media-breakpoint-down(sm) {
       margin-top: 0;

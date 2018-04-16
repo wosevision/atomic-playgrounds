@@ -303,6 +303,10 @@
 
         &-title {
           font-size: 3rem;
+
+          @include media-breakpoint-down(md) {
+            font-size: 2.25rem;
+          }
         }
       }
     }
