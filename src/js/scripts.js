@@ -111,6 +111,10 @@ $(document).ready(() => {
   }
   if ($(`${selector.DIALOG_SLIDER_BOTTOM}, ${selector.DIALOG_SLIDER_TOP}`).length) {
     const dialogSlider = new DialogSlider();
+    $(`${selector.GALLERY} ${selector.GALLERY_IMAGE}`).each((_, image) => {
+      const $image = $(image);
+      $image.click(() => dialogSlider.top.slideTo($image.data('slide')))
+    });
   }
   if ($(selector.PARALLAX).length) {
     const parallax = new Parallax();

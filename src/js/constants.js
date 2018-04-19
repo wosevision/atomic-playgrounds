@@ -11,6 +11,9 @@ export const selector = {
   HERO_MOON: '.hero-moon',
   CONTENT_BLOCK: '.content-block',
 
+  GALLERY: '.gallery',
+  GALLERY_IMAGE: '.gallery-image',
+
   CONTAINER: '.swiper-container',
   PAGINATION: '.swiper-pagination',
   BUTTON_NEXT: '.swiper-button-next',
