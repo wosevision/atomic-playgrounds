@@ -8,9 +8,10 @@
       {% endfor %}
     {% endif %}
   </div>
-  <div class="block-bg"{% if block.bg %} style="background-image: url({{ block.bg }});"{% endif %}></div>
-  {% if block.illustrationBg %}
-  <div class="block-illustration-bg parallax-bg" style="background-image: url({{ block.illustrationBg }});"></div>
-  {% endif %}
+  <div class="block-bg"{% if block.bg %} style="background-image: url({{ block.bg }});"{% endif %}>
+    {% if block.illustrationBg %}
+    <div class="block-illustration-bg parallax-bg" style="background-image: url({{ block.illustrationBg }});"></div>
+    {% endif %}
+  </div>
 </section>
 {% endmacro %}
