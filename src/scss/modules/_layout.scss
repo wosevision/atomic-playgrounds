@@ -117,6 +117,7 @@ hr {
 .modal {
   .close {
     position: absolute;
+    z-index: 5;
     right: 1rem;
     top: 1rem;
   }
