@@ -118,29 +118,37 @@
   display: flex;
   align-items: flex-start;
   position: relative;
-  // overflow: hidden;
+  overflow: hidden;
 
   &-step {
+    position: relative;
     min-width: 100%;
+    max-height: 0;
     transform: translateX(100%);
     visibility: hidden;
     opacity: 0;
-    transition: transform 0.4s ease-in-out, opacity 0.3s 0.25s;
+    overflow: hidden;
+    transition: transform 0.4s ease-in-out, opacity 0.3s 0.25s, max-height 0.2s 0.4s ease-in-out;
 
     &:not(:first-child) {
-      position: absolute;
+      &.active {
+        transform: translateX(-100%);
+      }
     }
 
     &.inactive {
+      max-height: 0;
       transform: translateX(-100%);
       visibility: hidden;
       opacity: 0;
     }
 
     &.active {
+      max-height: 400px;
       transform: translateX(0);
       visibility: visible;
       opacity: 1;
+      transition: transform 0.4s 0.2s ease-in-out, opacity 0.3s 0.15s, max-height 0.2s ease-in-out;
     }
 
     .form-container-underline {
