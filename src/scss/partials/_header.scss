@@ -377,6 +377,10 @@ header {
       top: -0.25rem;
       box-shadow: none;
       background-color: transparent;
+
+      @include media-breakpoint-down(md) {
+        max-width: 40px;
+      }
       
       #atomic, #playgrounds, #funner {
         display: none;
@@ -384,10 +388,6 @@ header {
       .ap-logo-wrapper {
         padding: 0;
         border: none;
-
-        @include media-breakpoint-down(md) {
-          height: 40px;
-        }
       }
     }
     @include media-breakpoint-up(lg) {
