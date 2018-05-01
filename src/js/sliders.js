@@ -2,6 +2,7 @@ import Swiper from 'swiper';
 import $ from 'jquery';
 
 import { selector } from './constants';
+import { elToSelector } from './utils';
 
 const UI_DEFAULTS = {
   keyboard: {
@@ -11,8 +12,8 @@ const UI_DEFAULTS = {
 }
 
 export class LogoSlider extends Swiper {
-  constructor() {
-    super(selector.LOGO_SLIDER, {
+  constructor(el) {
+    super(el, {
       ...UI_DEFAULTS,
       autoplay: { delay: 0 },
       freeMode: true,
@@ -43,13 +44,14 @@ export class LogoSlider extends Swiper {
 }
 
 export class CardsSlider extends Swiper {
-  constructor() {
-    super(selector.CARDS_SLIDER, {
+  constructor(el) {
+    const sliderSelector = elToSelector(el);
+    super(el, {
       ...UI_DEFAULTS,
       speed: 1000,
       loop: true,
       pagination: {
-        el: selector.PAGINATION,
+        el: `${sliderSelector} ${selector.PAGINATION}`,
         dynamicBullets: true
       }
     });
@@ -84,18 +86,19 @@ export class CardsSlider extends Swiper {
 }
 
 export class DialogSlider {
-  constructor() {
-    this.top = new Swiper(selector.DIALOG_SLIDER_TOP, {
+  constructor({ top, bottom }) {
+    const topSelector = elToSelector(top);
+    this.top = new Swiper(top, {
       ...UI_DEFAULTS,
       spaceBetween: 10,
       navigation: {
-        nextEl: `${selector.DIALOG_SLIDER_TOP} .swiper-button-next`,
-        prevEl: `${selector.DIALOG_SLIDER_TOP} .swiper-button-prev`
+        nextEl: `${topSelector} ${selector.BUTTON_NEXT}`,
+        prevEl: `${topSelector} ${selector.BUTTON_PREV}`
       },
       observer: true,
       observeParents: true,
       pagination: {
-        el: '.swiper-pagination',
+        el: `${topSelector} ${selector.PAGINATION}`,
         clickable: true,
         renderBullet (index, className) {
           return `<span class="${className} badge badge-secondary">
@@ -104,7 +107,7 @@ export class DialogSlider {
         }
       }
     });
-    this.bottom = new Swiper(selector.DIALOG_SLIDER_BOTTOM, {
+    this.bottom = new Swiper(bottom, {
       ...UI_DEFAULTS,
       spaceBetween: 10,
       centeredSlides: true,

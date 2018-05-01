@@ -13,3 +13,14 @@ export function debounce(fn, wait, immediate) {
 		if (callNow) fn.apply(context, args);
 	};
 };
+
+export function elToSelector(el) {
+  return el.id && el.id !== ''
+    ? el.id
+    : el.className && el.className !== ''
+      ? el.className
+        .split(' ')
+        .map(className => `.${className}`)
+        .join('')
+      : el.tagName;
+}
