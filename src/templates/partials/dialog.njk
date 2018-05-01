@@ -1,4 +1,5 @@
-<div class="modal fade" id="{{ dialog.id }}-dialog" tabindex="-1" role="dialog" aria-labelledby="{{ dialog.id }}-dialog-title"
+{% for modal in dialog -%}
+<div class="modal fade" id="{{ modal.id }}-dialog" tabindex="-1" role="dialog" aria-labelledby="{{ modal.id }}-dialog-title"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
@@ -7,72 +8,72 @@
           <span aria-hidden="true" class="fas fa-times"></span>
         </button>
         <div class="row">
-          {% if dialog.slideshow -%}
-          <div class="col-12{% if dialog.buttonText or dialog.tags or dialog.quote %} col-lg-6{% endif %}">
+          {% if modal.slideshow -%}
+          <div class="col-12{% if modal.buttonText or modal.tags or modal.quote %} col-lg-6{% endif %}">
             <div class="swiper-container dialog-slider-top">
               <div class="swiper-wrapper">
-                {%- for slide in dialog.slideshow.slides -%}
+                {%- for slide in modal.slideshow.slides -%}
                 <div class="swiper-slide" style="background-image:url({{ slide.image }})"></div>
                 {%- endfor %}
               </div>
-              {% if dialog.slideshow.arrows -%}
+              {% if modal.slideshow.arrows -%}
               <!-- Add Arrows -->
               <div class="swiper-button-next swiper-button-white"></div>
               <div class="swiper-button-prev swiper-button-white"></div>
               {%- endif %}
-              {% if dialog.slideshow.pagination -%}
+              {% if modal.slideshow.pagination -%}
               <!-- Add Pagination -->
               <div class="swiper-pagination"></div>
               {%- endif %}
             </div>
             <div class="swiper-container dialog-slider-bottom">
               <div class="swiper-wrapper">
-                {% for slide in dialog.slideshow.slides -%}
+                {% for slide in modal.slideshow.slides -%}
                 <div class="swiper-slide" style="background-image:url({{ slide.image }})"></div>
                 {%- endfor %}
               </div>
             </div>
           </div>
           {%- endif %}
-          {% if dialog.buttonText or dialog.tags or dialog.quote -%}
-          <div class="col-12{% if dialog.slideshow %} col-lg-6{% endif %}">
-            <h2 id="{{ dialog.id }}-dialog-title" class="text-primary">{{ dialog.title }}</h2>
+          {% if modal.buttonText or modal.tags or modal.quote -%}
+          <div class="col-12{% if modal.slideshow %} col-lg-6{% endif %}">
+            <h2 id="{{ modal.id }}-dialog-title" class="text-primary">{{ modal.title }}</h2>
             <p class="caption">
-              <i class="card-icon fas fa-{{ dialog.specsIcon }}"></i>
-              {{ dialog.specs }}
+              <i class="card-icon fas fa-{{ modal.specsIcon }}"></i>
+              {{ modal.specs }}
             </p>
-            <p>{{ dialog.description }}</p>
+            <p>{{ modal.description }}</p>
 
-            {% if dialog.buttonText -%}
+            {% if modal.buttonText -%}
             <div class="button-container mb-4">
-              {% if dialog.buttonSecondaryText %}
-              <a href="{{ dialog.buttonSecondaryLink }}" class="btn btn-outline-primary">{{ dialog.buttonSecondaryText }}</a>
+              {% if modal.buttonSecondaryText %}
+              <a href="{{ modal.buttonSecondaryLink }}" class="btn btn-outline-primary">{{ modal.buttonSecondaryText }}</a>
               {% endif %}
-              <a href="{{ dialog.buttonLink }}" class="btn btn-primary">{{ dialog.buttonText }}</a>
+              <a href="{{ modal.buttonLink }}" class="btn btn-primary">{{ modal.buttonText }}</a>
             </div>
             {%- endif %}
 
-            {% if dialog.tags -%}
+            {% if modal.tags -%}
             <div class="tag-container mb-4">
-              {% for tag in dialog.tags -%}
+              {% for tag in modal.tags -%}
               <span class="tag">{{ tag.text }}</span>
               {%- endfor %}
             </div>
             {%- endif %}
 
-            {% if dialog.quote -%}
+            {% if modal.quote -%}
             <div class="blockquote-container">
               <blockquote>
-                <em>{{ dialog.quote.text }}</em>
+                <em>{{ modal.quote.text }}</em>
               </blockquote>
               <div class="blockquote-cite media align-items-center">
-                <div class="media-img-circle" style="background-image: url({{ dialog.quote.image }})"></div>
+                <div class="media-img-circle" style="background-image: url({{ modal.quote.image }})"></div>
                 <div class="media-item">
                   <span class="cite-name">
-                    {{ dialog.quote.name }}
+                    {{ modal.quote.name }}
                   </span>
-                  <a class="cite-link" href="{{ dialog.quote.link }}">
-                    {{ dialog.quote.linkText }}
+                  <a class="cite-link" href="{{ modal.quote.link }}">
+                    {{ modal.quote.linkText }}
                   </a>
                 </div>
               </div>
@@ -81,15 +82,15 @@
           </div>
           {%- endif %}
         </div>
-        {% if dialog.moreLinks -%}
+        {% if modal.moreLinks -%}
         <div class="row mt-4">
           <div class="col-12">
-            <h3>{{ dialog.moreLinksTitle }}</h3>
+            <h3>{{ modal.moreLinksTitle }}</h3>
           </div>
         </div>
         <div class="media-container my-0">
           <div class="row">
-            {% for link in dialog.moreLinks -%}
+            {% for link in modal.moreLinks -%}
             <div class="col-lg-4">
               <div class="media media-shadow">
                 <div class="media-img-circle" style="background-image: url({{ link.image }})"></div>
@@ -113,3 +114,4 @@
     </div>
   </div>
 </div>
+{%- endfor %}
