@@ -128,6 +128,11 @@ $(document).ready(() => {
     logoSelector: selector.NAVBAR_LOGO,
     offset: 400
   });
+
+  const parallaxItems = [...document.querySelectorAll(selector.PARALLAX)];
+  if (parallaxItems.length) {
+    const parallax = new Parallax(parallaxItems);
+  }
 });
 
 $('#btnNext').on('click', function(e) {

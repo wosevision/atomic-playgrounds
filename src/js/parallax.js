@@ -1,10 +1,8 @@
 import $ from 'jquery';
 
-import { selector } from './constants';
-
 export class Parallax {
-  constructor() {
-    this.els = [...document.querySelectorAll(selector.PARALLAX)];
+  constructor(els) {
+    this.els = els;
     this.lastScrollY = 0;
 
     this.elMap = this.getElMap();
