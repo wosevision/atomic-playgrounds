@@ -87,25 +87,29 @@ export class CardsSlider extends Swiper {
 
 export class DialogSlider {
   constructor({ top, bottom }) {
-    const topSelector = elToSelector(top);
+    const $top = $(top);
+    const nextEl = $top.find(selector.BUTTON_NEXT);
+    const prevEl = $top.find(selector.BUTTON_PREV);
+    const paginationEl = $top.find(selector.PAGINATION);
     this.top = new Swiper(top, {
       ...UI_DEFAULTS,
       spaceBetween: 10,
-      navigation: {
-        nextEl: `${topSelector} ${selector.BUTTON_NEXT}`,
-        prevEl: `${topSelector} ${selector.BUTTON_PREV}`
-      },
       observer: true,
       observeParents: true,
-      pagination: {
-        el: `${topSelector} ${selector.PAGINATION}`,
-        clickable: true,
-        renderBullet (index, className) {
-          return `<span class="${className} badge badge-secondary">
-            ${(index + 1)}
-          </span>`;
+      ...(nextEl.length && prevEl.length ? {
+        navigation: { nextEl, prevEl }
+      } : {}),
+      ...(paginationEl.length ? {
+        pagination: {
+          el: paginationEl,
+          clickable: true,
+          renderBullet (index, className) {
+            return `<span class="${className} badge badge-secondary">
+              ${(index + 1)}
+            </span>`;
+          }
         }
-      }
+      } : {})
     });
     this.bottom = new Swiper(bottom, {
       ...UI_DEFAULTS,
