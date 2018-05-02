@@ -24,7 +24,7 @@ export class Gallery {
   }
 
   addImage(el) {
-    const src = $(el).data('src');
+    const src = el.href;
     el.style.backgroundImage = `url('${src}')`;
     return { el, src };
   }
@@ -39,7 +39,8 @@ export class Gallery {
     this.images.forEach(image => {
       const $image = $(image.el);
       const slideIndex = $image.data('slide');
-      $image.click(() => {
+      $image.click(event => {
+        event.preventDefault();
         if (!this.$gallery) {
           this.$gallery = this.initGallery();
         }

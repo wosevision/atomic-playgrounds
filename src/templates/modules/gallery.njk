@@ -3,13 +3,13 @@
     <div class="gallery" id="{{module.id}}">
       <div class="row">
         <div class="col-lg-6">
-          <a href="#{{module.id}}-dialog" data-toggle="modal" data-slide="0" class="gallery-image gallery-image-main" data-src="{{ module.imageFeatured }}"></a>
+          <a href="{{ module.imageFeatured }}" data-slide="0" class="gallery-image gallery-image-main"></a>
         </div>
         <div class="col-lg-6">
           <div class="row">
             {% for item in module.images %}
             <div class="col-6 col-md-4">
-              <a class="gallery-image" href="#{{module.id}}-dialog" data-toggle="modal" data-slide="{{ loop.index }}" data-src="{{ item.image }}">
+              <a href="{{ item.image }}" class="gallery-image" data-slide="{{ loop.index }}">
                 {% if loop.last %}
                   <div class="gallery-link">
                     <span class="number">22</span>
