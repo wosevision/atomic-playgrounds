@@ -8,9 +8,10 @@ import solid from '@fortawesome/fontawesome-free-solid';
 import brands from '@fortawesome/fontawesome-free-brands';
 
 import { FloatingLabelInput } from './floating-label';
-import { LogoSlider, CardsSlider, DialogSlider } from './sliders';
+import { LogoSlider, CardsSlider } from './sliders';
 import { NavigationBar } from './navigation';
 import { Parallax } from './parallax';
+import { Gallery } from './gallery';
 
 import { el, selector, svg } from './constants';
 import { swingDown } from './animations';
@@ -103,34 +104,19 @@ if ($heroMoon.length) {
  * Ready to initialize.
  */
 $(document).ready(() => {
-  const logoSliders = $(selector.LOGO_SLIDER);
-  if (logoSliders.length) {
-    [...logoSliders].forEach(slider => new LogoSlider(slider));
+  const $logoSliders = $(selector.LOGO_SLIDER);
+  if ($logoSliders.length) {
+    [...$logoSliders].forEach(slider => new LogoSlider(slider));
   }
 
-  const cardsSliders = $(selector.CARDS_SLIDER);
-  if (cardsSliders.length) {
-    [...cardsSliders].forEach(slider => new CardsSlider(slider));
+  const $cardsSliders = $(selector.CARDS_SLIDER);
+  if ($cardsSliders.length) {
+    [...$cardsSliders].forEach(slider => new CardsSlider(slider));
   }
 
-  const dialogSliderTops = $(selector.DIALOG_SLIDER_TOP);
-  if (dialogSliderTops.length) {
-    [...dialogSliderTops].forEach(top => {
-      const bottom = $(top).next(selector.DIALOG_SLIDER_BOTTOM);
-      const slider = new DialogSlider({ top, bottom });
-    });
-
-    $(`${selector.GALLERY} ${selector.GALLERY_IMAGE}`).each((_, image) => {
-      const $image = $(image);
-      $image.click(() => {
-        const dialogSliderTop = document.querySelector(`${image.hash} ${selector.DIALOG_SLIDER_TOP}`).swiper;
-        dialogSliderTop.slideTo($image.data('slide'))
-      });
-    });
-  }
-
-  if ($(selector.PARALLAX).length) {
-    const parallax = new Parallax();
+  const $galleries = $(`${selector.GALLERY}`);
+  if ($galleries.length) {
+    [...$galleries].forEach(gallery => new Gallery(gallery));
   }
 
   const $inputs = $(selector.CONTAINER_UNDERLINE).filter(`:has(${selector.CONTROL_LABEL})`);
