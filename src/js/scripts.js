@@ -111,24 +111,10 @@ const initIfAvailable = (items, initFn) => items.length && [...items].forEach(in
  */
 $(document).ready(() => {
   const $logoSliders = $(selector.LOGO_SLIDER);
-  if ($logoSliders.length) {
-    [...$logoSliders].forEach(slider => new LogoSlider(slider));
-  }
+  initIfAvailable($logoSliders, slider => new LogoSlider(slider));
 
   const $cardsSliders = $(selector.CARDS_SLIDER);
-  if ($cardsSliders.length) {
-    [...$cardsSliders].forEach(slider => new CardsSlider(slider));
-  }
-
-  const $galleries = $(`${selector.GALLERY}`);
-  if ($galleries.length) {
-    [...$galleries].forEach(gallery => new Gallery(gallery));
-  }
-
-  const $inputs = $(selector.CONTAINER_UNDERLINE).filter(`:has(${selector.CONTROL_LABEL})`);
-  if ($inputs.length) {
-    $inputs.find(selector.CONTROL_UNDERLINE).each((_, input) => new FloatingLabelInput(input));
-  }
+  initIfAvailable($cardsSliders, slider => new CardsSlider(slider));
 
   /** Sliders in modal dialogs */
   const $dialogSliders = $(selector.DIALOG_SLIDER)
@@ -137,6 +123,16 @@ $(document).ready(() => {
       bottom: $(slider).find(selector.DIALOG_SLIDER_BOTTOM)
     }));
   initIfAvailable($dialogSliders, slider => new DialogSlider(slider));
+
+  const $galleries = $(selector.GALLERY);
+  initIfAvailable($galleries, gallery => new Gallery(gallery));
+
+  /** Floating-label inputs */
+  const $inputs = $(selector.CONTAINER_UNDERLINE)
+    .filter(`:has(${selector.CONTROL_LABEL})`)
+    .find(selector.CONTROL_UNDERLINE);
+  initIfAvailable($inputs, input => new FloatingLabelInput(input));
+
   const navigationBar = new NavigationBar(selector.NAVBAR_EL, {
     logoSelector: selector.NAVBAR_LOGO,
     offset: 400
