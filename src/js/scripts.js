@@ -50,6 +50,7 @@ class Animator {
   }
 }
 
+/** Waits on finicky load timing for animation */
 const onReadyToAnimate = () => {
   const $body = $(document.body);
   $body.addClass('loaded');
@@ -73,6 +74,10 @@ if ($heroMoon.length) {
   rocketAnimator.set({ opacity: 0 });
   rocketPathAnimator.set({ opacity: 0 });
 
+  /**
+   * Starts rocket and moon animation and sets up listeners
+   * to ensure animation is replayed on resize, debounced.
+   **/
   const animateHero = () => {
     onReadyToAnimate();
 
@@ -110,9 +115,11 @@ const initIfAvailable = (items, initFn) => items.length && [...items].forEach(in
  * Ready to initialize.
  */
 $(document).ready(() => {
+  /** Rotating client logos */
   const $logoSliders = $(selector.LOGO_SLIDER);
   initIfAvailable($logoSliders, slider => new LogoSlider(slider));
 
+  /** Whole-panel slider with text card */
   const $cardsSliders = $(selector.CARDS_SLIDER);
   initIfAvailable($cardsSliders, slider => new CardsSlider(slider));
 
@@ -124,6 +131,7 @@ $(document).ready(() => {
     }));
   initIfAvailable($dialogSliders, slider => new DialogSlider(slider));
 
+  /** Photo galleries + generated dialogs/sliders */
   const $galleries = $(selector.GALLERY);
   initIfAvailable($galleries, gallery => new Gallery(gallery));
 
@@ -133,11 +141,13 @@ $(document).ready(() => {
     .find(selector.CONTROL_UNDERLINE);
   initIfAvailable($inputs, input => new FloatingLabelInput(input));
 
+  /** Main site navigation bar */
   const navigationBar = new NavigationBar(selector.NAVBAR_EL, {
     logoSelector: selector.NAVBAR_LOGO,
     offset: 400
   });
 
+  /** Items in background for parallax effect */
   const parallaxItems = [...document.querySelectorAll(selector.PARALLAX)];
   if (parallaxItems.length) {
     const parallax = new Parallax(parallaxItems);
