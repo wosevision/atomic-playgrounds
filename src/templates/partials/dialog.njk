@@ -9,7 +9,7 @@
         </button>
         <div class="row">
           {% if modal.slideshow -%}
-          <div class="col-12{% if modal.buttonText or modal.tags or modal.quote %} col-lg-6{% endif %}">
+          <div class="col-12{% if modal.buttonText or modal.tags or modal.quote %} col-lg-6{% endif %} dialog-slider">
             <div class="swiper-container dialog-slider-top">
               <div class="swiper-wrapper">
                 {%- for slide in modal.slideshow.slides -%}

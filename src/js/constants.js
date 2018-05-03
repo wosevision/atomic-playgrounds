@@ -18,10 +18,11 @@ export const selector = {
   PAGINATION: '.swiper-pagination',
   BUTTON_NEXT: '.swiper-button-next',
   BUTTON_PREV: '.swiper-button-prev',
-  LOGO_SLIDER: `.swiper-container.logo-slider`,
-  CARDS_SLIDER: `.swiper-container.cards-slider`,
-  DIALOG_SLIDER_TOP: `.swiper-container.dialog-slider-top`,
-  DIALOG_SLIDER_BOTTOM: `.swiper-container.dialog-slider-bottom`,
+  LOGO_SLIDER: '.swiper-container.logo-slider',
+  CARDS_SLIDER: '.swiper-container.cards-slider',
+  DIALOG_SLIDER: '.dialog-slider',
+  DIALOG_SLIDER_TOP: '.swiper-container.dialog-slider-top',
+  DIALOG_SLIDER_BOTTOM: '.swiper-container.dialog-slider-bottom',
 
   PARALLAX: '.parallax-bg',
 

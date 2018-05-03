@@ -8,7 +8,7 @@ import solid from '@fortawesome/fontawesome-free-solid';
 import brands from '@fortawesome/fontawesome-free-brands';
 
 import { FloatingLabelInput } from './floating-label';
-import { LogoSlider, CardsSlider } from './sliders';
+import { LogoSlider, CardsSlider, DialogSlider } from './sliders';
 import { NavigationBar } from './navigation';
 import { Parallax } from './parallax';
 import { Gallery } from './gallery';
@@ -101,6 +101,12 @@ if ($heroMoon.length) {
 }
 
 /**
+ * Checks if a collection of elements is on a page and runs init
+ * functions for all elements if any are found.
+ */
+const initIfAvailable = (items, initFn) => items.length && [...items].forEach(initFn);
+
+/**
  * Ready to initialize.
  */
 $(document).ready(() => {
@@ -124,6 +130,13 @@ $(document).ready(() => {
     $inputs.find(selector.CONTROL_UNDERLINE).each((_, input) => new FloatingLabelInput(input));
   }
 
+  /** Sliders in modal dialogs */
+  const $dialogSliders = $(selector.DIALOG_SLIDER)
+    .map((_, slider) => ({
+      top: $(slider).find(selector.DIALOG_SLIDER_TOP),
+      bottom: $(slider).find(selector.DIALOG_SLIDER_BOTTOM)
+    }));
+  initIfAvailable($dialogSliders, slider => new DialogSlider(slider));
   const navigationBar = new NavigationBar(selector.NAVBAR_EL, {
     logoSelector: selector.NAVBAR_LOGO,
     offset: 400
