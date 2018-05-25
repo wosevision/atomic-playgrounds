@@ -10,12 +10,6 @@
             {% for item in module.images %}
             <div class="col-6 col-md-4">
               <a href="{{ item.image }}" class="gallery-image" data-slide="{{ loop.index }}">
-                {% if loop.last %}
-                  <div class="gallery-link">
-                    <span class="number">22</span>
-                    Click to see them all
-                  </div>
-                {% endif %}
               </a>
             </div>
             {% endfor %}

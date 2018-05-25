@@ -5,20 +5,39 @@ import { DialogSlider } from './sliders';
 import { selector } from './constants';
 
 export class Gallery {
-  constructor(el) {
-    this.el = el;
-    this.$el = $(el);
+  constructor(elSelector, {
+    rows = 2,
+  } = {}) {
+    this.$el = $(elSelector);
 
-    this.images = this.initImages();
+    this.sources = this.initSources(rows);
+
     this.$modal = this.initModal();
     this.$gallery = null;
 
     this.attachGalleryHandlers();
   }
 
-  initImages() {
+  initSources(rows) {
+    const numToKeep = rows * 3;
     const $images = this.$el.find(selector.GALLERY_IMAGE);
+
     if ($images.length) {
+
+      if ($images.length > numToKeep) {
+        const remaining = $images.length - (numToKeep + 1);
+        [...$images].forEach((image, index) => {
+          const $image = $(image);
+          if (index === numToKeep) {
+            $image.append(this.renderGalleryLink(remaining))
+          } else if (index > numToKeep) {
+            $image.parent().remove();
+          }
+        });
+      } else {
+        $images.last().append(this.renderGalleryLink())
+      }
+
       return [...$images].map(el => this.addImage(el));
     }
   }
@@ -36,7 +55,7 @@ export class Gallery {
   }
 
   attachGalleryHandlers() {
-    this.images.forEach(image => {
+    this.sources.forEach(image => {
       const $image = $(image.el);
       const slideIndex = $image.data('slide');
       $image.click(event => {
@@ -100,6 +119,13 @@ export class Gallery {
   }
 
   renderSlides() {
-    return this.images.map(({ src }) => `<div class="swiper-slide" style="background-image:url(${ src })"></div>`).join('\n');
+    return this.sources.map(({ src }) => `<div class="swiper-slide" style="background-image:url(${ src })"></div>`).join('\n');
+  }
+
+  renderGalleryLink(remaining) {
+    return `<div class="gallery-link">
+      ${remaining ? `<span class="number">${remaining}</span>` : ''}
+      Click to see them all
+    </div>`
   }
 }
